@@ -1,0 +1,4 @@
+# sudo apt-get update
+# sudo apt-get install python3-dev python3-opencv python3-wxgtk4.0 python3-pip python3-matplotlib python3-lxml python3-pygame
+# sudo pip install future pyserial dronekit MAVProxy PyYAML
+
