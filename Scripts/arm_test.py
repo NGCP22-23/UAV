@@ -2,9 +2,13 @@ import time
 import os
 import platform
 import sys
+import collections
+import collections.abc
 
 from dronekit import connect, VehicleMode,LocationGlobal,LocationGlobalRelative
 from pymavlink import mavutil
+collections.MutableMapping = collections.abc.MutableMapping
+
 #############################
 ############DRONEKIT#################
 vehicle = connect('udp:127.0.0.1:14550',wait_ready=True)
