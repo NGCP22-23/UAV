@@ -1,3 +1,7 @@
+import collections
+import collections.abc
+collections.MutableMapping = collections.abc.MutableMapping
+
 from dronekit import connect, VehicleMode, LocationGlobalRelative, Command, Battery, LocationGlobal, Attitude
 from pymavlink import mavutil
 
