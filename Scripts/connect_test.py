@@ -1,4 +1,4 @@
-import dronekit 
+from dronekit import connect
 import socket
 import exceptions
 
@@ -7,7 +7,8 @@ def ConnectToVehicle():
     # Connect to UDP endpoint.
 
     try:
-        dronekit.connect('REPLACE_connection_string_for_your_vehicle', heartbeat_timeout=15)
+        # dronekit.connect('REPLACE_connection_string_for_your_vehicle', heartbeat_timeout=15)
+        connect('/dev/ttyTHS1',baud=57600,wait_ready=True)
 
     # Bad TCP connection
     except socket.error:
