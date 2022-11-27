@@ -3,8 +3,24 @@ from dronekit import connect
 
 def ConnectToVehicle():
     # Connect to UDP endpoint.
-    vehicle = connect('/dev/ttyTHS1',baud=57600,wait_ready=True)
-    print('hello')
+    try: 
+    	vehicle = connect('/dev/ttyTHS1',baud=57600,wait_ready=True)
+    # Bad TCP connection
+    except socket.error:
+    	print 'No server exists!'
+
+    # Bad TTY connection
+    except exceptions.OSError as e:
+    	print 'No serial exists!'
+
+    # API Error
+    except dronekit.APIException:
+    	print 'Timeout!'
+
+    # Other error
+    except:
+    	print 'Some other error!'
+
     return vehicle
 
 def ConnectionTests(vehicle):
