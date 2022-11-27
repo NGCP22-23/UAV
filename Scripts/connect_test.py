@@ -4,28 +4,30 @@ import exceptions
 
 
 def ConnectToVehicle():
-    # # Connect to UDP endpoint.
-    # try: 
-    # 	vehicle = connect('/dev/ttyTHS1',baud=57600,wait_ready=True)
-	    
-    # # Bad TCP connection
-    # except socket.error:
-    # 	print 'No server exists!'
+    # Connect to UDP endpoint.
 
-    # # Bad TTY connection
-    # except exceptions.OSError as e:
-    # 	print 'No serial exists!'
+    try:
+        dronekit.connect('REPLACE_connection_string_for_your_vehicle', heartbeat_timeout=15)
 
-    # # API Error
-    # except dronekit.APIException:
-    # 	print 'Timeout!'
+    # Bad TCP connection
+    except socket.error:
+        print('No server exists!')
 
-    # # Other error
-    # except:
-    # 	print 'Some other error!'
+    # Bad TTY connection
+    except exceptions.OSError as e:
+        print('No serial exists!')
+
+    # API Error
+    except dronekit.APIException:
+        print('Timeout!')
+
+    # Other error
+    except:
+        print('Some other error!')
+
 
     # return vehicle
-    print('hello')
+   
 
 def ConnectionTests(vehicle):
     #print firmware version
