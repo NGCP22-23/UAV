@@ -4,6 +4,7 @@ from dronekit import connect
 def ConnectToVehicle():
     # Connect to UDP endpoint.
     vehicle = connect('/dev/ttyTHS1',baud=57600,wait_ready=True)
+    print('hello')
     return vehicle
 
 def ConnectionTests(vehicle):
