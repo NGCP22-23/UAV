@@ -1,15 +1,14 @@
-from dronekit import connect
+import dronekit
 import socket
 import exceptions
 
-
 def ConnectToVehicle():
     # Connect to UDP endpoint.
-
+    print("Connecting to pixhawk...")
     try:
-        # dronekit.connect('REPLACE_connection_string_for_your_vehicle', heartbeat_timeout=15)
-        dronekit.connect('/dev/ttyTHS1',baud=57600,wait_ready=True)
-
+	
+        #dronekit.connect('/dev/ttyTHS1', baud=57600, heartbeat_timeout=15)
+        vehicle = dronekit.connect('/dev/ttyTHS1', baud= 57600, wait_ready=False)
     # Bad TCP connection
     except socket.error:
         print('No server exists!')
@@ -26,8 +25,8 @@ def ConnectToVehicle():
     except:
         print('Some other error!')
 
-
-    # return vehicle
+    print("connected")
+    return vehicle
    
 
 def ConnectionTests(vehicle):
@@ -41,8 +40,8 @@ def ConnectionTests(vehicle):
     print ("Armed: %s" % vehicle.armed)
     
 
-ConnectToVehicle()
-# plane = ConnectToVehicle()
-# ConnectionTests(plane)
+
+plane = ConnectToVehicle()
+ConnectionTests(plane)
 
 
