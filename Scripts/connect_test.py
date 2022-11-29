@@ -8,7 +8,8 @@ def ConnectToVehicle():
     try:
 	
         #dronekit.connect('/dev/ttyTHS1', baud=57600, heartbeat_timeout=15)
-        vehicle = dronekit.connect('/dev/ttyTHS1', baud= 57600, wait_ready=False)
+        #vehicle = dronekit.connect('/dev/ttyTHS1', baud= 57600, wait_ready=False)
+	vehicle = dronekit.connect('/dev/ttyUSB0', baud= 57600, wait_ready=False)
     # Bad TCP connection
     except socket.error:
         print('No server exists!')
