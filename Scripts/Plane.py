@@ -89,7 +89,7 @@ class Plane():
         Input:
             connection_string   - connection string (mavproxy style)
         """
-        self.vehicle = connect(connection_string, wait_ready=True, heartbeat_timeout=60)
+        self.vehicle = connect(connection_string, wait_ready=True, baud = 57600)
         self._setup_listeners()
         
     def _setup_listeners(self):                 #-- (private) Set up listeners
