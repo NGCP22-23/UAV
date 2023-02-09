@@ -38,6 +38,7 @@ class Plane():
             
             print("Connecting with vehicle...")
             self._connect(connection_string)
+            print("Successfully connected with vehicle")
         else:
             raise("ERROR: a valid dronekit vehicle or a connection string must be supplied")
             return
@@ -280,7 +281,7 @@ class Plane():
         while self.pos_lat == 0.0:
             time.sleep(0.5)
             print ("Waiting for good GPS...")
-        self.location_home      = LocationGlobalRelative(self.pos_lat,self.pos_lon,altitude)
+        self.location_home   = LocationGlobalRelative(self.pos_lat,self.pos_lon,altitude)
         
         print("Home is saved as "), self.location_home
         print ("Vehicle is Armable: try to arm")
@@ -311,33 +312,41 @@ class Plane():
             
             time.sleep(1.0)
             
-            waypoint1 = LocationGlobalRelative(36.01649,-95.86031,100)
-            self.goto(waypoint1)
-            time.sleep(100.0)
-            '''
-            
-            waypoint2 = LocationGlobalRelative(36.01649,-95.87031,100)
-            self.goto(waypoint2)
-            time.sleep(30.0)
-            waypoint3 = LocationGlobalRelative(36.00649,-95.87031, 100)
-            self.vehicle.simple_goto(waypoint3)
-            time.sleep(30.0)
-            '''
+            # waypoint1 = LocationGlobalRelative(36.01649,-95.86031,100)
+            # self.goto(waypoint1)
+            # time.sleep(100.0)
+
             print("Going home")
             self.set_ap_mode("RTL")
             
             #self.goto(self.location_home)
 	
         return True
+    
+    def create_mission(self, commandsList):
+        print('clearing current mission')
+        self.clear_mission()
+        cmds = self.vehicle.commands
 
+        print('Adding new commands')
+        for cmd in commandsList:
+            cmds.add(cmd)
+
+        print('uploading new commands to vehicle')
+        cmds.upload()
+
+
+    def create_waypoint_command(self, lat, lon):
+        return Command(0, 0, 0, mavutil.MAV_FRAME_GLOBAL_RELATIVE_ALT, mavutil.mavlink.MAV_CMD_NAV_WAYPOINT, 0, 0, 0, 0, 0, 0, lat, lon, 100)
+    
+    def create_takeoff_command(self, takeoff_altitude = 100, takeoff_pitch = 40):
+        return Command( 0, 0, 0, 3, mavutil.mavlink.MAV_CMD_NAV_TAKEOFF, 0, 0, takeoff_pitch,  0, 0, 0, 0,  0, takeoff_altitude)
+    
+    #simply goes to waypoint but cannot be added to commands list
     def go_to_waypoint1(self):
     	#36.00549,-95.86031
         waypoint1 = LocationGlobalRelative(36.10549,-95.86031,100)
         self.vehicle.simple_goto(waypoint1)
-
-    def go_to_waypoint2(self):
-        waypoint2 = LocationGlobalRelative(36.10549,-95.96031,100)
-        self.vehicle.simple_goto(waypoint2)
 
     def get_target_from_bearing(self, original_location, ang, dist, altitude=None):
         """ Create a TGT request packet located at a bearing and distance from the original point
@@ -445,16 +454,16 @@ class Plane():
 
 
       
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--connect', default='tcp:127.0.0.1:5762')
-    args = parser.parse_args()
+# if __name__ == '__main__':
+#     parser = argparse.ArgumentParser()
+#     parser.add_argument('--connect', default='tcp:127.0.0.1:5762')
+#     args = parser.parse_args()
     
     
-    connection_string = args.connect
+#     connection_string = args.connect
     
-    #-- Create the object
-    plane = Plane(connection_string)
+#     #-- Create the object
+#     plane = Plane(connection_string)
 
-    #-- Arm and takeoff
-    if not plane.is_armed(): plane.arm_and_takeoff()
+#     #-- Arm and takeoff
+#     if not plane.is_armed(): plane.arm_and_takeoff()
