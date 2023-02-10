@@ -1,6 +1,6 @@
-# import collections
-# import collections.abc
-# collections.MutableMapping = collections.abc.MutableMapping
+import collections
+import collections.abc
+collections.MutableMapping = collections.abc.MutableMapping
 
 from dronekit import connect, VehicleMode, LocationGlobalRelative, Command, Battery, LocationGlobal, Attitude
 from pymavlink import mavutil
@@ -338,6 +338,10 @@ class Plane():
 
     def create_waypoint_command(self, lat, lon):
         return Command(0, 0, 0, mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT, mavutil.mavlink.MAV_CMD_NAV_WAYPOINT, 0, 0, 0, 0, 0, 0, lat, lon, 100)
+    
+    #New function to explicitly set altitude
+    def create_waypoint_command(self, lat, long, alt):
+        return Command(0, 0, 0, mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT, mavutil.mavlink.MAV_CMD_NAV_WAYPOINT, 0, 0, 0, 0, 0, 0, lat, lon, alt)
     
     def create_takeoff_command(self, takeoff_altitude = 100, takeoff_pitch = 40):
         return Command( 0, 0, 0, 3, mavutil.mavlink.MAV_CMD_NAV_TAKEOFF, 0, 0, takeoff_pitch,  0, 0, 0, 0,  0, takeoff_altitude)
