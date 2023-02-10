@@ -1,27 +1,14 @@
-# 1. Connect Jetson and Pixhawk
-#    - run connection test script to ensure connection
-# 2. Change to manual mode via controller
-# 3. Takoff through manual controls
-# 4. Change to auto mode via controller
-#   -if the plane is in the air, then changing mode to auto is all that is required to start the mission
-# 5. The preloaded mission should be ran 
-# 6. Once the mission is complete, manual mode is set by controller and manual landing is done
-
-# possible things to add: 
-#   - distance to waypoint(function already in https://dronekit-python.readthedocs.io/en/latest/guide/auto_mode.html#auto-mode-vehicle-control)
-#   - change the file so that when vehicle mode is set to auto it runs preloaded mission
-#   - add guided, rtl at end of mission
-#   
-# documentation on plane commands: https://ardupilot.org/plane/docs/common-mavlink-mission-command-messages-mav_cmd.html#commands-supported-by-plane 
-# documentation on basic mission: https://dronekit-python.readthedocs.io/en/latest/examples/mission_basic.html
-
 
 import dronekit
 import Plane
+import time
 
-# Connect to the pixhawk or sim
+# Connect to the pixhawk
 # plane = Plane(conection_string = '/dev/ttyACM0')
+
+# Connect to sim
 plane = Plane.Plane('tcp:127.0.0.1:5762')
+
 #clear any stored mission
 plane.clear_mission
 
@@ -30,19 +17,29 @@ missionList = []
 
 #(for sim) add takeoff command
 missionList.append(plane.create_takeoff_command(100, 40))
+
 #add desired waypoints to mission list
-missionList.append(plane.create_waypoint_command(34.04257370, -117.81366938))
-missionList.append(plane.create_waypoint_command(34.04334701, -117.81425840))
-missionList.append(plane.create_waypoint_command(34.04388579, -117.81343224))
+missionList.append(plane.create_waypoint_command(34.04282479, -117.81556221))
+missionList.append(plane.create_waypoint_command(34.04493089, -117.81339764))
+missionList.append(plane.create_waypoint_command(34.04336831, -117.81060994))
+missionList.append(plane.create_waypoint_command(34.04161546, -117.81249574))
 
 #create mission with mission list
 plane.create_mission(missionList)
 
-#(for sim)run arm_and_takeoff
-plane.arm_and_takeoff()
+#arm the plane
+plane.arm()
+#The mission is downloaded and the plane is ready to fly
 
+#through command proxy/controller set to manual
+#through command proxy/controller set to auto
 
+# monitor mission execution
+nextwaypoint = plane.vehicle.commands.next
+while nextwaypoint < len(plane.vehicle.commands):
+    if plane.vehicle.commands.next > nextwaypoint:
+        display_seq = plane.vehicle.commands.next+1
+        print("Moving to waypoint %s" % display_seq)
+        nextwaypoint = plane.vehicle.commands.next
+    time.sleep(1)
 
-#34.04257370 -117.81366938 
-#34.04334701 -117.81425840
-#34.04388579 -117.81343224

@@ -90,7 +90,7 @@ class Plane():
         Input:
             connection_string   - connection string (mavproxy style)
         """
-        self.vehicle = connect(connection_string, wait_ready=True, baud = 57600)
+        self.vehicle = connect(connection_string, wait_ready= False, baud = 57600)
         self._setup_listeners()
         
     def _setup_listeners(self):                 #-- (private) Set up listeners
@@ -283,7 +283,7 @@ class Plane():
             print ("Waiting for good GPS...")
         self.location_home   = LocationGlobalRelative(self.pos_lat,self.pos_lon,altitude)
         
-        print("Home is saved as "), self.location_home
+        print("Home is saved as " + str(self.location_home))
         print ("Vehicle is Armable: try to arm")
         self.set_ap_mode("MANUAL")
         n_tries = 0
@@ -303,14 +303,14 @@ class Plane():
             print ("ARMED")
             self.set_ap_mode("AUTO")
             
-            while self.pos_alt_rel <= altitude - 20.0:
-                print ("Altitude = %.0f"%self.pos_alt_rel)
-                time.sleep(2.0)
+            # while self.pos_alt_rel <= altitude - 20.0:
+            #     print ("Altitude = %.0f"%self.pos_alt_rel)
+            #     time.sleep(2.0)
                 
-            print("Altitude reached: set to GUIDED")
-            self.set_ap_mode("GUIDED")
+            # print("Altitude reached: set to GUIDED")
+            # self.set_ap_mode("GUIDED")
             
-            time.sleep(1.0)
+            time.sleep(20.0)
             
             # waypoint1 = LocationGlobalRelative(36.01649,-95.86031,100)
             # self.goto(waypoint1)
@@ -324,20 +324,20 @@ class Plane():
         return True
     
     def create_mission(self, commandsList):
-        print('clearing current mission')
+        print('\nClearing current mission')
         self.clear_mission()
         cmds = self.vehicle.commands
 
-        print('Adding new commands')
         for cmd in commandsList:
             cmds.add(cmd)
 
-        print('uploading new commands to vehicle')
+        print('\nUploading new commands to vehicle')
         cmds.upload()
+        print('Upload Complete\n')
 
 
     def create_waypoint_command(self, lat, lon):
-        return Command(0, 0, 0, mavutil.MAV_FRAME_GLOBAL_RELATIVE_ALT, mavutil.mavlink.MAV_CMD_NAV_WAYPOINT, 0, 0, 0, 0, 0, 0, lat, lon, 100)
+        return Command(0, 0, 0, mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT, mavutil.mavlink.MAV_CMD_NAV_WAYPOINT, 0, 0, 0, 0, 0, 0, lat, lon, 100)
     
     def create_takeoff_command(self, takeoff_altitude = 100, takeoff_pitch = 40):
         return Command( 0, 0, 0, 3, mavutil.mavlink.MAV_CMD_NAV_TAKEOFF, 0, 0, takeoff_pitch,  0, 0, 0, 0,  0, takeoff_altitude)
