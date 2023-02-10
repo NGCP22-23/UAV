@@ -21,10 +21,11 @@ missionList = []
 missionList.append(plane.create_takeoff_command(100, 40))
 
 #add desired waypoints to mission list
-missionList.append(plane.create_waypoint_command(34.04282479, -117.81556221))
-missionList.append(plane.create_waypoint_command(34.04493089, -117.81339764))
-missionList.append(plane.create_waypoint_command(34.04336831, -117.81060994))
-missionList.append(plane.create_waypoint_command(34.04161546, -117.81249574))
+altitudeAGL = 60.96 #meters = 200ft
+missionList.append(plane.create_waypoint_command(34.04282479, -117.81556221, altitudeAGL))
+missionList.append(plane.create_waypoint_command(34.04493089, -117.81339764, altitudeAGL))
+missionList.append(plane.create_waypoint_command(34.04336831, -117.81060994, altitudeAGL))
+missionList.append(plane.create_waypoint_command(34.04161546, -117.81249574, altitudeAGL))
 
 #create mission with mission list
 plane.create_mission(missionList)
