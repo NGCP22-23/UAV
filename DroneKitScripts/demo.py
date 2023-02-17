@@ -1,6 +1,6 @@
-import collections
-import collections.abc
-collections.MutableMapping = collections.abc.MutableMapping
+#import collections
+#import collections.abc
+#collections.MutableMapping = collections.abc.MutableMapping
 import dronekit
 import Plane
 import time
@@ -22,10 +22,10 @@ missionList.append(plane.create_takeoff_command(100, 40))
 
 #add desired waypoints to mission list
 altitudeAGL = 60.96 #meters = 200ft
-missionList.append(plane.create_waypoint_command(34.04282479, -117.81556221, altitudeAGL))
-missionList.append(plane.create_waypoint_command(34.04493089, -117.81339764, altitudeAGL))
-missionList.append(plane.create_waypoint_command(34.04336831, -117.81060994, altitudeAGL))
-missionList.append(plane.create_waypoint_command(34.04161546, -117.81249574, altitudeAGL))
+missionList.append(plane.create_waypoint_command(34.042779, -117.815004, altitudeAGL))
+missionList.append(plane.create_waypoint_command(34.04438421571916, -117.8134407649254, altitudeAGL))
+missionList.append(plane.create_waypoint_command(34.043226, -117.8117594, altitudeAGL))
+missionList.append(plane.create_waypoint_command(34.041962, -117.813311, altitudeAGL))
 
 #create mission with mission list
 plane.create_mission(missionList)
