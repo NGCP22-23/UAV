@@ -14,4 +14,4 @@ class UAV(Resource):
 api.add_resource(UAV, '/UAV')
 
 if __name__ == '__main__':
-    app.run
+    app.run()
