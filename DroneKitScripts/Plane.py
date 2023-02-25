@@ -335,11 +335,7 @@ class Plane():
         cmds.upload()
         print('Upload Complete\n')
 
-
-    def create_waypoint_command(self, lat, lon):
-        return Command(0, 0, 0, mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT, mavutil.mavlink.MAV_CMD_NAV_WAYPOINT, 0, 0, 0, 0, 0, 0, lat, lon, 100)
     
-    #New function to explicitly set altitude
     def create_waypoint_command(self, lat, lon, alt):
         return Command(0, 0, 0, mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT, mavutil.mavlink.MAV_CMD_NAV_WAYPOINT, 0, 0, 0, 0, 0, 0, lat, lon, alt)
     

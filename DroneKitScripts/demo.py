@@ -6,10 +6,10 @@ import Plane
 import time
 
 # Connect to the pixhawk
-plane = Plane(conection_string = '/dev/ttyACM0')
+# plane = Plane.Plane('/dev/ttyACM0')
 
 # Connect to sim
-#plane = Plane.Plane('tcp:127.0.0.1:5762')
+plane = Plane.Plane('tcp:127.0.0.1:5762')
 
 #clear any stored mission
 plane.clear_mission
