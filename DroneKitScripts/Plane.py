@@ -13,8 +13,6 @@ import argparse
 import copy
 
 
-def nothing(x):
-    pass
 
 class Plane():
 

@@ -37,6 +37,8 @@ plane.arm()
 #through command proxy/controller set to manual
 #through command proxy/controller set to auto
 
+
+
 # monitor mission execution
 nextwaypoint = plane.vehicle.commands.next
 while nextwaypoint < len(plane.vehicle.commands):
