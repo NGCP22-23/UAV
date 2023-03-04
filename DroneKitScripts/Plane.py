@@ -71,7 +71,7 @@ class Plane():
         self.location_home      = LocationGlobalRelative(0,0,0) #- LocationRelative type home
         self.location_current   = LocationGlobalRelative(0,0,0) #- LocationRelative type current position
     
-    def Throttle():
+    def Throttle(self):
         n_tries = 0
         while not self.vehicle.armed:
             print("Try to arm...")
