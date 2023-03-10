@@ -7,11 +7,13 @@ app = Flask(__name__)
 api = Api(app)
 
 
-class UAV(Resource):
+class Telementry(Resource):
     def get(self):
-        return {'data': "poop"}
+        return {'mode': "poop"}
+    def post(self):
+        return {'mode'}
 
-api.add_resource(UAV, '/UAV')
+api.add_resource(Telemetry, '/Telemetry')
 
 if __name__ == '__main__':
     app.run()
