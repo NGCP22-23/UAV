@@ -24,4 +24,12 @@ def send_telemetry_data():
     #send data and enpoint to client
     client.send_post(endpoint, data)
 
-    
+
+
+# if(command == "hiker detection"){
+#     pass
+# } elif(command == "payload"){
+
+# } elif(command == "fire dection"){
+
+# }
