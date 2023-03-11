@@ -95,6 +95,8 @@ class Plane():
         #----------------------------
         #--- CALLBACKS
         #----------------------------
+        #When the vehicle receives a message with the above string, it updates the plane variables
+        #need to look more into what messages there are and what values we need to track
         if True:    
             #---- DEFINE CALLBACKS HERE!!!
             @self.vehicle.on_message('ATTITUDE')   
@@ -110,7 +112,7 @@ class Plane():
                 self.pos_alt_rel    = message.relative_alt*1e-3
                 self.pos_alt_abs    = message.alt*1e-3
                 self.location_current = LocationGlobalRelative(self.pos_lat, self.pos_lon, self.pos_alt_rel)
-                
+                print(self.pos_lat)
                 
             @self.vehicle.on_message('VFR_HUD')
             def listener(vehicle, name, message):          #--- HUD
