@@ -1,6 +1,6 @@
-import collections
-import collections.abc
-collections.MutableMapping = collections.abc.MutableMapping
+#import collections
+#import collections.abc
+#collections.MutableMapping = collections.abc.MutableMapping
 
 from dronekit import connect, VehicleMode, LocationGlobalRelative, Command, Battery, LocationGlobal, Attitude
 from pymavlink import mavutil
@@ -463,6 +463,7 @@ class Plane():
             pwm_value_int,
             0, 0, 0, 0, 0
         )
+        self.vehicle.send_mavlink(msg)
 
       
 # if __name__ == '__main__':
