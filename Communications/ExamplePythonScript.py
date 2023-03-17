@@ -1,30 +1,38 @@
-#Here's an example Python script that reads CSV data from KrakenSDR and sends it to the Jetson device over HTTP:
-
-import time
 import csv
+import requests
 
-while True:
+# Define the URL of the remote server
+#url = 'http://remote.server.com/data/upload'
 
-    # Set the IP address and port of the computer to send the data to
-    ip_address = '192.168.1.100' # <--- Enter desired computer IP here
-    port = 5000 # TCP Port 5000
+# Open the CSV file
+with open('~/krakensdr_doa/krakensdr_doa/mydata.csv', 'r') as csvfile:
+    # Create a CSV reader object
+    reader = csv.reader(csvfile)
 
-    # Read the CSV data from KrakenSDR
-    with open('mydata.csv', newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for column in list(reader):
-            longitude = column['I'] #Latitude Column
-            latitude = column['J'] #Longitude Column
-            confidence = column['C'] #Confidence Column
-    
-    # Send the CSV data to the Jetson device using HTTP POST request
-    #url = 'http://0.0.0.0:8080/DOA_value.html' 
-    #response = requests.post(url, json=data)
+    # Loop through the rows in the CSV file
+    for column in reader:
+        # Extract the longitude, latitude, and confidence values from the row
+        longitude = column[0]
+        latitude = column[1]
+        confidence = column[2]
 
-    # Print the HTTP response status code
-    #print(f"HTTP response status code: {response.status_code}")
+        # Create a dictionary of the data to send
+        data = {
+            'longitude': longitude,
+            'latitude': latitude,
+            'confidence': confidence
+        }
 
-    message = f"{'I'},{'J'},{'C'}"
-    
-    # Wait for some time before sending the next request
-    time.sleep(1)
+        # Send the data to the remote server using HTTP POST request
+        #response = requests.post(url, data=data)
+
+        # Print the response from the remote server
+        if(confidence >= 90):
+            print(data.longitude)
+            print(data.latitude)
+            print(data.confidence)
+        if(confidence < 90):
+            print(data.longitude)
+            print(data.latitude)
+            print(data.confidence)
+            print("Warning: Confidence values are lower than expected")
