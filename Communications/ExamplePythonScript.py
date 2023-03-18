@@ -9,19 +9,22 @@ with open('Krakenoutput.csv', 'r') as csvfile:
     # Create a CSV reader object
     reader = csv.reader(csvfile)
 
-    # Loop through the rows in the CSV file
-    for column in reader:
-        # Extract the longitude, latitude, and confidence values from the row
-        longitude = column[0]
-        latitude = column[1]
-        confidence = column[2]
+    final_line = csvfile.readlines()[-1]
+    longitude = final_line[1]
+    print(longitude)
+    # # Loop through the rows in the CSV file
+    # for column in reader:
+    #     # Extract the longitude, latitude, and confidence values from the row
+    #     longitude = column[0]
+    #     latitude = column[1]
+    #     confidence = column[2]
 
-        # Create a dictionary of the data to send
-        data = {
-            'longitude': longitude,
-            'latitude': latitude,
-            'confidence': confidence
-        }
+    #     # Create a dictionary of the data to send
+    #     data = {
+    #         'longitude': longitude,
+    #         'latitude': latitude,
+    #         'confidence': confidence
+    #     }
         
         # Send the data to the remote server using HTTP POST request
         #response = requests.post(url, data=data)
