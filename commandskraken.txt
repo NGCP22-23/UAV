@@ -1,3 +1,0 @@
-wget https://raw.githubusercontent.com/krakenrf/krakensdr_docs/main/install_scripts/krakensdr_aarch64_install_doa.sh
-sudo chmod +x krakensdr_aarch64_install_doa.sh
-./krakensdr_aarch64_install_doa.sh
