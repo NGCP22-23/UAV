@@ -1,6 +1,6 @@
-import collections
-import collections.abc
-collections.MutableMapping = collections.abc.MutableMapping
+#import collections
+#import collections.abc
+#collections.MutableMapping = collections.abc.MutableMapping
 
 from dronekit import connect, VehicleMode, LocationGlobalRelative, Command, Battery, LocationGlobal, Attitude
 from pymavlink import mavutil
@@ -15,7 +15,6 @@ import copy
 
 
 class Plane():
-
     def __init__(self, connection_string=None, vehicle=None):
         """ Initialize the object
         Use either the provided vehicle object or the connections tring to connect to the autopilot
@@ -451,7 +450,19 @@ class Plane():
     def clear_all_rc_override(self):               #--- clears all the rc channel override
         self.vehicle.channels.overrides = {}
 
-
+    def rotate_target_servo(self, servo_id, pwm_value_int):
+        #https://dronekit-python.readthedocs.io/en/latest/guide/copter/guided_mode.html
+        #https://ardupilot.org/plane/docs/common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-set-servo
+        #https://discuss.ardupilot.org/t/aux-servos-via-dronekit/18716
+        msg = self.vehicle.message_factory.command_long_encode(
+            0, 0,   #target sys, target_component
+            mavutil.mavlink.MAV_CMD_DO_SET_SERVO,
+            0, #confirmation
+            servo_id,
+            pwm_value_int,
+            0, 0, 0, 0, 0
+        )
+        self.vehicle.send_mavlink(msg)
 
       
 # if __name__ == '__main__':
