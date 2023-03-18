@@ -5,7 +5,7 @@ import requests
 #url = 'http://remote.server.com/data/upload'
 
 # Open the CSV file
-with open('~/krakensdr_doa/krakensdr_doa/mydata.csv', 'r') as csvfile:
+with open('Krakenoutput.csv', 'r') as csvfile:
     # Create a CSV reader object
     reader = csv.reader(csvfile)
 
@@ -22,17 +22,17 @@ with open('~/krakensdr_doa/krakensdr_doa/mydata.csv', 'r') as csvfile:
             'latitude': latitude,
             'confidence': confidence
         }
-
+        
         # Send the data to the remote server using HTTP POST request
         #response = requests.post(url, data=data)
 
         # Print the response from the remote server
-        if(confidence >= 90):
-            print(data.longitude)
-            print(data.latitude)
-            print(data.confidence)
-        if(confidence < 90):
-            print(data.longitude)
-            print(data.latitude)
-            print(data.confidence)
-            print("Warning: Confidence values are lower than expected")
+        # if(confidence >= 90):
+        #     print(data.longitude)
+        #     print(data.latitude)
+        #     print(data.confidence)
+        # if(confidence < 90):
+        #     print(data.longitude)
+        #     print(data.latitude)
+        #     print(data.confidence)
+        #     print("Warning: Confidence values are lower than expected")
