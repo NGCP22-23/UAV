@@ -1,21 +1,22 @@
 import csv
-
+import time
 # Define the URL of the remote server
 #url = 'http://remote.server.com/data/upload'
 
+confidence = -1
 # Open the CSV file
-with open('Krakenoutput.csv', 'r') as csvfile:
-    # Create a CSV reader object
-    reader = csv.reader(csvfile)    # Reads csv file from krakensdr
-    final_line = csvfile.readlines()[-1]    # Pulls data from the last line of the csv file (most updated)
-    lastRow = final_line.split(',') # Converts string of data into elements in a list seperated by a ,
-    longitude = lastRow[8]  # Longitude coordinates
-    latitude = lastRow[9]   # Latitude coordinates
-    confidence = lastRow[10]    # Confidence values
-    print(longitude)
-    print(latitude)
-    print(confidence)
-    
+with open('KrakenOutputSim.csv', 'r') as csvfile:
+    while confidence < 8.3: 
+        time.sleep(1)
+        final_line = csvfile.readlines()[-1]    # Pulls data from the last line of the csv file (most updated)
+        lastRow = final_line.split(',') # Converts string of data into elements in a list seperated by a ,
+        longitude = lastRow[8]  # Longitude coordinates
+        latitude = lastRow[9]   # Latitude coordinates
+        confidence = float(lastRow[3])   # Confidence values
+        print(longitude)
+        print(latitude)
+        print(confidence)
+        
     # # Loop through the rows in the CSV file
     # for column in reader:
     #     # Extract the longitude, latitude, and confidence values from the row
