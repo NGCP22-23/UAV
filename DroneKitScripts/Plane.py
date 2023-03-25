@@ -12,7 +12,9 @@ import psutil
 import argparse
 import copy
 
-
+PAYLOAD_PIN_A = 6
+PAYLOAD_PIN_B = 7
+PAYLOAD_DOOR = 8
 
 class Plane():
     def __init__(self, connection_string=None, vehicle=None):
@@ -463,6 +465,25 @@ class Plane():
             0, 0, 0, 0, 0
         )
         self.vehicle.send_mavlink(msg)
+    
+    def operate_payload_door(self, open = True):
+        if open:
+            pwm = 1600  #TODO: Check Correct PWM rotation
+        else:
+            pwm = 1400  ##TODO: Check Correct PWM rotation
+        self.rotate_target_servo(PAYLOAD_DOOR, pwm)
+        return True
+    
+    def payload_release_pins(self, release = True):
+        if release:
+            pwm_release = 1400  ##TODO: Check Correct PWM rotation!
+        else:
+            # Set pints back into place
+            pwm_release = 1600  ##TODO: Check Correct PWM rotation!
+        self.rotate_target_servo(PAYLOAD_PIN_A, pwm_release)
+        self.rotate_target_servo(PAYLOAD_PIN_A, pwm_release)
+    
+
 
       
 # if __name__ == '__main__':
