@@ -483,6 +483,39 @@ class Plane():
         self.rotate_target_servo(PAYLOAD_PIN_A, pwm_release)
         self.rotate_target_servo(PAYLOAD_PIN_A, pwm_release)
     
+    def payload_drop_handler(self, tgt_lat, tgt_long, approach_heading = 0, drop_offset = 0, altitudeAGL = 100, approach_distance = 50): #values in meters
+        successful_drop = False
+        earth_radius = 6378137.0 #meters
+        lat_change = (math.sin(math.radians(approach_heading)))/earth_radius
+        long_change = (math.cos(math.radians(approach_heading)))/(earth_radius*math.cos(math.pi*tgt_lat/180))   #radians offset
+        waypoints = []
+        approach = [tgt_lat - (lat_change * 180/math.pi), tgt_long - (long_change * 180/math.pi)]
+        missed_approach = [tgt_lat + (lat_change * 180/math.pi), tgt_long + (long_change * 180/math.pi)]
+
+        waypoints.append(self.create_waypoint_command(approach[0], approach[1], altitudeAGL))
+        waypoints.append(self.create_waypoint_command(tgt_lat, tgt_long, altitudeAGL))
+        waypoints.append(self.create_waypoint_command(missed_approach[0], missed_approach[1], altitudeAGL))
+        while not successful_drop:
+            door_open = False
+            self.clear_mission
+            self.create_mission(waypoints)
+            dist = self.distance_to_coord(self.pos_lat, self.pos_lot, approach[0], approach[1])
+            dx = 0
+            while dx < +10: #continue while moving towards approach
+                current_dist = self.distance_to_coord(self.pos_lat, self.pos_lot, approach[0], approach[1])
+                if (current_dist < 10):
+                    break
+                if dx > 10:
+                    print("failed to go to approach")
+        pass
+    
+    def distance_to_coord(lat1, long1, lat2, long2):
+        earth_radius = 6378137.0 #meters
+        difference_lat = ((lat1 - lat2) / earth_radius)
+        difference_long = (long1 - long2)/(earth_radius*math.cos(math.pi*lat1/180)) #differences are in radians
+        radians_distnace = math.sqrt(math.pow(difference_lat, 2) + math.pow(difference_long, 2))  #radians
+        return radians_distnace * earth_radius
+
 
 
       
