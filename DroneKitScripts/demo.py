@@ -4,13 +4,13 @@
 import dronekit
 import Plane
 import time
-from . import create_mission
+from create_mission import create_mission
 
 # Connect to the pixhawk
-plane = Plane.Plane('/dev/ttyACM0')
+#plane = Plane.Plane('/dev/ttyACM0')
 
 # Connect to sim
-#plane = Plane.Plane('tcp:127.0.0.1:5762')
+plane = Plane.Plane('tcp:127.0.0.1:5762')
 
 test_servo_id = 8
 # plane.arm()
@@ -37,8 +37,10 @@ plane.arm()
 nextwaypoint = plane.vehicle.commands.next
 while nextwaypoint < len(plane.vehicle.commands):
     if plane.vehicle.commands.next > nextwaypoint:
-        display_seq = plane.vehicle.commands.next+1
+        display_seq = plane.vehicle.commands.next
+        #if takeoff command is added, the waypoints will be 1 off
         print("Moving to waypoint %s" % display_seq)
-        nextwaypoint = plane.vehicle.commands.next
+        nextwaypoint = display_seq
+    #print("nothing to report")
     time.sleep(1)
 

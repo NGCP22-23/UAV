@@ -111,7 +111,7 @@ class Plane():
                 self.pos_alt_rel    = message.relative_alt*1e-3
                 self.pos_alt_abs    = message.alt*1e-3
                 self.location_current = LocationGlobalRelative(self.pos_lat, self.pos_lon, self.pos_alt_rel)
-                print(self.pos_lat)
+                #print(self.pos_lat)
                 
             @self.vehicle.on_message('VFR_HUD')
             def listener(vehicle, name, message):          #--- HUD
