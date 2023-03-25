@@ -130,6 +130,19 @@ class Plane():
         return (self.vehicle)
         print(">> Connection Established")
 
+    #testing, testing
+    def getTelemetryData(self):
+        """
+        returns plane data(mode, altitude, latitude, longitude, airspeed, groupspeed)
+        """
+        return {"mode": self.ap_mode,
+                "altitude": self.pos_alt_abs,
+                "latitude": self.pos_lat,
+                "longitude": self.pos_lon,
+                "air_speed": self.airspeed,
+                "ground_speed": self.groundspeed
+                }
+
     def _get_location_metres(self, original_location, dNorth, dEast, is_global=False):
         """
         Returns a Location object containing the latitude/longitude `dNorth` and `dEast` metres from the

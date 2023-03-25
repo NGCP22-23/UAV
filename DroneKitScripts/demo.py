@@ -13,13 +13,13 @@ plane = Plane.Plane('/dev/ttyACM0')
 #plane = Plane.Plane('tcp:127.0.0.1:5762')
 
 test_servo_id = 8
-plane.arm()
-while True:
-    print("moving motor")
-    plane.rotate_target_servo(test_servo_id, pwm_value_int=1100)
-    time.sleep(1)
-    plane.rotate_target_servo(test_servo_id, pwm_value_int=1900)
-    time.sleep(1)
+# plane.arm()
+# while True:
+#     print("moving motor")
+#     plane.rotate_target_servo(test_servo_id, pwm_value_int=1100)
+#     time.sleep(1)
+#     plane.rotate_target_servo(test_servo_id, pwm_value_int=1900)
+#     time.sleep(1)
 
 
 
