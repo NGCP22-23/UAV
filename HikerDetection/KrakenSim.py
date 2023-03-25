@@ -1,6 +1,7 @@
 import csv
 import time
 
+rowNumber = 0
 with open('Krakenoutput.csv', 'r') as csvfile:
     # Create a CSV reader object
     reader = csv.reader(csvfile)    # Reads csv file from krakensdr
@@ -9,4 +10,6 @@ with open('Krakenoutput.csv', 'r') as csvfile:
         for row in reader: 
             print('writing')
             writer.writerow(row)
-            time.sleep(1)
+            print(rowNumber)
+            rowNumber = rowNumber + 1
+            time.sleep(1/4)
