@@ -1,6 +1,6 @@
-#import collections
-#import collections.abc
-#collections.MutableMapping = collections.abc.MutableMapping
+import collections
+import collections.abc
+collections.MutableMapping = collections.abc.MutableMapping
 
 from dronekit import connect, VehicleMode, LocationGlobalRelative, Command, Battery, LocationGlobal, Attitude
 from pymavlink import mavutil
@@ -89,7 +89,7 @@ class Plane():
         Input:
             connection_string   - connection string (mavproxy style)
         """
-        self.vehicle = connect(connection_string, wait_ready= False, baud = 57600)
+        self.vehicle = connect(connection_string, wait_ready= True, baud = 57600)
         self._setup_listeners()
         
     def _setup_listeners(self):                 #-- (private) Set up listeners
@@ -113,7 +113,7 @@ class Plane():
                 self.pos_alt_rel    = message.relative_alt*1e-3
                 self.pos_alt_abs    = message.alt*1e-3
                 self.location_current = LocationGlobalRelative(self.pos_lat, self.pos_lon, self.pos_alt_rel)
-                print(self.pos_lat)
+                #print(self.pos_lat)
                 
             @self.vehicle.on_message('VFR_HUD')
             def listener(vehicle, name, message):          #--- HUD
@@ -486,8 +486,8 @@ class Plane():
     def payload_drop_handler(self, tgt_lat, tgt_long, approach_heading = 0, drop_offset = 0, altitudeAGL = 100, approach_distance = 50): #values in meters
         successful_drop = False
         earth_radius = 6378137.0 #meters
-        lat_change = (math.sin(math.radians(approach_heading)))/earth_radius
-        long_change = (math.cos(math.radians(approach_heading)))/(earth_radius*math.cos(math.pi*tgt_lat/180))   #radians offset
+        lat_change = (approach_distance * math.sin(math.radians(approach_heading)))/earth_radius
+        long_change = (approach_distance * math.cos(math.radians(approach_heading)))/(earth_radius*math.cos(math.pi*tgt_lat/180))   #radians offset
         waypoints = []
         approach = [tgt_lat - (lat_change * 180/math.pi), tgt_long - (long_change * 180/math.pi)]
         missed_approach = [tgt_lat + (lat_change * 180/math.pi), tgt_long + (long_change * 180/math.pi)]
@@ -499,22 +499,32 @@ class Plane():
             door_open = False
             self.clear_mission
             self.create_mission(waypoints)
-            dist = self.distance_to_coord(self.pos_lat, self.pos_lot, approach[0], approach[1])
+            dist = self.distance_to_coord(self.pos_lat, self.pos_lon, approach[0], approach[1])
+            #self.arm()
             dx = 0
             while dx < +10: #continue while moving towards approach
-                current_dist = self.distance_to_coord(self.pos_lat, self.pos_lot, approach[0], approach[1])
+                time.sleep(0.1)
+                current_dist = self.distance_to_coord(self.pos_lat, self.pos_lon, approach[0], approach[1])
+                print(current_dist)
                 if (current_dist < 10):
-                    break
+                    pass
                 if dx > 10:
-                    print("failed to go to approach")
+                    pass
+                    #print("failed to go to approach")
         pass
     
-    def distance_to_coord(lat1, long1, lat2, long2):
+    def distance_to_coord(self, lat1, long1, lat2, long2):
         earth_radius = 6378137.0 #meters
-        difference_lat = ((lat1 - lat2) / earth_radius)
-        difference_long = (long1 - long2)/(earth_radius*math.cos(math.pi*lat1/180)) #differences are in radians
-        radians_distnace = math.sqrt(math.pow(difference_lat, 2) + math.pow(difference_long, 2))  #radians
-        return radians_distnace * earth_radius
+        #Haversine Time
+        phi1 = math.radians(lat1)
+        phi2 = math.radians(lat2)
+        dphi = math.radians(lat2 - lat1)
+        dlambda = math.radians(long2 - long1)
+
+        a = math.sin(dphi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2) ** 2
+        c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+        meters = earth_radius * c
+        return meters
 
 
 
