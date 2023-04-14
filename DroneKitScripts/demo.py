@@ -1,16 +1,19 @@
-#import collections
-#import collections.abc
-#collections.MutableMapping = collections.abc.MutableMapping
+import collections
+import collections.abc
+collections.MutableMapping = collections.abc.MutableMapping
 import dronekit
 import Plane
 import time
 from create_mission import create_mission
+import Client
 
 # Connect to the pixhawk
 #plane = Plane.Plane('/dev/ttyACM0')
 
 # Connect to sim
 plane = Plane.Plane('tcp:127.0.0.1:5762')
+
+client = Client.Client()
 
 test_servo_id = 8
 # plane.arm()
@@ -42,5 +45,7 @@ while nextwaypoint < len(plane.vehicle.commands):
         print("Moving to waypoint %s" % display_seq)
         nextwaypoint = display_seq
     #print("nothing to report")
+    client.send_telemetry_data()
+    
     time.sleep(1)
 
