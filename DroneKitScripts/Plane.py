@@ -89,7 +89,7 @@ class Plane():
         Input:
             connection_string   - connection string (mavproxy style)
         """
-        self.vehicle = connect(connection_string, wait_ready= True, baud = 57600)
+        self.vehicle = connect(connection_string, wait_ready= False, baud = 57600)
         self._setup_listeners()
         
     def _setup_listeners(self):                 #-- (private) Set up listeners
@@ -486,8 +486,8 @@ class Plane():
     def payload_drop_handler(self, tgt_lat, tgt_long, approach_heading = 0, drop_offset = 0, altitudeAGL = 100, approach_distance = 50): #values in meters
         successful_drop = False
         earth_radius = 6378137.0 #meters
-        lat_change = (approach_distance * math.sin(math.radians(approach_heading)))/earth_radius
-        long_change = (approach_distance * math.cos(math.radians(approach_heading)))/(earth_radius*math.cos(math.pi*tgt_lat/180))   #radians offset
+        lat_change = (approach_distance * math.cos(math.radians(approach_heading)))/earth_radius
+        long_change = (approach_distance * math.sin(math.radians(approach_heading)))/(earth_radius*math.cos(math.pi*tgt_lat/180))   #radians offset
         waypoints = []
         approach = [tgt_lat - (lat_change * 180/math.pi), tgt_long - (long_change * 180/math.pi)]
         missed_approach = [tgt_lat + (lat_change * 180/math.pi), tgt_long + (long_change * 180/math.pi)]
@@ -499,27 +499,51 @@ class Plane():
             door_open = False
             self.clear_mission
             self.create_mission(waypoints)
-            dist = self.distance_to_coord(self.pos_lat, self.pos_lon, approach[0], approach[1])
+            self.set_ap_mode("AUTO")
+            #dist = self.distance_to_coord(self.pos_lat, self.pos_lon, approach)
             #self.arm()
-            dx = 0
-            while dx < +10: #continue while moving towards approach
-                time.sleep(0.1)
-                current_dist = self.distance_to_coord(self.pos_lat, self.pos_lon, approach[0], approach[1])
-                print(current_dist)
-                if (current_dist < 10):
-                    pass
-                if dx > 10:
-                    pass
-                    #print("failed to go to approach")
+        
+            if self.reached_point_get_status(approach[0], approach[1]) is True:
+                print("Reached Approach Point")
+                if self.reach_point_get_status(tgt_lat, tgt_long) is True:
+                    print("Reached Drop Point Successful!")
+                else:
+                    print("Did not reach drop point")
+            else :
+                print("Did not reach approach point")
+
         pass
+
+    # Returns true if aircraft reaches point on first attempt and must be heading towards point. False otherwise
+    #TODO: Make sure this function does not disrupt other functions due to its while loop
+    def reached_point_get_status(self, lat, long):
+        dx = self.delta_distance(lat, long)
+        while dx < -5:   #less than5 m/s
+            print(dx)
+            dx = self.delta_distance(lat, long)
+            if self.distance_to_coord(lat, long) < 10:
+                return True
+        return False    #Aircraft Did not get near enough to point and distance started increasing
     
-    def distance_to_coord(self, lat1, long1, lat2, long2):
+    # Returns delta time in meters / second
+    def delta_distance(self, lat, long):
+        distance1 = self.distance_to_coord(lat, long)
+        time.sleep(1)
+        distance2 = self.distance_to_coord(lat, long)
+
+        delta_unscaled = distance1 - distance2
+        return delta_unscaled * 10
+
+
+    def distance_to_coord(self, lat, long):
+        lat1 = self.pos_lat
+        long1 = self.pos_lon
         earth_radius = 6378137.0 #meters
         #Haversine Time
         phi1 = math.radians(lat1)
-        phi2 = math.radians(lat2)
-        dphi = math.radians(lat2 - lat1)
-        dlambda = math.radians(long2 - long1)
+        phi2 = math.radians(lat)
+        dphi = math.radians(lat - lat1)
+        dlambda = math.radians(long - long1)
 
         a = math.sin(dphi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2) ** 2
         c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))

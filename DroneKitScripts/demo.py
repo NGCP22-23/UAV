@@ -21,7 +21,7 @@ while True:
     plane.rotate_target_servo(test_servo_id, pwm_value_int=1900)
     time.sleep(1)'''
 
-plane.payload_drop_handler(34.03966905, -117.81647269, 0, 0, 50, 50)
+plane.payload_drop_handler(34.03966905, -117.81647269, 90, 0, 50, 500)
 
 #arm the plane
 plane.arm()
