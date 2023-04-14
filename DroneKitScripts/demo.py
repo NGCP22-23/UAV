@@ -1,7 +1,7 @@
-import collections
-import collections.abc
-collections.MutableMapping = collections.abc.MutableMapping
-import dronekit
+#import collections
+#import collections.abc
+#collections.MutableMapping = collections.abc.MutableMapping
+#import dronekit
 import Plane
 import time
 from create_mission import create_mission
@@ -36,6 +36,8 @@ plane.arm()
 #through command proxy/controller set to manual
 #through command proxy/controller set to auto
 
+endpoint = 'http://127.0.0.1:5000/telemetry'
+
 # monitor mission execution
 nextwaypoint = plane.vehicle.commands.next
 while nextwaypoint < len(plane.vehicle.commands):
@@ -45,7 +47,8 @@ while nextwaypoint < len(plane.vehicle.commands):
         print("Moving to waypoint %s" % display_seq)
         nextwaypoint = display_seq
     #print("nothing to report")
-    client.send_telemetry_data()
+    #print(plane.getTelemetryData()
+    client.send_post(endpoint, plane.getTelemetryData())
     
     time.sleep(1)
 

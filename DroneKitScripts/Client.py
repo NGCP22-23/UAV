@@ -3,7 +3,7 @@ import json
 
 class Client():
 
-	def send_get(endpoint):
+	def send_get(self,endpoint):
 		response = requests.get(endpoint)
 		print(response.status_code)
 
@@ -16,8 +16,9 @@ class Client():
 		print(response.text)
 
 	# gets data as dictionary
-	def send_post(endpoint, data):
+	def send_post(self,endpoint, data):
 		# convert to json
+		print(data)
 		post = json.dumps(data)
 		# send data 
 		requests.post(endpoint, post)
