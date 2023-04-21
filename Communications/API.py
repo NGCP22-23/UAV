@@ -18,15 +18,17 @@
 #     app.run()
 
 import json
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
 
 
 @app.route('/telemetry', methods = ['POST'])
-def telemetry(data):
-    x = json.loads(data)
-    print(x)
+def telemetry():
+    print(request.data, '\n \n')
+    #x = json.loads(data)
+    #print(x)
+    return "success"
 
 app.run()

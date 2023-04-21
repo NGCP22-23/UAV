@@ -1,25 +1,28 @@
 #import collections
 #import collections.abc
 #collections.MutableMapping = collections.abc.MutableMapping
-import dronekit
+#import dronekit
 import Plane
 import time
-from . import create_mission
+from create_mission import create_mission
+import Client
 
 # Connect to the pixhawk
 plane = Plane.Plane('/dev/ttyACM0')
 
 # Connect to sim
-#plane = Plane.Plane('tcp:127.0.0.1:5762')
+# plane = Plane.Plane('tcp:127.0.0.1:5762')
+
+client = Client.Client()
 
 test_servo_id = 8
-plane.arm()
-while True:
-    print("moving motor")
-    plane.rotate_target_servo(test_servo_id, pwm_value_int=1100)
-    time.sleep(1)
-    plane.rotate_target_servo(test_servo_id, pwm_value_int=1900)
-    time.sleep(1)
+# plane.arm()
+# while True:
+#     print("moving motor")
+#     plane.rotate_target_servo(test_servo_id, pwm_value_int=1100)
+#     time.sleep(1)
+#     plane.rotate_target_servo(test_servo_id, pwm_value_int=1900)
+#     time.sleep(1)
 
 
 
@@ -33,12 +36,19 @@ plane.arm()
 #through command proxy/controller set to manual
 #through command proxy/controller set to auto
 
+endpoint = 'http://127.0.0.1:5000/telemetry'
+
 # monitor mission execution
 nextwaypoint = plane.vehicle.commands.next
 while nextwaypoint < len(plane.vehicle.commands):
     if plane.vehicle.commands.next > nextwaypoint:
-        display_seq = plane.vehicle.commands.next+1
+        display_seq = plane.vehicle.commands.next
+        #if takeoff command is added, the waypoints will be 1 off
         print("Moving to waypoint %s" % display_seq)
-        nextwaypoint = plane.vehicle.commands.next
+        nextwaypoint = display_seq
+    #print("nothing to report")
+    #print(plane.getTelemetryData()
+    client.send_post(endpoint, plane.getTelemetryData())
+    
     time.sleep(1)
 
