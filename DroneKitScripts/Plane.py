@@ -140,7 +140,12 @@ class Plane():
                 "latitude": self.pos_lat,
                 "longitude": self.pos_lon,
                 "air_speed": self.airspeed,
-                "ground_speed": self.groundspeed
+                "ground_speed": self.groundspeed,
+                "pitch": self.att_pitch_deg,
+                "roll": self.att_roll_deg,
+                "heading": self.att_heading_deg,
+                "lat": self.pos_lat,
+                "lon": self.pos_lon,
                 }
 
     def _get_location_metres(self, original_location, dNorth, dEast, is_global=False):
@@ -354,11 +359,6 @@ class Plane():
     def create_takeoff_command(self, takeoff_altitude = 100, takeoff_pitch = 40):
         return Command( 0, 0, 0, 3, mavutil.mavlink.MAV_CMD_NAV_TAKEOFF, 0, 0, takeoff_pitch,  0, 0, 0, 0,  0, takeoff_altitude)
     
-    #simply goes to waypoint but cannot be added to commands list
-    def go_to_waypoint1(self):
-    	#36.00549,-95.86031
-        waypoint1 = LocationGlobalRelative(36.10549,-95.86031,100)
-        self.vehicle.simple_goto(waypoint1)
 
     def get_target_from_bearing(self, original_location, ang, dist, altitude=None):
         """ Create a TGT request packet located at a bearing and distance from the original point
@@ -478,16 +478,3 @@ class Plane():
         self.vehicle.send_mavlink(msg)
 
       
-# if __name__ == '__main__':
-#     parser = argparse.ArgumentParser()
-#     parser.add_argument('--connect', default='tcp:127.0.0.1:5762')
-#     args = parser.parse_args()
-    
-    
-#     connection_string = args.connect
-    
-#     #-- Create the object
-#     plane = Plane(connection_string)
-
-#     #-- Arm and takeoff
-#     if not plane.is_armed(): plane.arm_and_takeoff()

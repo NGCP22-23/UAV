@@ -8,10 +8,10 @@ from create_mission import create_mission
 import Client
 
 # Connect to the pixhawk
-#plane = Plane.Plane('/dev/ttyACM0')
+plane = Plane.Plane('/dev/ttyACM0')
 
 # Connect to sim
-plane = Plane.Plane('tcp:127.0.0.1:5762')
+# plane = Plane.Plane('tcp:127.0.0.1:5762')
 
 client = Client.Client()
 

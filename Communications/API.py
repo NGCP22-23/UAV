@@ -26,7 +26,7 @@ app = Flask(__name__)
 
 @app.route('/telemetry', methods = ['POST'])
 def telemetry():
-    print(request.data)
+    print(request.data, '\n \n')
     #x = json.loads(data)
     #print(x)
     return "success"
