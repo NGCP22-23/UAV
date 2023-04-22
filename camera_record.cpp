@@ -5,21 +5,21 @@ int main(){
 
 
     if (!cap.isOpened()) {
-    std::cout << "Error: could not access the camera!" << std::endl;
-    return -1;
+        std::cout << "Error: could not access the camera!" << std::endl;
+        return -1;
     }
 
     while (true) {
-    cv::Mat frame;
-    cap >> frame; // capture a frame from the camera
+        cv::Mat frame;
+        cap >> frame; // capture a frame from the camera
 
-    cv::imshow("Camera Feed", frame); // display the frame
+        cv::imshow("Camera Feed", frame); // display the frame
 
-    char key = cv::waitKey(1); // wait for a key to be pressed for 1ms
+        char key = cv::waitKey(1); // wait for a key to be pressed for 1ms
 
-    if (key == 27) { // if the 'Esc' key is pressed, exit the loop
-        break;
-    }
+        if (key == 27) { // if the 'Esc' key is pressed, exit the loop
+            break;
+        }
     }
 
     cap.release(); // release the VideoCapture object

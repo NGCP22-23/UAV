@@ -1,5 +1,5 @@
 import dronekit
-from DroneKitScripts import Plane 
+from Autonomous import Plane 
 from Communications import Client
 import time
 
@@ -21,14 +21,13 @@ def send_telemetry_data():
     client.send_post(endpoint, plane.getTelemetryData())
 
 
-for i in range(5):
-    time.sleep(4)
+# monitor mission
+nextwaypoint = plane.vehicle.commands.next
+while nextwaypoint < len(plane.vehicle.commands):
+    if plane.vehicle.commands.next > nextwaypoint:
+        display_seq = plane.vehicle.commands.next
+        #if takeoff command is added, the waypoints will be 1 off
+        print("Moving to waypoint %s" % display_seq)
+        nextwaypoint = display_seq
     send_telemetry_data()
-
-# if(command == "hiker detection"){
-#     pass
-# } elif(command == "payload"){
-
-# } elif(command == "fire dection"){
-
-# }
+    time.sleep(1)
