@@ -11,7 +11,7 @@ client = Client.Client()
 
 
 def send_telemetry_data():
-    endpoint = 'http://127.0.0.1:5000/telemetry'
+    endpoint = 'http://10.110.180.122:5000/telemetry'
     # store data in dictionary
     #data = {
         #data gets updated via listners in the Plane class upon update

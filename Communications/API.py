@@ -31,4 +31,4 @@ def telemetry():
     #print(x)
     return "success"
 
-app.run()
+app.run(host="0.0.0.0")
