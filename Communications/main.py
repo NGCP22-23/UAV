@@ -1,6 +1,5 @@
-import dronekit
 from Autonomous import Plane 
-from Communications import Client
+import Client
 import time
 
 # Connect to the pixhawk

@@ -1,4 +1,4 @@
-from Autonomous import Plane 
+import Plane 
 
 # Connect to the pixhawk
 plane = Plane.Plane('/dev/ttyACM0')
