@@ -490,7 +490,7 @@ class Plane():
         long_change = (approach_distance * math.sin(math.radians(approach_heading)))/(earth_radius*math.cos(math.pi*tgt_lat/180))   #radians offset
         waypoints = []
         approach = [tgt_lat - (lat_change * 180/math.pi), tgt_long - (long_change * 180/math.pi)]
-        missed_approach = [tgt_lat + (lat_change * 180/math.pi), tgt_long + (long_change * 180/math.pi)]
+        missed_approach = [tgt_lat + (0.5 * lat_change * 180/math.pi), tgt_long + (0.5 * long_change * 180/math.pi)]
 
         waypoints.append(self.create_waypoint_command(approach[0], approach[1], altitudeAGL))
         waypoints.append(self.create_waypoint_command(tgt_lat, tgt_long, altitudeAGL))
@@ -500,17 +500,19 @@ class Plane():
             self.clear_mission
             self.create_mission(waypoints)
             self.set_ap_mode("AUTO")
+            print("[DROP NAV]: Started Approach Sequence")
             #dist = self.distance_to_coord(self.pos_lat, self.pos_lon, approach)
             #self.arm()
         
+
             if self.reached_point_get_status(approach[0], approach[1]) is True:
-                print("Reached Approach Point")
+                print("[DROP NAV]: Reached Approach Point")
                 if self.reach_point_get_status(tgt_lat, tgt_long) is True:
-                    print("Reached Drop Point Successful!")
+                    print("[DROP NAV]: Reached Drop Point Successful!")
                 else:
-                    print("Did not reach drop point")
+                    print("[DROP NAV]: Did not reach drop point")
             else :
-                print("Did not reach approach point")
+                print("[DROP NAV]: Did not reach approach point")
 
         pass
 
@@ -518,6 +520,7 @@ class Plane():
     #TODO: Make sure this function does not disrupt other functions due to its while loop
     def reached_point_get_status(self, lat, long):
         dx = self.delta_distance(lat, long)
+        print(dx)
         while dx < -5:   #less than5 m/s
             print(dx)
             dx = self.delta_distance(lat, long)
@@ -531,8 +534,8 @@ class Plane():
         time.sleep(1)
         distance2 = self.distance_to_coord(lat, long)
 
-        delta_unscaled = distance1 - distance2
-        return delta_unscaled * 10
+        delta_unscaled = distance2 - distance1
+        return delta_unscaled * 1
 
 
     def distance_to_coord(self, lat, long):
