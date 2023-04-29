@@ -12,9 +12,13 @@ import psutil
 import argparse
 import copy
 
-PAYLOAD_PIN_A = 6
-PAYLOAD_PIN_B = 7
+PAYLOAD_PIN = 7
 PAYLOAD_DOOR = 8
+
+PIN_SERVO_IN_PWM = 2200.0
+PIN_SERVO_OUT_PWM = 800.0
+DOOR_SERVO_PWM_OPEN = 1650.0
+DOOR_SERVO_PWM_CLOSED = 850.0
 
 class Plane():
     def __init__(self, connection_string=None, vehicle=None):
@@ -466,22 +470,23 @@ class Plane():
         )
         self.vehicle.send_mavlink(msg)
     
+
     def operate_payload_door(self, open = True):
         if open:
-            pwm = 1600  #TODO: Check Correct PWM rotation
+            pwm = DOOR_SERVO_PWM_OPEN 
         else:
-            pwm = 1400  ##TODO: Check Correct PWM rotation
+            pwm = DOOR_SERVO_PWM_CLOSED
         self.rotate_target_servo(PAYLOAD_DOOR, pwm)
         return True
     
     def payload_release_pins(self, release = True):
         if release:
-            pwm_release = 1400  ##TODO: Check Correct PWM rotation!
+            pwm_release = PIN_SERVO_OUT_PWM
         else:
             # Set pints back into place
-            pwm_release = 1600  ##TODO: Check Correct PWM rotation!
-        self.rotate_target_servo(PAYLOAD_PIN_A, pwm_release)
-        self.rotate_target_servo(PAYLOAD_PIN_A, pwm_release)
+            pwm_release = PIN_SERVO_IN_PWM  
+        self.rotate_target_servo(PAYLOAD_PIN, pwm_release)
+
     
     def payload_drop_handler(self, tgt_lat, tgt_long, approach_heading = 0, drop_offset = 0, altitudeAGL = 100, approach_distance = 50): #values in meters
         successful_drop = False
