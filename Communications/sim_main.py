@@ -7,22 +7,20 @@ import sys
 sys.path.append("..")
 
 from Autonomous.Plane import Plane
- 
-# Connect to the pixhawk
-plane = Plane('/dev/ttyACM0')
+
+# Connect to Simulation
+plane = Plane('tcp:127.0.0.1:5762')
 
 # Create client
 client = Client()
 
 
 def send_telemetry_data():
-    endpoint = 'http://10.110.180.122:5000/telemetry'
+    endpoint =  'http://192.168.50.37:5000/telemetry'
     client.send_post(endpoint, plane.getTelemetryData())
 
-# while(True):
-#     send_telemetry_data()
-#     time.sleep(3)
-
+# arm and takeoff(for sim)
+plane.arm_and_takeoff()
 
 # monitor mission
 nextwaypoint = plane.vehicle.commands.next
