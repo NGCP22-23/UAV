@@ -149,7 +149,7 @@ class Plane():
                 "lat": self.pos_lat,
                 "lon": self.pos_lon,
                 }
-
+    
     def _get_location_metres(self, original_location, dNorth, dEast, is_global=False):
         """
         Returns a Location object containing the latitude/longitude `dNorth` and `dEast` metres from the
