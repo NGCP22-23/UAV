@@ -33,7 +33,7 @@ class Plane(Node):
 
 
         # ros subscriber topics
-        self.flight_plan_subscription = self.create_subscription(String, 'mission', self.mission_change, 10)
+        self.flight_plan_subscription = self.create_subscription(String, 'mission', self.mission_change_callback, 10)
 
 
         """ Initialize the object
@@ -203,13 +203,14 @@ class Plane(Node):
     def mode_callback(self):
         # build the message
         msg = String()
-        msg.data = self.get_ap_mode
+        print(type(self.get_ap_mode()), '\n')
+        msg.data = str(self.get_ap_mode())
         
         # publish the data 
         self.mode_publisher.publish(msg)
 
         # publish to console
-        self.get_logger().info('Publishing: ', msg.data)
+        self.get_logger().info('Publishing: "%s"' % msg.data)
 
 
     # ros subscriber callback function for changing mission from mission topic
@@ -442,7 +443,7 @@ def main(args=None):
     rclpy.init(args=args)
 
     # creat the node
-    plane_publisher = Plane()
+    plane_publisher = Plane('tcp:127.0.0.1:5762')
 
     # spin the node so callbacks are called
     rclpy.spin(plane_publisher)

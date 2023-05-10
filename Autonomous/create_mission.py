@@ -37,5 +37,5 @@ mission2 = waypoints_1000ft + waypoints_500ft
 mission3 = waypoints_1500ft + mission2
 altitude = 60.96 #200 ft
 
-create_mission(mission1, altitude)
-# create_mission(waypoints_fire, 30.48)
+#create_mission(mission2, altitude)
+create_mission(waypoints_fire, 30.48)
