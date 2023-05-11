@@ -8,7 +8,6 @@ setup.py
 ../../build/communications/communications.egg-info/requires.txt
 ../../build/communications/communications.egg-info/top_level.txt
 ../../build/communications/communications.egg-info/zip-safe
-communications/Client.py
 communications/__init__.py
 communications/main.py
 resource/communications
