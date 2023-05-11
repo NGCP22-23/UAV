@@ -42,11 +42,14 @@ class Comms(Node):
         self.client = Client()
 
         # api endpoint address
-        self.endpoint = 'http://10.110.180.122:5000/telemetry'
+        # self.endpoint = 'http://10.110.180.122:5000/telemetry'
+        self.endpoint = 'http://192.168.50.36:5000/telemetry'
 
 
     def telem_listener(self, msg):
         self.get_logger().info('I heard: "%s"' % msg.data)
+        self.client.send_post(self.endpoint, msg.data)
+
 
 # while(True):
 #     client.send_post(endpoint, plane.getTelemetryData())

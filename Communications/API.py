@@ -1,15 +1,8 @@
 
 import json
 from flask import Flask, jsonify, request
-from Autonomous.Plane import Plane
-import sys
-
-
-# parent directory
-sys.path.append("..")
 
 app = Flask(__name__)
-
 
 
 @app.route('/telemetry', methods = ['POST'])

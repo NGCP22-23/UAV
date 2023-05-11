@@ -248,10 +248,8 @@ class Plane(Node):
 
     def get_ap_mode(self):                      #--- Get the autopilot mode
         """ Get the autopilot mode
-
         """
         self._ap_mode  = self.vehicle.mode
-
         return(self.vehicle.mode)
 
         
@@ -261,13 +259,10 @@ class Plane(Node):
     def telem_callback(self):
         # build the message
         msg = String()
-
         telem = (str(self.get_ap_mode()), str(self.pos_alt_abs))
-
         msg.data = '\n'.join(telem)
 
         # publish the data 
-
         self.telem_publisher.publish(msg)
 
         # print to console
@@ -344,15 +339,11 @@ class Plane(Node):
     def mission_add_takeoff(self, takeoff_altitude=50, takeoff_pitch=15, heading=None):
 
         """ Adds a takeoff item to the UAV mission, if it's not defined yet
-
         
-
         Input:
 
             takeoff_altitude    - [m]   altitude at which the takeoff is considered over
-
             takeoff_pitch       - [deg] pitch angle during takeoff
-
             heading             - [deg] heading angle during takeoff (default is the current)
 
         """
@@ -652,25 +643,19 @@ class Plane(Node):
         earth_radius=6378137.0 #Radius of "spherical" earth
 
         #Coordinate offsets in radians
-
         dLat = dNorth/earth_radius
-
         dLon = dEast/(earth_radius*math.cos(math.pi*original_location.lat/180))
 
 
 
         #New position in decimal degrees
-
         newlat = original_location.lat + (dLat * 180/math.pi)
-
         newlon = original_location.lon + (dLon * 180/math.pi)
 
         
 
         if is_global:
-
             return LocationGlobal(newlat, newlon,original_location.alt)    
-
         else:
 
             return LocationGlobalRelative(newlat, newlon,original_location.alt)         
