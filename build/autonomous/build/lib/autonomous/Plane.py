@@ -19,9 +19,7 @@ from std_msgs.msg import String
 
 
 PAYLOAD_PIN_A = 6
-
 PAYLOAD_PIN_B = 7
-
 PAYLOAD_DOOR = 8
 
 
@@ -37,22 +35,18 @@ class Plane(Node):
 
         # set rate of publishing 
         self.timer_period = 1   #1 second(1Hz)
-        self.mode_timer = self.create_timer(self.timer_period, self.telem_callback)
+        self.mode_timer = self.create_timer(self.timer_period, self.telem_publisher_callback)
 
         # ros subscriber topics
-        self.flight_plan_subscription = self.create_subscription(String, 'mission', self.mission_change_callback, 10)
+        self.mission_subscriber= self.create_subscription(String, 'mission', self.mission_subscriber_callback, 10)
 
         """ Initialize the object
         Use either the provided vehicle object or the connections tring to connect to the autopilot
 
         Input:
-
             connection_string       - the mavproxy style connection string, like tcp:127.0.0.1:5760
-
                                       default is None
-
             vehicle                 - dronekit vehicle object, coming from another instance (default is None)
-
         """
 
         #---- Connecting with the vehicle, using either the provided vehicle or the connection string
@@ -77,7 +71,6 @@ class Plane(Node):
 
         self.climb_rate         = 0.0       #- [m/s]    climb rate
         self.throttle           = 0.0       #- [ ]      throttle (0-100)
-
 
         self._setup_listeners()
 
@@ -256,7 +249,7 @@ class Plane(Node):
 
     # ros publisher callback for mode
 
-    def telem_callback(self):
+    def telem_publisher_callback(self):
         # build the message
         msg = String()
         telem = (str(self.get_ap_mode()), str(self.pos_alt_abs))
@@ -266,17 +259,23 @@ class Plane(Node):
         self.telem_publisher.publish(msg)
 
         # print to console
-        self.get_logger().info('Publishing: "%s"' % msg.data)
+        # self.get_logger().info('Publishing: "%s"' % msg.data)
 
 
     # ros subscriber callback function for changing mission from mission topic
-    def mission_change_callback(self, msg):
-        pass
+    def mission_subscriber_callback(self, msg):
+        mission_list = []
+        alt = 60.96
+
+        # for coord in msg.data:
+        #     mission_list.append(self.create_waypoint_command(coord[0], coord[1], alt))
+        
+        # self.create_mission(mission_list)
+        self.get_logger().info('I heard: "%s"' % msg.data)
 
 
     def clear_mission(self):                    #--- Clear the onboard mission
         """ Clear the current mission.
-
         """
         cmds = self.vehicle.commands
         self.vehicle.commands.clear()
@@ -304,6 +303,7 @@ class Plane(Node):
         self.vehicle.commands.wait_ready() # wait until download is complete.  
         self.mission = self.vehicle.commands
 
+    
 
     def create_mission(self, commandsList):
         print('\nClearing current mission')
@@ -312,8 +312,6 @@ class Plane(Node):
 
         for cmd in commandsList:
             cmds.add(cmd)
-
-
 
         print('\nUploading new commands to vehicle')
         cmds.upload()

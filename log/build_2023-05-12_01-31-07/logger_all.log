@@ -1,0 +1,247 @@
+[0.733s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.734s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fb12d45e9b0>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=1, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fb12d45e9b0>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fb12d45ecf8>)
+[0.825s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.826s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.826s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.827s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.827s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.828s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.828s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/garrett/Desktop/UAV'
+[0.829s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.829s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.829s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.830s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.830s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.830s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.831s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.831s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.831s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.858s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.858s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.859s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.859s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.859s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.860s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extensions ['ignore', 'ignore_ament_install']
+[0.861s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'ignore'
+[0.861s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'ignore_ament_install'
+[0.861s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extensions ['colcon_pkg']
+[0.862s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'colcon_pkg'
+[0.862s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extensions ['colcon_meta']
+[0.862s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'colcon_meta'
+[0.862s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extensions ['ros']
+[0.863s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'ros'
+[0.863s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extensions ['cmake', 'python']
+[0.863s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'cmake'
+[0.863s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'python'
+[0.864s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extensions ['python_setup_py']
+[0.864s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'python_setup_py'
+[0.864s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.865s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'ignore'
+[0.865s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'ignore_ament_install'
+[0.865s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extensions ['colcon_pkg']
+[0.865s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'colcon_pkg'
+[0.866s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extensions ['colcon_meta']
+[0.866s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'colcon_meta'
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extensions ['ros']
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'ros'
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extensions ['cmake', 'python']
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'cmake'
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'python'
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extensions ['python_setup_py']
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'python_setup_py'
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extensions ['ignore', 'ignore_ament_install']
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'ignore'
+[0.868s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'ignore_ament_install'
+[0.868s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extensions ['colcon_pkg']
+[0.868s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'colcon_pkg'
+[0.868s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extensions ['colcon_meta']
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'colcon_meta'
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extensions ['ros']
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'ros'
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extensions ['cmake', 'python']
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'cmake'
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'python'
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extensions ['python_setup_py']
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'python_setup_py'
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'ignore'
+[0.871s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'ignore_ament_install'
+[0.871s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extensions ['colcon_pkg']
+[0.871s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'colcon_pkg'
+[0.872s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extensions ['colcon_meta']
+[0.872s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'colcon_meta'
+[0.872s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extensions ['ros']
+[0.872s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'ros'
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extensions ['cmake', 'python']
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'cmake'
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'python'
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extensions ['python_setup_py']
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'python_setup_py'
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extensions ['ignore', 'ignore_ament_install']
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'ignore'
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'ignore_ament_install'
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extensions ['colcon_pkg']
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'colcon_pkg'
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extensions ['colcon_meta']
+[0.874s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'colcon_meta'
+[0.874s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extensions ['ros']
+[0.874s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'ros'
+[0.875s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extensions ['cmake', 'python']
+[0.875s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'cmake'
+[0.875s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'python'
+[0.875s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extensions ['python_setup_py']
+[0.876s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'python_setup_py'
+[0.876s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.876s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.877s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.877s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.878s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.878s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.878s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.879s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.879s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.879s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.880s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.880s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.880s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.881s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.881s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.881s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.882s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.882s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.882s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.882s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.883s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.883s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.883s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.883s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extensions ['ignore', 'ignore_ament_install']
+[0.883s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extension 'ignore'
+[0.883s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extension 'ignore_ament_install'
+[0.883s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extensions ['colcon_pkg']
+[0.883s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extension 'colcon_pkg'
+[0.883s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extensions ['colcon_meta']
+[0.884s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extension 'colcon_meta'
+[0.885s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extensions ['ros']
+[0.885s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extension 'ros'
+[0.889s] DEBUG:colcon.colcon_core.package_identification:Package 'src/autonomous' with type 'ros.ament_python' and name 'autonomous'
+[0.890s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extensions ['ignore', 'ignore_ament_install']
+[0.890s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extension 'ignore'
+[0.891s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extension 'ignore_ament_install'
+[0.891s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extensions ['colcon_pkg']
+[0.891s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extension 'colcon_pkg'
+[0.891s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extensions ['colcon_meta']
+[0.892s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extension 'colcon_meta'
+[0.892s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extensions ['ros']
+[0.892s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extension 'ros'
+[0.893s] DEBUG:colcon.colcon_core.package_identification:Package 'src/communications' with type 'ros.ament_python' and name 'communications'
+[0.894s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.894s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.894s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.895s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.895s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.950s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.950s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.956s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 2 installed packages in /home/garrett/Desktop/UAV/install
+[0.959s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 227 installed packages in /opt/ros/eloquent
+[0.963s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.107s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'cmake_args' from command line to 'None'
+[1.107s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'cmake_target' from command line to 'None'
+[1.107s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.107s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'cmake_clean_cache' from command line to 'False'
+[1.108s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'cmake_clean_first' from command line to 'False'
+[1.108s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'cmake_force_configure' from command line to 'False'
+[1.108s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'ament_cmake_args' from command line to 'None'
+[1.110s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'catkin_cmake_args' from command line to 'None'
+[1.110s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.110s] DEBUG:colcon.colcon_core.verb:Building package 'autonomous' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/garrett/Desktop/UAV/build/autonomous', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/garrett/Desktop/UAV/install/autonomous', 'merge_install': False, 'path': '/home/garrett/Desktop/UAV/src/autonomous', 'symlink_install': False, 'test_result_base': None}
+[1.113s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'cmake_args' from command line to 'None'
+[1.113s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'cmake_target' from command line to 'None'
+[1.113s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.113s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'cmake_clean_cache' from command line to 'False'
+[1.114s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'cmake_clean_first' from command line to 'False'
+[1.114s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'cmake_force_configure' from command line to 'False'
+[1.114s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'ament_cmake_args' from command line to 'None'
+[1.115s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'catkin_cmake_args' from command line to 'None'
+[1.115s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.115s] DEBUG:colcon.colcon_core.verb:Building package 'communications' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/garrett/Desktop/UAV/build/communications', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/garrett/Desktop/UAV/install/communications', 'merge_install': False, 'path': '/home/garrett/Desktop/UAV/src/communications', 'symlink_install': False, 'test_result_base': None}
+[1.116s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.123s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.124s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/garrett/Desktop/UAV/src/autonomous' with build type 'ament_python'
+[1.124s] Level 1:colcon.colcon_core.shell:create_environment_hook('autonomous', 'ament_prefix_path')
+[1.133s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.134s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/garrett/Desktop/UAV/install/autonomous/share/autonomous/hook/ament_prefix_path.ps1'
+[1.135s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/garrett/Desktop/UAV/install/autonomous/share/autonomous/hook/ament_prefix_path.dsv'
+[1.137s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/garrett/Desktop/UAV/install/autonomous/share/autonomous/hook/ament_prefix_path.sh'
+[1.145s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.147s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.911s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/garrett/Desktop/UAV/src/autonomous'
+[1.915s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.915s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.857s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/garrett/Desktop/UAV/src/autonomous': PYTHONPATH=/home/garrett/Desktop/UAV/build/autonomous/prefix_override:/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/autonomous build --build-base /home/garrett/Desktop/UAV/build/autonomous/build install --record /home/garrett/Desktop/UAV/build/autonomous/install.log --install-scripts $base/lib/autonomous --single-version-externally-managed
+[3.635s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/garrett/Desktop/UAV/src/autonomous' returned '0': PYTHONPATH=/home/garrett/Desktop/UAV/build/autonomous/prefix_override:/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/autonomous build --build-base /home/garrett/Desktop/UAV/build/autonomous/build install --record /home/garrett/Desktop/UAV/build/autonomous/install.log --install-scripts $base/lib/autonomous --single-version-externally-managed
+[3.643s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/autonomous' for CMake module files
+[3.645s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/autonomous' for CMake config files
+[3.647s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/autonomous/lib'
+[3.647s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/autonomous/bin'
+[3.648s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/autonomous/lib/pkgconfig/autonomous.pc'
+[3.648s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages'
+[3.649s] Level 1:colcon.colcon_core.shell:create_environment_hook('autonomous', 'pythonpath')
+[3.651s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/garrett/Desktop/UAV/install/autonomous/share/autonomous/hook/pythonpath.ps1'
+[3.653s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/garrett/Desktop/UAV/install/autonomous/share/autonomous/hook/pythonpath.dsv'
+[3.653s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/garrett/Desktop/UAV/install/autonomous/share/autonomous/hook/pythonpath.sh'
+[3.655s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/autonomous/bin'
+[3.655s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(autonomous)
+[3.658s] INFO:colcon.colcon_core.shell:Creating package script '/home/garrett/Desktop/UAV/install/autonomous/share/autonomous/package.ps1'
+[3.660s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/garrett/Desktop/UAV/install/autonomous/share/autonomous/package.dsv'
+[3.661s] INFO:colcon.colcon_core.shell:Creating package script '/home/garrett/Desktop/UAV/install/autonomous/share/autonomous/package.sh'
+[3.662s] INFO:colcon.colcon_core.shell:Creating package script '/home/garrett/Desktop/UAV/install/autonomous/share/autonomous/package.bash'
+[3.665s] INFO:colcon.colcon_core.shell:Creating package script '/home/garrett/Desktop/UAV/install/autonomous/share/autonomous/package.zsh'
+[3.667s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/garrett/Desktop/UAV/install/autonomous/share/colcon-core/packages/autonomous)
+[3.669s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/garrett/Desktop/UAV/src/communications' with build type 'ament_python'
+[3.669s] Level 1:colcon.colcon_core.shell:create_environment_hook('communications', 'ament_prefix_path')
+[3.672s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/garrett/Desktop/UAV/install/communications/share/communications/hook/ament_prefix_path.ps1'
+[3.673s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/garrett/Desktop/UAV/install/communications/share/communications/hook/ament_prefix_path.dsv'
+[3.674s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/garrett/Desktop/UAV/install/communications/share/communications/hook/ament_prefix_path.sh'
+[3.678s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.678s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.324s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/garrett/Desktop/UAV/src/communications'
+[4.335s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.336s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.137s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/garrett/Desktop/UAV/src/communications': PYTHONPATH=/home/garrett/Desktop/UAV/build/communications/prefix_override:/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/communications build --build-base /home/garrett/Desktop/UAV/build/communications/build install --record /home/garrett/Desktop/UAV/build/communications/install.log --install-scripts $base/lib/communications --single-version-externally-managed
+[5.849s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/communications' for CMake module files
+[5.851s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/garrett/Desktop/UAV/src/communications' returned '0': PYTHONPATH=/home/garrett/Desktop/UAV/build/communications/prefix_override:/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/communications build --build-base /home/garrett/Desktop/UAV/build/communications/build install --record /home/garrett/Desktop/UAV/build/communications/install.log --install-scripts $base/lib/communications --single-version-externally-managed
+[5.852s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/communications' for CMake config files
+[5.855s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/communications/lib'
+[5.856s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/communications/bin'
+[5.856s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/communications/lib/pkgconfig/communications.pc'
+[5.857s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages'
+[5.857s] Level 1:colcon.colcon_core.shell:create_environment_hook('communications', 'pythonpath')
+[5.860s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/garrett/Desktop/UAV/install/communications/share/communications/hook/pythonpath.ps1'
+[5.861s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/garrett/Desktop/UAV/install/communications/share/communications/hook/pythonpath.dsv'
+[5.862s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/garrett/Desktop/UAV/install/communications/share/communications/hook/pythonpath.sh'
+[5.863s] Level 1:colcon.colcon_core.environment:checking '/home/garrett/Desktop/UAV/install/communications/bin'
+[5.863s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(communications)
+[5.867s] INFO:colcon.colcon_core.shell:Creating package script '/home/garrett/Desktop/UAV/install/communications/share/communications/package.ps1'
+[5.868s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/garrett/Desktop/UAV/install/communications/share/communications/package.dsv'
+[5.868s] INFO:colcon.colcon_core.shell:Creating package script '/home/garrett/Desktop/UAV/install/communications/share/communications/package.sh'
+[5.869s] INFO:colcon.colcon_core.shell:Creating package script '/home/garrett/Desktop/UAV/install/communications/share/communications/package.bash'
+[5.870s] INFO:colcon.colcon_core.shell:Creating package script '/home/garrett/Desktop/UAV/install/communications/share/communications/package.zsh'
+[5.871s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/garrett/Desktop/UAV/install/communications/share/colcon-core/packages/communications)
+[5.872s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[5.873s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[5.874s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[5.874s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[5.882s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[5.882s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[5.883s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[5.894s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[5.897s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/garrett/Desktop/UAV/install/local_setup.ps1'
+[5.904s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/garrett/Desktop/UAV/install/_local_setup_util_ps1.py'
+[5.912s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/garrett/Desktop/UAV/install/setup.ps1'
+[5.918s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/garrett/Desktop/UAV/install/local_setup.sh'
+[5.921s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/garrett/Desktop/UAV/install/_local_setup_util_sh.py'
+[5.923s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/garrett/Desktop/UAV/install/setup.sh'
+[5.930s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/garrett/Desktop/UAV/install/local_setup.bash'
+[5.932s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/garrett/Desktop/UAV/install/setup.bash'
+[5.940s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/garrett/Desktop/UAV/install/local_setup.zsh'
+[5.942s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/garrett/Desktop/UAV/install/setup.zsh'

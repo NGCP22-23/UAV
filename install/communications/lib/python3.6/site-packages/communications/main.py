@@ -38,22 +38,33 @@ class Comms(Node):
         # Create a telem subscription
         self.telem_subscription = self.create_subscription(String, 'telem', self.telem_listener, 10)
 
+        # mission publisher
+        self.mission_publisher = self.create_publisher(String, 'mission', 10)
+
+        # set rate of publishing 
+        self.timer_period = 1   #1 second(1Hz)
+        self.mode_timer = self.create_timer(self.timer_period, self.mission_callback)
+
         # Create client
         self.client = Client()
 
         # api endpoint address
         # self.endpoint = 'http://10.110.180.122:5000/telemetry'
-        self.endpoint = 'http://192.168.50.36:5000/telemetry'
+        self.telemetry_endpoint = 'http://192.168.50.36:5000/telemetry'
+        self.mission_endpoint = 'http://192.168.50.36:5000/mission'
 
 
     def telem_listener(self, msg):
         self.get_logger().info('I heard: "%s"' % msg.data)
-        self.client.send_post(self.endpoint, msg.data)
+        self.client.send_post(self.telemetry_endpoint, msg.data)
 
+    def mission_callback(self):
+        msg = String()
+        msg.data = str(self.client.send_get(self.mission_endpoint))
+        self.mission_publisher.publish(msg)
+        self.get_logger().info('Publishing: "%s"' % msg.data)
+        
 
-# while(True):
-#     client.send_post(endpoint, plane.getTelemetryData())
-#     time.sleep(3)
 
 
 # # monitor mission
