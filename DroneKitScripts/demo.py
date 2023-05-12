@@ -7,13 +7,13 @@ import time
 #from . import create_mission
 
 # Connect to the pixhawk
-plane = Plane.Plane('/dev/ttyACM0')
+#plane = Plane.Plane('/dev/ttyACM0')
 
 # Connect to sim
-#plane = Plane.Plane('tcp:127.0.0.1:5762')
+plane = Plane.Plane('tcp:127.0.0.1:5762')
 
 plane.arm()
-print("setup")
+'''print("setup")
 plane.operate_payload_door(False)
 plane.payload_release_pins(False)
 input("[ENTER]: Open Door")
@@ -21,9 +21,9 @@ plane.operate_payload_door(True)
 input("[ENTER]: Release Pins")
 plane.payload_release_pins(True)
 input("[ENTER]: Close Door")
-plane.operate_payload_door(False)
-
-plane.payload_drop_handler(34.04331760, -117.81297297, 40, 0, 50, 300)
+plane.operate_payload_door(False)'''
+# tgt_lat, tgt_long, approach_heading, drop_offset, altitudeAGL, approach_distance
+plane.payload_drop_handler(34.04331760, -117.81297297, 40, 50, 50, 300)
 
 #arm the plane
 #plane.arm()

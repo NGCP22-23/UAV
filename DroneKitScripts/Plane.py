@@ -487,7 +487,7 @@ class Plane():
             pwm_release = PIN_SERVO_IN_PWM  
         self.rotate_target_servo(PAYLOAD_PIN, pwm_release)
 
-    
+    # tgt_lat, tgt_long, approach_heading, drop_offset, altitudeAGL, approach_distance
     def payload_drop_handler(self, tgt_lat, tgt_long, approach_heading = 0, drop_offset = 0, altitudeAGL = 100, approach_distance = 50): #values in meters
         successful_drop = False
         earth_radius = 6378137.0 #meters
@@ -496,9 +496,12 @@ class Plane():
         waypoints = []
         approach = [tgt_lat - (lat_change * 180/math.pi), tgt_long - (long_change * 180/math.pi)]
         missed_approach = [tgt_lat + (0.5 * lat_change * 180/math.pi), tgt_long + (0.5 * long_change * 180/math.pi)]
+        drop_lat_change = (drop_offset * math.cos(math.radians(approach_heading)))/earth_radius
+        drop_long_change = (drop_offset * math.sin(math.radians(approach_heading)))/(earth_radius*math.cos(math.pi*tgt_lat/180))   #radians offset
+        target_offset = [tgt_lat - (drop_lat_change * 180/math.pi), tgt_long - (drop_long_change * 180/math.pi)]
 
         waypoints.append(self.create_waypoint_command(approach[0], approach[1], altitudeAGL))
-        waypoints.append(self.create_waypoint_command(tgt_lat, tgt_long, altitudeAGL))
+        waypoints.append(self.create_waypoint_command(target_offset[0], target_offset[1], altitudeAGL))
         waypoints.append(self.create_waypoint_command(missed_approach[0], missed_approach[1], altitudeAGL))
         while not successful_drop:
             door_open = False
@@ -509,11 +512,11 @@ class Plane():
             #dist = self.distance_to_coord(self.pos_lat, self.pos_lon, approach)
             #self.arm()
         
-
             if self.reached_point_get_status(approach[0], approach[1]) is True:
                 print("[DROP NAV]: Reached Approach Point")
-                if self.reach_point_get_status(tgt_lat, tgt_long) is True:
+                if self.reached_point_get_status(tgt_lat, tgt_long) is True:
                     print("[DROP NAV]: Reached Drop Point Successful!")
+                    successful_drop = True
                 else:
                     print("[DROP NAV]: Did not reach drop point")
             else :
@@ -525,11 +528,16 @@ class Plane():
     #TODO: Make sure this function does not disrupt other functions due to its while loop
     def reached_point_get_status(self, lat, long):
         dx = self.delta_distance(lat, long)
-        print(dx)
-        while dx < -5:   #less than5 m/s
+        #print(dx)
+        while dx >= 0:
+            print("Waiting until dx < 0")
+            time.sleep(0.5)
+            dx = self.delta_distance(lat, long)
+            pass
+        while dx < -0:   #less than5 m/s
             print(dx)
             dx = self.delta_distance(lat, long)
-            if self.distance_to_coord(lat, long) < 10:
+            if self.distance_to_coord(lat, long) < 20:
                 return True
         return False    #Aircraft Did not get near enough to point and distance started increasing
     
