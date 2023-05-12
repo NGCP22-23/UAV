@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+../../build/autonomous/autonomous.egg-info/PKG-INFO
+../../build/autonomous/autonomous.egg-info/SOURCES.txt
+../../build/autonomous/autonomous.egg-info/dependency_links.txt
+../../build/autonomous/autonomous.egg-info/entry_points.txt
+../../build/autonomous/autonomous.egg-info/requires.txt
+../../build/autonomous/autonomous.egg-info/top_level.txt
+../../build/autonomous/autonomous.egg-info/zip-safe
+autonomous/Plane.py
+autonomous/__init__.py
+resource/autonomous
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

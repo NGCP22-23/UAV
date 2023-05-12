@@ -1,0 +1,17 @@
+package.xml
+setup.cfg
+setup.py
+../../build/communications/communications.egg-info/PKG-INFO
+../../build/communications/communications.egg-info/SOURCES.txt
+../../build/communications/communications.egg-info/dependency_links.txt
+../../build/communications/communications.egg-info/entry_points.txt
+../../build/communications/communications.egg-info/requires.txt
+../../build/communications/communications.egg-info/top_level.txt
+../../build/communications/communications.egg-info/zip-safe
+communications/Client.py
+communications/__init__.py
+communications/main.py
+resource/communications
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

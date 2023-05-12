@@ -1,0 +1,3 @@
+[console_scripts]
+talker = autonomous.Plane:main
+

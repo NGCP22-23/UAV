@@ -1,0 +1,24 @@
+[1.471s] Invoking command in '/home/garrett/Desktop/UAV/src/autonomous': PYTHONPATH=/home/garrett/Desktop/UAV/build/autonomous/prefix_override:/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/autonomous build --build-base /home/garrett/Desktop/UAV/build/autonomous/build install --record /home/garrett/Desktop/UAV/build/autonomous/install.log --install-scripts $base/lib/autonomous --single-version-externally-managed
+[2.226s] running egg_info
+[2.230s] writing ../../build/autonomous/autonomous.egg-info/PKG-INFO
+[2.232s] writing dependency_links to ../../build/autonomous/autonomous.egg-info/dependency_links.txt
+[2.232s] writing entry points to ../../build/autonomous/autonomous.egg-info/entry_points.txt
+[2.233s] writing requirements to ../../build/autonomous/autonomous.egg-info/requires.txt
+[2.234s] writing top-level names to ../../build/autonomous/autonomous.egg-info/top_level.txt
+[2.395s] reading manifest file '../../build/autonomous/autonomous.egg-info/SOURCES.txt'
+[2.401s] writing manifest file '../../build/autonomous/autonomous.egg-info/SOURCES.txt'
+[2.401s] running build
+[2.402s] running build_py
+[2.403s] copying autonomous/Plane.py -> /home/garrett/Desktop/UAV/build/autonomous/build/lib/autonomous
+[2.405s] running install
+[2.405s] running install_lib
+[2.409s] copying /home/garrett/Desktop/UAV/build/autonomous/build/lib/autonomous/Plane.py -> /home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages/autonomous
+[2.411s] byte-compiling /home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages/autonomous/Plane.py to Plane.cpython-36.pyc
+[2.417s] running install_data
+[2.419s] running install_egg_info
+[2.426s] removing '/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages/autonomous-0.0.0-py3.6.egg-info' (and everything under it)
+[2.436s] Copying ../../build/autonomous/autonomous.egg-info to /home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages/autonomous-0.0.0-py3.6.egg-info
+[2.442s] running install_scripts
+[2.529s] Installing talker script to /home/garrett/Desktop/UAV/install/autonomous/lib/autonomous
+[2.534s] writing list of installed files to '/home/garrett/Desktop/UAV/build/autonomous/install.log'
+[2.570s] Invoked command in '/home/garrett/Desktop/UAV/src/autonomous' returned '0': PYTHONPATH=/home/garrett/Desktop/UAV/build/autonomous/prefix_override:/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/autonomous build --build-base /home/garrett/Desktop/UAV/build/autonomous/build install --record /home/garrett/Desktop/UAV/build/autonomous/install.log --install-scripts $base/lib/autonomous --single-version-externally-managed
