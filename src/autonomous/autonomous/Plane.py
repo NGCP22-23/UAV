@@ -1,16 +1,9 @@
-#import collections
-#import collections.abc
-#collections.MutableMapping = collections.abc.MutableMapping
-
-
-
 from dronekit import connect, VehicleMode, LocationGlobalRelative, Command, Battery, LocationGlobal, Attitude
 from pymavlink import mavutil
 
 
 import time
 import math
-import numpy as np
 
 
 import rclpy 
@@ -87,23 +80,18 @@ class Plane(Node):
         self.att_pitch_deg      = 0.0       #- [deg]    pitch
         self.att_heading_deg    = 0.0       #- [deg]    magnetic heading
 
-
         self.ap_mode            = ''        #- []       Autopilot flight mode
-
-        self.mission            = self.vehicle.commands #-- mission items
-
+        self.mission            = self.vehicle.commands         #-- mission items
         self.location_home      = LocationGlobalRelative(0,0,0) #- LocationRelative type home
-
         self.location_current   = LocationGlobalRelative(0,0,0) #- LocationRelative type current position
+
+        self.flight_plan        = ''      # saved to compare to new one which comes as a str from topic
 
     def _connect(self, connection_string):      #-- (private) Connect to Vehicle
 
         """ (private) connect with the autopilot
-
         Input:
-
             connection_string   - connection string (mavproxy style)
-
         """
 
         self.vehicle = connect(connection_string, wait_ready= False, baud = 57600)
@@ -120,14 +108,12 @@ class Plane(Node):
         if True:    
             #---- DEFINE CALLBACKS HERE!!!
             @self.vehicle.on_message('ATTITUDE')   
-
             def listener(vehicle, name, message):          #--- Attitude
                 self.att_roll_deg   = math.degrees(message.roll)
                 self.att_pitch_deg  = math.degrees(message.pitch)
                 self.att_heading_deg = math.degrees(message.yaw)%360
                 
             @self.vehicle.on_message('GLOBAL_POSITION_INT')       
-
             def listener(vehicle, name, message):          #--- Position / Velocity                                                                                                             
                 self.pos_lat        = message.lat*1e-7
                 self.pos_lon        = message.lon*1e-7
@@ -155,46 +141,8 @@ class Plane(Node):
 
         print(">> Connection Established")
 
-
-    #testing, testing
-
-    def getTelemetryData(self):
-
-        """
-
-        returns plane data(mode, altitude, latitude, longitude, airspeed, groupspeed)
-
-        """
-
-        return {"mode": self.ap_mode,
-
-                "altitude": self.pos_alt_abs,
-
-                "latitude": self.pos_lat,
-
-                "longitude": self.pos_lon,
-
-                "air_speed": self.airspeed,
-
-                "ground_speed": self.groundspeed,
-
-                "pitch": self.att_pitch_deg,
-
-                "roll": self.att_roll_deg,
-
-                "heading": self.att_heading_deg,
-
-                "lat": self.pos_lat,
-
-                "lon": self.pos_lon,
-
-                }
-
-        
-
     def is_armed(self):                         #-- Check whether uav is armed
         """ Checks whether the UAV is armed
-
         """
         return(self.vehicle.armed)
 
@@ -203,8 +151,6 @@ class Plane(Node):
         """ Arm the UAV
         """
         self.vehicle.armed = True
-
-        
 
     def disarm(self):                           #-- disarm UAV
         """ Disarm the UAV
@@ -227,8 +173,6 @@ class Plane(Node):
         except:
             return(False)
 
-            
-
         while (self.get_ap_mode() != tgt_mode):
             self.vehicle.mode  = tgt_mode
             time.sleep(0.2)
@@ -238,21 +182,27 @@ class Plane(Node):
         return (True)
 
         
-
     def get_ap_mode(self):                      #--- Get the autopilot mode
         """ Get the autopilot mode
         """
         self._ap_mode  = self.vehicle.mode
         return(self.vehicle.mode)
 
-        
 
     # ros publisher callback for mode
-
     def telem_publisher_callback(self):
         # build the message
         msg = String()
-        telem = (str(self.get_ap_mode()), str(self.pos_alt_abs))
+        telem = (
+                str(self.pos_alt_abs), 
+                str(self.airspeed), 
+                str(self.att_pitch_deg), 
+                str(self.att_roll_deg), 
+                str(self.att_heading_deg),
+                str(self.pos_lat), 
+                str(self.pos_lon), 
+                str(self.get_ap_mode()), 
+            )
         msg.data = '\n'.join(telem)
 
         # publish the data 
@@ -264,14 +214,28 @@ class Plane(Node):
 
     # ros subscriber callback function for changing mission from mission topic
     def mission_subscriber_callback(self, msg):
+        #if the new mission is the same then return
+        if msg.data == self.flight_plan:    
+            return 
+        
+        self.flight_plan = msg.data
+
         mission_list = []
         alt = 60.96
 
-        # for coord in msg.data:
-        #     mission_list.append(self.create_waypoint_command(coord[0], coord[1], alt))
+        coordinates = self.flight_plan.split('\n')
         
-        # self.create_mission(mission_list)
-        self.get_logger().info('I heard: "%s"' % msg.data)
+        i = 0
+        for i in range(len(coordinates)):
+            if i == len(coordinates)-1:
+                break
+
+            x = coordinates[i].split(', ')
+            print(x)
+            mission_list.append(self.create_waypoint_command(float(x[0]), float(x[1]), alt))
+        
+        self.create_mission(mission_list)
+        # self.get_logger().info('I heard: "%s"' % msg.data)
 
 
     def clear_mission(self):                    #--- Clear the onboard mission
@@ -287,9 +251,7 @@ class Plane(Node):
         # (see https://github.com/dronekit/dronekit-python/issues/230)
 
         self.mission = self.vehicle.commands
-
         self.mission.download()
-
         self.mission.wait_ready()
 
 
@@ -319,19 +281,11 @@ class Plane(Node):
 
 
     def create_waypoint_command(self, lat, lon, alt):
-
         return Command(0, 0, 0, mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT, mavutil.mavlink.MAV_CMD_NAV_WAYPOINT, 0, 0, 0, 0, 0, 0, lat, lon, alt)
 
-    
-
-    
 
     def create_takeoff_command(self, takeoff_altitude = 100, takeoff_pitch = 40):
-
         return Command( 0, 0, 0, 3, mavutil.mavlink.MAV_CMD_NAV_TAKEOFF, 0, 0, takeoff_pitch,  0, 0, 0, 0,  0, takeoff_altitude)
-
-    
-
 
 
     def mission_add_takeoff(self, takeoff_altitude=50, takeoff_pitch=15, heading=None):
@@ -353,8 +307,6 @@ class Plane(Node):
         #-- save the mission: copy in the memory
         tmp_mission = list(self.mission)
 
-        
-
        # print tmp_mission.count
         is_mission  = False
 
@@ -363,11 +315,9 @@ class Plane(Node):
             print("Current mission:")
 
             #for item in tmp_mission:
-
                # print item
 
             #-- If takeoff already in the mission, do not do anything
-
             
 
         if is_mission and tmp_mission[0].command == mavutil.mavlink.MAV_CMD_NAV_TAKEOFF:
@@ -381,9 +331,7 @@ class Plane(Node):
             self.mission.add(takeoff_item)
 
             for item in tmp_mission:
-
                 self.mission.add(item)
-
             self.vehicle.flush()
 
             print(">>>>>Done")
@@ -393,17 +341,12 @@ class Plane(Node):
     def arm_and_takeoff(self, altitude=100, pitch_deg=40):
 
         """ Arms the UAV and takeoff
-
         Planes need a takeoff item in the mission and to be set into AUTO mode. The 
-
         heading is kept constant
-
-        
 
         Input:
 
             altitude    - altitude at which the takeoff is concluded
-
             pitch_deg   - pitch angle during takeoff
 
         """
@@ -411,35 +354,22 @@ class Plane(Node):
 
 
         self.mission_add_takeoff(takeoff_altitude=1.5*altitude, takeoff_pitch=pitch_deg)
-
         print ("Takeoff mission ready")
 
         
 
         while not self.vehicle.is_armable:
-
             print("Wait to be armable...")
-
             time.sleep(1.0)
-
-            
-
         
-
         #-- Save home
-
         while self.pos_lat == 0.0:
-
             time.sleep(0.5)
-
             print ("Waiting for good GPS...")
 
         self.location_home   = LocationGlobalRelative(self.pos_lat,self.pos_lon,altitude)
 
-        
-
         print("Home is saved as " + str(self.location_home))
-
         print ("Vehicle is Armable: try to arm")
 
         self.set_ap_mode("MANUAL")
@@ -449,48 +379,26 @@ class Plane(Node):
         while not self.vehicle.armed:
 
             print("Try to arm...")
-
             self.arm()
-
             n_tries += 1
-
             time.sleep(2.0) 
 
-            
-
             if n_tries > 5:
-
                 print("!!! CANNOT ARM")
-
                 break
-
-                
 
         #--- Set to auto and check the ALTITUDE
 
-        
-
         if self.vehicle.armed: 
-
             print ("ARMED")
-
             self.set_ap_mode("AUTO")
-
-            
 
             time.sleep(20.0)
 
-            
-
             print("Going home")
-
             self.set_ap_mode("RTL")
 
-
-
         return True
-
-    
 
     
 
@@ -503,62 +411,37 @@ class Plane(Node):
         #https://discuss.ardupilot.org/t/aux-servos-via-dronekit/18716
 
         msg = self.vehicle.message_factory.command_long_encode(
-
             0, 0,   #target sys, target_component
-
             mavutil.mavlink.MAV_CMD_DO_SET_SERVO,
-
             0, #confirmation
-
             servo_id,
-
             pwm_value_int,
-
             0, 0, 0, 0, 0
-
         )
 
         self.vehicle.send_mavlink(msg)
 
 
-
     def operate_payload_door(self, open = True):
 
         if open:
-
             pwm = 1600  #TODO: Check Correct PWM rotation
-
         else:
-
             pwm = 1400  ##TODO: Check Correct PWM rotation
-
         self.rotate_target_servo(PAYLOAD_DOOR, pwm)
-
         return True
 
     
 
     def payload_release_pins(self, release = True):
-
         if release:
-
             pwm_release = 1400  ##TODO: Check Correct PWM rotation!
-
         else:
-
             # Set pints back into place
-
-            pwm_release = 1600  ##TODO: Check Correct PWM rotation!
-
-        self.rotate_target_servo(PAYLOAD_PIN_A, pwm_release)
+            pwm_release = 1600  ##TODO: Check Correct PWM rotation
 
         self.rotate_target_servo(PAYLOAD_PIN_A, pwm_release)
-
-    
-
-
-
-    
+        self.rotate_target_servo(PAYLOAD_PIN_A, pwm_release)
 
 
 
@@ -566,49 +449,30 @@ class Plane(Node):
 
         """ Create a TGT request packet located at a bearing and distance from the original point
 
-        
-
         Inputs:
-
             ang     - [rad] Angle respect to North (clockwise) 
-
             dist    - [m]   Distance from the actual location
-
             altitude- [m]
-
         Returns:
-
             location - Dronekit compatible
 
         """
 
-        
 
         if altitude is None: altitude = original_location.alt
-
         
-
         # print '---------------------- simulate_target_packet'
-
         dNorth  = dist*math.cos(ang)
-
         dEast   = dist*math.sin(ang)
 
         # print "Based on the actual heading of %.0f, the relative target's coordinates are %.1f m North, %.1f m East" % (math.degrees(ang), dNorth, dEast) 
 
-        
-
         #-- Get the Lat and Lon
-
         tgt     = self._get_location_metres(original_location, dNorth, dEast)
-
-        
 
         tgt.alt = altitude
 
         # print "Obtained the following target", tgt.lat, tgt.lon, tgt.alt
-
-
 
         return tgt      
 
@@ -617,23 +481,14 @@ class Plane(Node):
     def _get_location_metres(self, original_location, dNorth, dEast, is_global=False):
 
         """
-
         Returns a Location object containing the latitude/longitude `dNorth` and `dEast` metres from the
-
         specified `original_location`. The returned Location has the same `alt and `is_relative` values
-
         as `original_location`.
-
-
-
         The function is useful when you want to move the vehicle around specifying locations relative to
-
         the current vehicle position.
-
         The algorithm is relatively accurate over small distances (10m within 1km) except close to the poles.
 
         For more information see:
-
         http://gis.stackexchange.com/questions/2951/algorithm-for-offsetting-a-latitude-longitude-by-some-amount-of-meters
 
         """
@@ -658,42 +513,26 @@ class Plane(Node):
 
             return LocationGlobalRelative(newlat, newlon,original_location.alt)         
 
-        
-
-
-
-
-
-
-
+    
 
 
 def main(args=None):
 
     # initialize rclpy library
-
     rclpy.init(args=args)
 
 
-
     # creat the node
-
     plane_publisher = Plane('tcp:127.0.0.1:5762')
 
 
-
     # spin the node so callbacks are called
-
     rclpy.spin(plane_publisher)
 
 
-
     # Destroy the node explicitly
-
     # (optional - otherwise it will be done automatically
-
     # when the garbage collector destroys the node object)
-
     plane_publisher.destroy_node()
 
     rclpy.shutdown()
@@ -703,9 +542,7 @@ def main(args=None):
 
 
 if __name__ == '__main__':
-
     main()
-
 
 
     # def ground_course_2_location(self, angle_deg, altitude=None):

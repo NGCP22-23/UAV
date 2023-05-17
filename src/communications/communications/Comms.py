@@ -1,10 +1,11 @@
 import requests
 import json
+from datetime import datetime
 
 class Client():
 
 	def send_get(self, endpoint):
-		return requests.get(endpoint).text
+		return requests.get(endpoint).json()
 		# print(response.status_code)
 
 		# if response.status_code == 200: #can also be written as if response:
@@ -48,23 +49,57 @@ class Comms(Node):
         # Create client
         self.client = Client()
 
-        # api endpoint address
-        # self.endpoint = 'http://10.110.180.122:5000/telemetry'
-        self.telemetry_endpoint = 'http://192.168.50.36:5000/telemetry'
-        self.mission_endpoint = 'http://192.168.50.36:5000/mission'
+        # api endpoint address for testing
+        # self.endpoint = 'http://10.110.180.122:5000/telemetry'        #ayrmesh
+        self.telemetry_endpoint = 'http://192.168.50.35:5000/telemetry'
+        self.mission_endpoint = 'http://192.168.50.35:5000/mission'
+
+        # api endpoints GCS
+        # self.telemetry_endpoint = "http://127.0.0.1:5000/api/vehicleData/MAC?db_type=vehicles"
 
 
     def telem_subscriber_callback(self, msg):
-        self.get_logger().info('I heard: "%s"' % msg.data)
-        self.client.send_post(self.telemetry_endpoint, msg.data)
+        # get current time
+        now = datetime.now()
+
+        # self.get_logger().info('I heard: "%s"' % msg.data)
+
+        # split into list
+        telem_list = msg.data.split('\n')
+        # convert to dictionary
+        telem_dict = {
+                "lastUpdateTime": str(now),
+                "altitude": telem_list[0],
+                "speed": telem_list[1],
+                "pitch": telem_list[2],
+                "roll": telem_list[3],
+                "yaw": telem_list[4],
+                "batteryLife" : 0.0,
+                "sensorOk": True,
+                "latestCoordinates": {
+                     "lat": telem_list[5],
+                     "lon": telem_list[6]
+                }
+            }
+            
+        self.client.send_post(self.telemetry_endpoint, telem_dict)
+
 
     def mission_publisher_callback(self):
+        # build the msg
         msg = String()
-        msg.data = str(self.client.send_get(self.mission_endpoint))
+
+        # returns json content 
+        coordinates = self.client.send_get(self.mission_endpoint)['coordinates']
+
+        # iterate and add coordinates
+        for coordinate in coordinates:
+             lat = coordinate['lat']
+             lon = coordinate['lon']
+             msg.data += f"{lat}, {lon}\n"
+
         self.mission_publisher.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
-        
-
 
 
 # # monitor mission
@@ -78,9 +113,6 @@ class Comms(Node):
 #     # send Telemetry Data
 #     client.send_post(endpoint, plane.getTelemetryData())
 #     time.sleep(3)
-
-
-
 
 
 def main(args=None):
