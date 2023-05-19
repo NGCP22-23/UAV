@@ -8,9 +8,23 @@ from create_mission import create_mission
 import Client
 
 # Connect to the pixhawk
-plane = Plane.Plane('/dev/ttyACM0')
+#plane = Plane.Plane('/dev/ttyACM0')
 
 # Connect to sim
+plane = Plane.Plane('tcp:127.0.0.1:5762')
+
+#plane.arm()
+'''print("setup")
+plane.operate_payload_door(False)
+plane.payload_release_pins(False)
+input("[ENTER]: Open Door")
+plane.operate_payload_door(True)
+input("[ENTER]: Release Pins")
+plane.payload_release_pins(True)
+input("[ENTER]: Close Door")
+plane.operate_payload_door(False)'''
+# tgt_lat, tgt_long, approach_heading, drop_offset, altitudeAGL, approach_distance
+
 # plane = Plane.Plane('tcp:127.0.0.1:5762')
 
 client = Client.Client()
@@ -25,12 +39,12 @@ test_servo_id = 8
 #     time.sleep(1)
 
 
-
+#plane.payload_drop_handler(34.04331760, -117.81297297, 40, 50, 50, 300)
 #I seperated the mission creation from the demo file and stored it in create_mission.py
 create_mission(plane)
 
 #arm the plane
-plane.arm()
+#plane.arm()
 #The mission is downloaded and the plane is ready to fly
  
 #through command proxy/controller set to manual
