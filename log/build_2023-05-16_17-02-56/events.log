@@ -1,0 +1,100 @@
+[0.000000] (-) TimerEvent: {}
+[0.000349] (autonomous) JobQueued: {'identifier': 'autonomous', 'dependencies': OrderedDict()}
+[0.000705] (communications) JobQueued: {'identifier': 'communications', 'dependencies': OrderedDict()}
+[0.000904] (autonomous) JobStarted: {'identifier': 'autonomous'}
+[0.094935] (-) TimerEvent: {}
+[0.197625] (-) TimerEvent: {}
+[0.298517] (-) TimerEvent: {}
+[0.399751] (-) TimerEvent: {}
+[0.500523] (-) TimerEvent: {}
+[0.602349] (-) TimerEvent: {}
+[0.703920] (-) TimerEvent: {}
+[0.806010] (-) TimerEvent: {}
+[0.907524] (-) TimerEvent: {}
+[1.010986] (-) TimerEvent: {}
+[1.111952] (-) TimerEvent: {}
+[1.212730] (-) TimerEvent: {}
+[1.314457] (-) TimerEvent: {}
+[1.416170] (-) TimerEvent: {}
+[1.516876] (-) TimerEvent: {}
+[1.547601] (autonomous) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/autonomous', 'build', '--build-base', '/home/garrett/Desktop/UAV/build/autonomous/build', 'install', '--record', '/home/garrett/Desktop/UAV/build/autonomous/install.log', '--install-scripts', '$base/lib/autonomous', '--single-version-externally-managed'], 'cwd': '/home/garrett/Desktop/UAV/src/autonomous', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'garrett', 'TEXTDOMAIN': 'im-config', 'XDG_SEAT': 'seat0', 'SSH_AGENT_PID': '1319', 'XDG_SESSION_TYPE': 'x11', 'LD_LIBRARY_PATH': '/opt/ros/eloquent/opt/yaml_cpp_vendor/lib:/opt/ros/eloquent/opt/rviz_ogre_vendor/lib:/opt/ros/eloquent/lib/x86_64-linux-gnu:/opt/ros/eloquent/lib', 'SHLVL': '1', 'CONDA_SHLVL': '0', 'QT4_IM_MODULE': 'xim', 'HOME': '/home/garrett', 'OLDPWD': '/home/garrett/Desktop/UAV/src', 'DESKTOP_SESSION': 'ubuntu', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_CE_M': '', 'COLCON_PREFIX_PATH': '/home/garrett/Desktop/UAV/install', 'IM_CONFIG_PHASE': '2', 'ROS_DISTRO': 'eloquent', 'LOGNAME': 'garrett', 'GTK_IM_MODULE': 'ibus', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'USERNAME': 'garrett', 'XDG_SESSION_ID': '1', 'TERM': 'xterm-256color', '_CE_CONDA': '', 'ROS_LOCALHOST_ONLY': '0', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '1', 'PATH': '/opt/ros/eloquent/bin:/home/garrett/miniforge3/condabin:/home/garrett/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/garrett-VirtualBox:@/tmp/.ICE-unix/1183,unix/garrett-VirtualBox:/tmp/.ICE-unix/1183', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/30f8edfb_5488_4ff9_8980_ca31a12ca03c', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XMODIFIERS': '@im=ibus', 'GNOME_TERMINAL_SERVICE': ':1.59', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'AMENT_PREFIX_PATH': '/home/garrett/Desktop/UAV/install/communications:/home/garrett/Desktop/UAV/install/autonomous:/opt/ros/eloquent', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'CONDA_PYTHON_EXE': '/home/garrett/miniforge3/bin/python', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'TEXTDOMAINDIR': '/usr/share/locale/', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'XDG_VTNR': '1', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/garrett/Desktop/UAV/build/autonomous', 'CLUTTER_IM_MODULE': 'xim', 'CONDA_EXE': '/home/garrett/miniforge3/bin/conda', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'PYTHONPATH': '/home/garrett/Desktop/UAV/build/autonomous/prefix_override:/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages:/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages:/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages:/opt/ros/eloquent/lib/python3.6/site-packages', 'COLCON': '1', 'VTE_VERSION': '5202'}, 'shell': False}
+[1.617003] (-) TimerEvent: {}
+[1.717665] (-) TimerEvent: {}
+[1.818704] (-) TimerEvent: {}
+[1.920187] (-) TimerEvent: {}
+[2.020667] (autonomous) StdoutLine: {'line': b'running egg_info\n'}
+[2.021966] (-) TimerEvent: {}
+[2.028591] (autonomous) StdoutLine: {'line': b'writing ../../build/autonomous/autonomous.egg-info/PKG-INFO\n'}
+[2.031557] (autonomous) StdoutLine: {'line': b'writing dependency_links to ../../build/autonomous/autonomous.egg-info/dependency_links.txt\n'}
+[2.033537] (autonomous) StdoutLine: {'line': b'writing entry points to ../../build/autonomous/autonomous.egg-info/entry_points.txt\n'}
+[2.038610] (autonomous) StdoutLine: {'line': b'writing requirements to ../../build/autonomous/autonomous.egg-info/requires.txt\n'}
+[2.040736] (autonomous) StdoutLine: {'line': b'writing top-level names to ../../build/autonomous/autonomous.egg-info/top_level.txt\n'}
+[2.110874] (autonomous) StdoutLine: {'line': b"reading manifest file '../../build/autonomous/autonomous.egg-info/SOURCES.txt'\n"}
+[2.114109] (autonomous) StdoutLine: {'line': b"writing manifest file '../../build/autonomous/autonomous.egg-info/SOURCES.txt'\n"}
+[2.116744] (autonomous) StdoutLine: {'line': b'running build\n'}
+[2.118179] (autonomous) StdoutLine: {'line': b'running build_py\n'}
+[2.119839] (autonomous) StdoutLine: {'line': b'running install\n'}
+[2.121351] (autonomous) StdoutLine: {'line': b'running install_lib\n'}
+[2.122627] (-) TimerEvent: {}
+[2.124704] (autonomous) StdoutLine: {'line': b'running install_data\n'}
+[2.126438] (autonomous) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.130700] (autonomous) StdoutLine: {'line': b"removing '/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages/autonomous-0.0.0-py3.6.egg-info' (and everything under it)\n"}
+[2.144658] (autonomous) StdoutLine: {'line': b'Copying ../../build/autonomous/autonomous.egg-info to /home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages/autonomous-0.0.0-py3.6.egg-info\n'}
+[2.148269] (autonomous) StdoutLine: {'line': b'running install_scripts\n'}
+[2.216964] (autonomous) StdoutLine: {'line': b'Installing plane script to /home/garrett/Desktop/UAV/install/autonomous/lib/autonomous\n'}
+[2.219100] (autonomous) StdoutLine: {'line': b"writing list of installed files to '/home/garrett/Desktop/UAV/build/autonomous/install.log'\n"}
+[2.222787] (-) TimerEvent: {}
+[2.262727] (autonomous) CommandEnded: {'returncode': 0}
+[2.307041] (autonomous) JobEnded: {'identifier': 'autonomous', 'rc': 0}
+[2.308417] (communications) JobStarted: {'identifier': 'communications'}
+[2.325582] (-) TimerEvent: {}
+[2.427077] (-) TimerEvent: {}
+[2.533719] (-) TimerEvent: {}
+[2.634544] (-) TimerEvent: {}
+[2.735610] (-) TimerEvent: {}
+[2.837278] (-) TimerEvent: {}
+[2.939536] (-) TimerEvent: {}
+[3.042736] (-) TimerEvent: {}
+[3.146917] (-) TimerEvent: {}
+[3.248427] (-) TimerEvent: {}
+[3.349977] (-) TimerEvent: {}
+[3.450946] (-) TimerEvent: {}
+[3.552675] (-) TimerEvent: {}
+[3.655851] (-) TimerEvent: {}
+[3.757106] (-) TimerEvent: {}
+[3.858455] (-) TimerEvent: {}
+[3.959927] (-) TimerEvent: {}
+[4.062446] (-) TimerEvent: {}
+[4.106770] (communications) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/communications', 'build', '--build-base', '/home/garrett/Desktop/UAV/build/communications/build', 'install', '--record', '/home/garrett/Desktop/UAV/build/communications/install.log', '--install-scripts', '$base/lib/communications', '--single-version-externally-managed'], 'cwd': '/home/garrett/Desktop/UAV/src/communications', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'garrett', 'TEXTDOMAIN': 'im-config', 'XDG_SEAT': 'seat0', 'SSH_AGENT_PID': '1319', 'XDG_SESSION_TYPE': 'x11', 'LD_LIBRARY_PATH': '/opt/ros/eloquent/opt/yaml_cpp_vendor/lib:/opt/ros/eloquent/opt/rviz_ogre_vendor/lib:/opt/ros/eloquent/lib/x86_64-linux-gnu:/opt/ros/eloquent/lib', 'SHLVL': '1', 'CONDA_SHLVL': '0', 'QT4_IM_MODULE': 'xim', 'HOME': '/home/garrett', 'OLDPWD': '/home/garrett/Desktop/UAV/src', 'DESKTOP_SESSION': 'ubuntu', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_CE_M': '', 'COLCON_PREFIX_PATH': '/home/garrett/Desktop/UAV/install', 'IM_CONFIG_PHASE': '2', 'ROS_DISTRO': 'eloquent', 'LOGNAME': 'garrett', 'GTK_IM_MODULE': 'ibus', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'USERNAME': 'garrett', 'XDG_SESSION_ID': '1', 'TERM': 'xterm-256color', '_CE_CONDA': '', 'ROS_LOCALHOST_ONLY': '0', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '1', 'PATH': '/opt/ros/eloquent/bin:/home/garrett/miniforge3/condabin:/home/garrett/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/garrett-VirtualBox:@/tmp/.ICE-unix/1183,unix/garrett-VirtualBox:/tmp/.ICE-unix/1183', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/30f8edfb_5488_4ff9_8980_ca31a12ca03c', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XMODIFIERS': '@im=ibus', 'GNOME_TERMINAL_SERVICE': ':1.59', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'AMENT_PREFIX_PATH': '/home/garrett/Desktop/UAV/install/communications:/home/garrett/Desktop/UAV/install/autonomous:/opt/ros/eloquent', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'CONDA_PYTHON_EXE': '/home/garrett/miniforge3/bin/python', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'TEXTDOMAINDIR': '/usr/share/locale/', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'XDG_VTNR': '1', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/garrett/Desktop/UAV/build/communications', 'CLUTTER_IM_MODULE': 'xim', 'CONDA_EXE': '/home/garrett/miniforge3/bin/conda', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'PYTHONPATH': '/home/garrett/Desktop/UAV/build/communications/prefix_override:/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages:/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages:/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages:/opt/ros/eloquent/lib/python3.6/site-packages', 'COLCON': '1', 'VTE_VERSION': '5202'}, 'shell': False}
+[4.163092] (-) TimerEvent: {}
+[4.264208] (-) TimerEvent: {}
+[4.365593] (-) TimerEvent: {}
+[4.466379] (-) TimerEvent: {}
+[4.567917] (-) TimerEvent: {}
+[4.583185] (communications) StdoutLine: {'line': b'running egg_info\n'}
+[4.585739] (communications) StdoutLine: {'line': b'writing ../../build/communications/communications.egg-info/PKG-INFO\n'}
+[4.587898] (communications) StdoutLine: {'line': b'writing dependency_links to ../../build/communications/communications.egg-info/dependency_links.txt\n'}
+[4.590054] (communications) StdoutLine: {'line': b'writing entry points to ../../build/communications/communications.egg-info/entry_points.txt\n'}
+[4.591627] (communications) StdoutLine: {'line': b'writing requirements to ../../build/communications/communications.egg-info/requires.txt\n'}
+[4.594359] (communications) StdoutLine: {'line': b'writing top-level names to ../../build/communications/communications.egg-info/top_level.txt\n'}
+[4.668776] (-) TimerEvent: {}
+[4.717944] (communications) StdoutLine: {'line': b"reading manifest file '../../build/communications/communications.egg-info/SOURCES.txt'\n"}
+[4.722027] (communications) StdoutLine: {'line': b"writing manifest file '../../build/communications/communications.egg-info/SOURCES.txt'\n"}
+[4.724416] (communications) StdoutLine: {'line': b'running build\n'}
+[4.725638] (communications) StdoutLine: {'line': b'running build_py\n'}
+[4.727144] (communications) StdoutLine: {'line': b'copying communications/Comms.py -> /home/garrett/Desktop/UAV/build/communications/build/lib/communications\n'}
+[4.729279] (communications) StdoutLine: {'line': b'running install\n'}
+[4.731219] (communications) StdoutLine: {'line': b'running install_lib\n'}
+[4.735700] (communications) StdoutLine: {'line': b'copying /home/garrett/Desktop/UAV/build/communications/build/lib/communications/Comms.py -> /home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages/communications\n'}
+[4.738947] (communications) StdoutLine: {'line': b'byte-compiling /home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages/communications/Comms.py to Comms.cpython-36.pyc\n'}
+[4.741002] (communications) StdoutLine: {'line': b'running install_data\n'}
+[4.744080] (communications) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.748949] (communications) StdoutLine: {'line': b"removing '/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages/communications-0.0.0-py3.6.egg-info' (and everything under it)\n"}
+[4.756565] (communications) StdoutLine: {'line': b'Copying ../../build/communications/communications.egg-info to /home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages/communications-0.0.0-py3.6.egg-info\n'}
+[4.758390] (communications) StdoutLine: {'line': b'running install_scripts\n'}
+[4.769076] (-) TimerEvent: {}
+[4.792896] (communications) StdoutLine: {'line': b'Installing comms script to /home/garrett/Desktop/UAV/install/communications/lib/communications\n'}
+[4.799597] (communications) StdoutLine: {'line': b"writing list of installed files to '/home/garrett/Desktop/UAV/build/communications/install.log'\n"}
+[4.834716] (communications) CommandEnded: {'returncode': 0}
+[4.859018] (communications) JobEnded: {'identifier': 'communications', 'rc': 0}
+[4.861988] (-) EventReactorShutdown: {}

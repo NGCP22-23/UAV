@@ -1,0 +1,24 @@
+[1.582s] Invoking command in '/home/garrett/Desktop/UAV/src/communications': PYTHONPATH=/home/garrett/Desktop/UAV/build/communications/prefix_override:/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/communications build --build-base /home/garrett/Desktop/UAV/build/communications/build install --record /home/garrett/Desktop/UAV/build/communications/install.log --install-scripts $base/lib/communications --single-version-externally-managed
+[2.135s] running egg_info
+[2.138s] writing ../../build/communications/communications.egg-info/PKG-INFO
+[2.140s] writing dependency_links to ../../build/communications/communications.egg-info/dependency_links.txt
+[2.143s] writing entry points to ../../build/communications/communications.egg-info/entry_points.txt
+[2.145s] writing requirements to ../../build/communications/communications.egg-info/requires.txt
+[2.146s] writing top-level names to ../../build/communications/communications.egg-info/top_level.txt
+[2.232s] reading manifest file '../../build/communications/communications.egg-info/SOURCES.txt'
+[2.236s] writing manifest file '../../build/communications/communications.egg-info/SOURCES.txt'
+[2.239s] running build
+[2.241s] running build_py
+[2.242s] copying communications/Comms.py -> /home/garrett/Desktop/UAV/build/communications/build/lib/communications
+[2.246s] running install
+[2.247s] running install_lib
+[2.250s] copying /home/garrett/Desktop/UAV/build/communications/build/lib/communications/Comms.py -> /home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages/communications
+[2.252s] byte-compiling /home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages/communications/Comms.py to Comms.cpython-36.pyc
+[2.256s] running install_data
+[2.259s] running install_egg_info
+[2.264s] removing '/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages/communications-0.0.0-py3.6.egg-info' (and everything under it)
+[2.272s] Copying ../../build/communications/communications.egg-info to /home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages/communications-0.0.0-py3.6.egg-info
+[2.274s] running install_scripts
+[2.308s] Installing comms script to /home/garrett/Desktop/UAV/install/communications/lib/communications
+[2.311s] writing list of installed files to '/home/garrett/Desktop/UAV/build/communications/install.log'
+[2.348s] Invoked command in '/home/garrett/Desktop/UAV/src/communications' returned '0': PYTHONPATH=/home/garrett/Desktop/UAV/build/communications/prefix_override:/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/communications build --build-base /home/garrett/Desktop/UAV/build/communications/build install --record /home/garrett/Desktop/UAV/build/communications/install.log --install-scripts $base/lib/communications --single-version-externally-managed
