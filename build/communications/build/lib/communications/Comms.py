@@ -51,8 +51,8 @@ class Comms(Node):
 
         # api endpoint address for testing
         # self.endpoint = 'http://10.110.180.122:5000/telemetry'        #ayrmesh
-        self.telemetry_endpoint = 'http://192.168.0.97:5000/telemetry'
-        self.mission_endpoint = 'http://192.168.0.97:5000/mission'
+        self.telemetry_endpoint = 'http://10.110.180.77:5000/telemetry'
+        self.mission_endpoint = 'http://10.110.180.77:5000/mission'
 
         # api endpoints GCS
         # self.telemetry_endpoint = "http://127.0.0.1:5000/api/vehicleData/MAC?db_type=vehicles"
