@@ -158,7 +158,7 @@ class Plane(Node):
         self.vehicle.armed = False
 
 
-    def set_airspeed(self, speed):              #--- Set target airspeed
+    def set_airspeed(self, speed):              #--- Set target airspeed, default is 15m/s
         """ Set uav airspeed m/s
         """
         self.vehicle.airspeed = speed
