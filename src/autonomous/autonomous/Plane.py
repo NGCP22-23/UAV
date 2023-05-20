@@ -36,6 +36,7 @@ class Plane(Node):
 
         # ros subscriber topics
         self.mission_subscriber= self.create_subscription(String, 'mission', self.mission_subscriber_callback, 10)
+        self.mission_subscriber =self.create_subscription(String, 'is_Found', self.payload_callback, 10)
 
         """ Initialize the object
         Use either the provided vehicle object or the connections tring to connect to the autopilot
@@ -241,7 +242,10 @@ class Plane(Node):
         self.create_mission(mission_list)
         # self.get_logger().info('I heard: "%s"' % msg.data)
 
-
+    def payload_callback(self, msg):
+        if msg.data == True :
+            self.payload_drop_handler()
+            
     def clear_mission(self):                    #--- Clear the onboard mission
         """ Clear the current mission.
         """

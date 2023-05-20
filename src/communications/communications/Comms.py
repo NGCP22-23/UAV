@@ -38,6 +38,7 @@ class Comms(Node):
         super().__init__('comms_node')
         # Create a telem subscription
         self.telem_subscriber = self.create_subscription(String, 'telem', self.telem_subscriber_callback, 10)
+        self.kraken_subscirber = self.create_subscription(String, 'kraken', self.kraken_subscriber_callback, 10)
 
         # mission publisher
         self.mission_publisher = self.create_publisher(String, 'mission', 10)
@@ -53,6 +54,7 @@ class Comms(Node):
         # self.endpoint = 'http://10.110.180.122:5000/telemetry'        #ayrmesh
         self.telemetry_endpoint = 'http://192.168.0.97:5000/telemetry'
         self.mission_endpoint = 'http://192.168.0.97:5000/mission'
+        self.kraken_endpoint = 'http://192.168.0.97:5000/kraken'
 
         # api endpoints GCS
         # self.telemetry_endpoint = "http://127.0.0.1:5000/api/vehicleData/MAC?db_type=vehicles"
@@ -84,7 +86,17 @@ class Comms(Node):
             
         self.client.send_post(self.telemetry_endpoint, telem_dict)
 
+    def kraken_subscriber_callback(self, msg):
+        kraken_list = msg.data.split('\n')
 
+        kraken_dict = {
+             "confidence" : kraken_list[0],
+             "lat" : kraken_list[1],
+             "lon" : kraken_list[2]
+        }
+        self.client.send_post(self.kraken_endpoint, kraken_dict)
+
+         
     def mission_publisher_callback(self):
         # build the msg
         msg = String()

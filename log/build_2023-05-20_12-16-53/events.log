@@ -1,0 +1,660 @@
+[0.000000] (-) TimerEvent: {}
+[0.007825] (autonomous) JobQueued: {'identifier': 'autonomous', 'dependencies': OrderedDict()}
+[0.007921] (communications) JobQueued: {'identifier': 'communications', 'dependencies': OrderedDict()}
+[0.008020] (red_detect) JobQueued: {'identifier': 'red_detect', 'dependencies': OrderedDict()}
+[0.008070] (autonomous) JobStarted: {'identifier': 'autonomous'}
+[0.098393] (-) TimerEvent: {}
+[0.199079] (-) TimerEvent: {}
+[0.300635] (-) TimerEvent: {}
+[0.401249] (-) TimerEvent: {}
+[0.502021] (-) TimerEvent: {}
+[0.603264] (-) TimerEvent: {}
+[0.703939] (-) TimerEvent: {}
+[0.805026] (-) TimerEvent: {}
+[0.905932] (-) TimerEvent: {}
+[1.006578] (-) TimerEvent: {}
+[1.107311] (-) TimerEvent: {}
+[1.208177] (-) TimerEvent: {}
+[1.308892] (-) TimerEvent: {}
+[1.409926] (-) TimerEvent: {}
+[1.517483] (-) TimerEvent: {}
+[1.602668] (autonomous) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/autonomous', 'build', '--build-base', '/home/garrett/Desktop/UAV/build/autonomous/build', 'install', '--record', '/home/garrett/Desktop/UAV/build/autonomous/install.log', '--install-scripts', '$base/lib/autonomous', '--single-version-externally-managed'], 'cwd': '/home/garrett/Desktop/UAV/src/autonomous', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'garrett', 'TEXTDOMAIN': 'im-config', 'XDG_SEAT': 'seat0', 'SSH_AGENT_PID': '1324', 'XDG_SESSION_TYPE': 'x11', 'LD_LIBRARY_PATH': '/opt/ros/eloquent/opt/yaml_cpp_vendor/lib:/opt/ros/eloquent/opt/rviz_ogre_vendor/lib:/opt/ros/eloquent/lib/x86_64-linux-gnu:/opt/ros/eloquent/lib', 'SHLVL': '1', 'CONDA_SHLVL': '0', 'QT4_IM_MODULE': 'xim', 'HOME': '/home/garrett', 'OLDPWD': '/home/garrett/Desktop/UAV/src', 'DESKTOP_SESSION': 'ubuntu', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_CE_M': '', 'COLCON_PREFIX_PATH': '/home/garrett/Desktop/UAV/install', 'IM_CONFIG_PHASE': '2', 'ROS_DISTRO': 'eloquent', 'LOGNAME': 'garrett', 'GTK_IM_MODULE': 'ibus', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'USERNAME': 'garrett', 'XDG_SESSION_ID': '1', 'TERM': 'xterm-256color', '_CE_CONDA': '', 'ROS_LOCALHOST_ONLY': '0', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '1', 'PATH': '/opt/ros/eloquent/bin:/home/garrett/miniforge3/condabin:/home/garrett/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/garrett-VirtualBox:@/tmp/.ICE-unix/1189,unix/garrett-VirtualBox:/tmp/.ICE-unix/1189', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/830e896d_04eb_46f0_8d23_bfabe45b4b29', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XMODIFIERS': '@im=ibus', 'GNOME_TERMINAL_SERVICE': ':1.65', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'AMENT_PREFIX_PATH': '/home/garrett/Desktop/UAV/install/communications:/home/garrett/Desktop/UAV/install/autonomous:/opt/ros/eloquent', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'CONDA_PYTHON_EXE': '/home/garrett/miniforge3/bin/python', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'TEXTDOMAINDIR': '/usr/share/locale/', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'XDG_VTNR': '1', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/garrett/Desktop/UAV/build/autonomous', 'CLUTTER_IM_MODULE': 'xim', 'CONDA_EXE': '/home/garrett/miniforge3/bin/conda', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'PYTHONPATH': '/home/garrett/Desktop/UAV/build/autonomous/prefix_override:/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages:/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages:/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages:/opt/ros/eloquent/lib/python3.6/site-packages', 'COLCON': '1', 'VTE_VERSION': '5202'}, 'shell': False}
+[1.618315] (-) TimerEvent: {}
+[1.719089] (-) TimerEvent: {}
+[1.819830] (-) TimerEvent: {}
+[1.920461] (-) TimerEvent: {}
+[2.021110] (-) TimerEvent: {}
+[2.087659] (autonomous) StdoutLine: {'line': b'running egg_info\n'}
+[2.090504] (autonomous) StdoutLine: {'line': b'writing ../../build/autonomous/autonomous.egg-info/PKG-INFO\n'}
+[2.092854] (autonomous) StdoutLine: {'line': b'writing dependency_links to ../../build/autonomous/autonomous.egg-info/dependency_links.txt\n'}
+[2.095020] (autonomous) StdoutLine: {'line': b'writing entry points to ../../build/autonomous/autonomous.egg-info/entry_points.txt\n'}
+[2.096925] (autonomous) StdoutLine: {'line': b'writing requirements to ../../build/autonomous/autonomous.egg-info/requires.txt\n'}
+[2.098517] (autonomous) StdoutLine: {'line': b'writing top-level names to ../../build/autonomous/autonomous.egg-info/top_level.txt\n'}
+[2.121216] (-) TimerEvent: {}
+[2.183443] (autonomous) StdoutLine: {'line': b"reading manifest file '../../build/autonomous/autonomous.egg-info/SOURCES.txt'\n"}
+[2.192128] (autonomous) StdoutLine: {'line': b"writing manifest file '../../build/autonomous/autonomous.egg-info/SOURCES.txt'\n"}
+[2.194752] (autonomous) StdoutLine: {'line': b'running build\n'}
+[2.196819] (autonomous) StdoutLine: {'line': b'running build_py\n'}
+[2.199464] (autonomous) StdoutLine: {'line': b'copying autonomous/Plane.py -> /home/garrett/Desktop/UAV/build/autonomous/build/lib/autonomous\n'}
+[2.203341] (autonomous) StdoutLine: {'line': b'running install\n'}
+[2.206544] (autonomous) StdoutLine: {'line': b'running install_lib\n'}
+[2.210949] (autonomous) StdoutLine: {'line': b'copying /home/garrett/Desktop/UAV/build/autonomous/build/lib/autonomous/Plane.py -> /home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages/autonomous\n'}
+[2.216304] (autonomous) StdoutLine: {'line': b'running install_data\n'}
+[2.220558] (autonomous) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.221506] (-) TimerEvent: {}
+[2.230251] (autonomous) StdoutLine: {'line': b"removing '/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages/autonomous-0.0.0-py3.6.egg-info' (and everything under it)\n"}
+[2.244045] (autonomous) StdoutLine: {'line': b'Copying ../../build/autonomous/autonomous.egg-info to /home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages/autonomous-0.0.0-py3.6.egg-info\n'}
+[2.253459] (autonomous) StdoutLine: {'line': b'running install_scripts\n'}
+[2.309748] (autonomous) StdoutLine: {'line': b'Installing plane script to /home/garrett/Desktop/UAV/install/autonomous/lib/autonomous\n'}
+[2.312422] (autonomous) StdoutLine: {'line': b"writing list of installed files to '/home/garrett/Desktop/UAV/build/autonomous/install.log'\n"}
+[2.321961] (-) TimerEvent: {}
+[2.347894] (autonomous) CommandEnded: {'returncode': 0}
+[2.407287] (autonomous) JobEnded: {'identifier': 'autonomous', 'rc': 0}
+[2.409192] (communications) JobStarted: {'identifier': 'communications'}
+[2.427624] (-) TimerEvent: {}
+[2.530605] (-) TimerEvent: {}
+[2.632502] (-) TimerEvent: {}
+[2.733143] (-) TimerEvent: {}
+[2.834705] (-) TimerEvent: {}
+[2.935341] (-) TimerEvent: {}
+[3.035982] (-) TimerEvent: {}
+[3.136827] (-) TimerEvent: {}
+[3.238432] (-) TimerEvent: {}
+[3.339234] (-) TimerEvent: {}
+[3.439935] (-) TimerEvent: {}
+[3.540763] (-) TimerEvent: {}
+[3.641834] (-) TimerEvent: {}
+[3.742948] (-) TimerEvent: {}
+[3.843597] (-) TimerEvent: {}
+[3.867628] (communications) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/communications', 'build', '--build-base', '/home/garrett/Desktop/UAV/build/communications/build', 'install', '--record', '/home/garrett/Desktop/UAV/build/communications/install.log', '--install-scripts', '$base/lib/communications', '--single-version-externally-managed'], 'cwd': '/home/garrett/Desktop/UAV/src/communications', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'garrett', 'TEXTDOMAIN': 'im-config', 'XDG_SEAT': 'seat0', 'SSH_AGENT_PID': '1324', 'XDG_SESSION_TYPE': 'x11', 'LD_LIBRARY_PATH': '/opt/ros/eloquent/opt/yaml_cpp_vendor/lib:/opt/ros/eloquent/opt/rviz_ogre_vendor/lib:/opt/ros/eloquent/lib/x86_64-linux-gnu:/opt/ros/eloquent/lib', 'SHLVL': '1', 'CONDA_SHLVL': '0', 'QT4_IM_MODULE': 'xim', 'HOME': '/home/garrett', 'OLDPWD': '/home/garrett/Desktop/UAV/src', 'DESKTOP_SESSION': 'ubuntu', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_CE_M': '', 'COLCON_PREFIX_PATH': '/home/garrett/Desktop/UAV/install', 'IM_CONFIG_PHASE': '2', 'ROS_DISTRO': 'eloquent', 'LOGNAME': 'garrett', 'GTK_IM_MODULE': 'ibus', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'USERNAME': 'garrett', 'XDG_SESSION_ID': '1', 'TERM': 'xterm-256color', '_CE_CONDA': '', 'ROS_LOCALHOST_ONLY': '0', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '1', 'PATH': '/opt/ros/eloquent/bin:/home/garrett/miniforge3/condabin:/home/garrett/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/garrett-VirtualBox:@/tmp/.ICE-unix/1189,unix/garrett-VirtualBox:/tmp/.ICE-unix/1189', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/830e896d_04eb_46f0_8d23_bfabe45b4b29', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XMODIFIERS': '@im=ibus', 'GNOME_TERMINAL_SERVICE': ':1.65', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'AMENT_PREFIX_PATH': '/home/garrett/Desktop/UAV/install/communications:/home/garrett/Desktop/UAV/install/autonomous:/opt/ros/eloquent', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'CONDA_PYTHON_EXE': '/home/garrett/miniforge3/bin/python', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'TEXTDOMAINDIR': '/usr/share/locale/', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'XDG_VTNR': '1', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/garrett/Desktop/UAV/build/communications', 'CLUTTER_IM_MODULE': 'xim', 'CONDA_EXE': '/home/garrett/miniforge3/bin/conda', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'PYTHONPATH': '/home/garrett/Desktop/UAV/build/communications/prefix_override:/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages:/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages:/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages:/opt/ros/eloquent/lib/python3.6/site-packages', 'COLCON': '1', 'VTE_VERSION': '5202'}, 'shell': False}
+[3.944109] (-) TimerEvent: {}
+[4.045466] (-) TimerEvent: {}
+[4.146368] (-) TimerEvent: {}
+[4.247013] (-) TimerEvent: {}
+[4.341259] (communications) StdoutLine: {'line': b'running egg_info\n'}
+[4.343973] (communications) StdoutLine: {'line': b'writing ../../build/communications/communications.egg-info/PKG-INFO\n'}
+[4.346322] (communications) StdoutLine: {'line': b'writing dependency_links to ../../build/communications/communications.egg-info/dependency_links.txt\n'}
+[4.347541] (-) TimerEvent: {}
+[4.348995] (communications) StdoutLine: {'line': b'writing entry points to ../../build/communications/communications.egg-info/entry_points.txt\n'}
+[4.350881] (communications) StdoutLine: {'line': b'writing requirements to ../../build/communications/communications.egg-info/requires.txt\n'}
+[4.352523] (communications) StdoutLine: {'line': b'writing top-level names to ../../build/communications/communications.egg-info/top_level.txt\n'}
+[4.436205] (communications) StdoutLine: {'line': b"reading manifest file '../../build/communications/communications.egg-info/SOURCES.txt'\n"}
+[4.442575] (communications) StdoutLine: {'line': b"writing manifest file '../../build/communications/communications.egg-info/SOURCES.txt'\n"}
+[4.444829] (communications) StdoutLine: {'line': b'running build\n'}
+[4.446256] (communications) StdoutLine: {'line': b'running build_py\n'}
+[4.447905] (-) TimerEvent: {}
+[4.448634] (communications) StdoutLine: {'line': b'running install\n'}
+[4.450749] (communications) StdoutLine: {'line': b'running install_lib\n'}
+[4.454033] (communications) StdoutLine: {'line': b'running install_data\n'}
+[4.456196] (communications) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.461736] (communications) StdoutLine: {'line': b"removing '/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages/communications-0.0.0-py3.6.egg-info' (and everything under it)\n"}
+[4.471531] (communications) StdoutLine: {'line': b'Copying ../../build/communications/communications.egg-info to /home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages/communications-0.0.0-py3.6.egg-info\n'}
+[4.476675] (communications) StdoutLine: {'line': b'running install_scripts\n'}
+[4.518200] (communications) StdoutLine: {'line': b'Installing comms script to /home/garrett/Desktop/UAV/install/communications/lib/communications\n'}
+[4.521045] (communications) StdoutLine: {'line': b"writing list of installed files to '/home/garrett/Desktop/UAV/build/communications/install.log'\n"}
+[4.548515] (-) TimerEvent: {}
+[4.561018] (communications) CommandEnded: {'returncode': 0}
+[4.592827] (communications) JobEnded: {'identifier': 'communications', 'rc': 0}
+[4.594718] (red_detect) JobStarted: {'identifier': 'red_detect'}
+[4.630720] (red_detect) JobProgress: {'identifier': 'red_detect', 'progress': 'cmake'}
+[4.635122] (red_detect) Command: {'cmd': ['/usr/bin/cmake', '/home/garrett/Desktop/UAV/src/red_detect', '-DCMAKE_INSTALL_PREFIX=/home/garrett/Desktop/UAV/install/red_detect'], 'cwd': '/home/garrett/Desktop/UAV/build/red_detect', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'garrett'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1324'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/opt/ros/eloquent/opt/yaml_cpp_vendor/lib:/opt/ros/eloquent/opt/rviz_ogre_vendor/lib:/opt/ros/eloquent/lib/x86_64-linux-gnu:/opt/ros/eloquent/lib'), ('SHLVL', '1'), ('CONDA_SHLVL', '0'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/garrett'), ('OLDPWD', '/home/garrett/Desktop/UAV/src'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_CE_M', ''), ('COLCON_PREFIX_PATH', '/home/garrett/Desktop/UAV/install'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'eloquent'), ('LOGNAME', 'garrett'), ('GTK_IM_MODULE', 'ibus'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'garrett'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('_CE_CONDA', ''), ('ROS_LOCALHOST_ONLY', '0'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/eloquent/bin:/home/garrett/miniforge3/condabin:/home/garrett/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/garrett-VirtualBox:@/tmp/.ICE-unix/1189,unix/garrett-VirtualBox:/tmp/.ICE-unix/1189'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/830e896d_04eb_46f0_8d23_bfabe45b4b29'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.65'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/home/garrett/Desktop/UAV/install/communications:/home/garrett/Desktop/UAV/install/autonomous:/opt/ros/eloquent'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('CONDA_PYTHON_EXE', '/home/garrett/miniforge3/bin/python'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/garrett/Desktop/UAV/build/red_detect'), ('CLUTTER_IM_MODULE', 'xim'), ('CONDA_EXE', '/home/garrett/miniforge3/bin/conda'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('PYTHONPATH', '/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages:/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages:/opt/ros/eloquent/lib/python3.6/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/home/garrett/Desktop/UAV/install/communications:/home/garrett/Desktop/UAV/install/autonomous:/opt/ros/eloquent')]), 'shell': False}
+[4.649466] (-) TimerEvent: {}
+[4.750389] (-) TimerEvent: {}
+[4.853770] (-) TimerEvent: {}
+[4.955162] (-) TimerEvent: {}
+[5.056331] (-) TimerEvent: {}
+[5.142675] (red_detect) StdoutLine: {'line': b'-- The C compiler identification is GNU 7.5.0\n'}
+[5.157555] (-) TimerEvent: {}
+[5.258903] (-) TimerEvent: {}
+[5.369590] (-) TimerEvent: {}
+[5.477807] (-) TimerEvent: {}
+[5.579995] (-) TimerEvent: {}
+[5.682556] (-) TimerEvent: {}
+[5.684210] (red_detect) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 7.5.0\n'}
+[5.725949] (red_detect) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[5.782753] (-) TimerEvent: {}
+[5.883562] (-) TimerEvent: {}
+[5.984225] (-) TimerEvent: {}
+[5.984897] (red_detect) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[5.989516] (red_detect) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[6.084361] (-) TimerEvent: {}
+[6.149841] (red_detect) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[6.169609] (red_detect) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[6.184497] (-) TimerEvent: {}
+[6.287655] (-) TimerEvent: {}
+[6.395756] (-) TimerEvent: {}
+[6.496169] (-) TimerEvent: {}
+[6.600246] (-) TimerEvent: {}
+[6.708020] (-) TimerEvent: {}
+[6.713920] (red_detect) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[6.725463] (red_detect) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[6.808464] (-) TimerEvent: {}
+[6.901653] (red_detect) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[6.903240] (red_detect) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[6.910018] (-) TimerEvent: {}
+[7.011290] (-) TimerEvent: {}
+[7.112461] (-) TimerEvent: {}
+[7.146474] (red_detect) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[7.164333] (red_detect) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[7.212629] (-) TimerEvent: {}
+[7.313133] (-) TimerEvent: {}
+[7.417461] (-) TimerEvent: {}
+[7.518137] (-) TimerEvent: {}
+[7.618801] (-) TimerEvent: {}
+[7.719264] (-) TimerEvent: {}
+[7.821833] (-) TimerEvent: {}
+[7.922780] (-) TimerEvent: {}
+[8.022644] (red_detect) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[8.022919] (-) TimerEvent: {}
+[8.035877] (red_detect) StdoutLine: {'line': b'-- Found ament_cmake: 0.8.3 (/opt/ros/eloquent/share/ament_cmake/cmake)\n'}
+[8.107125] (red_detect) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.6.9", minimum required is "3") \n'}
+[8.108679] (red_detect) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[8.123035] (-) TimerEvent: {}
+[8.223828] (-) TimerEvent: {}
+[8.324467] (-) TimerEvent: {}
+[8.425288] (-) TimerEvent: {}
+[8.526218] (-) TimerEvent: {}
+[8.626829] (-) TimerEvent: {}
+[8.648623] (red_detect) StdoutLine: {'line': b'-- Found rclcpp: 0.8.5 (/opt/ros/eloquent/share/rclcpp/cmake)\n'}
+[8.727043] (-) TimerEvent: {}
+[8.758014] (red_detect) StdoutLine: {'line': b'-- Found rosidl_adapter: 0.8.3 (/opt/ros/eloquent/share/rosidl_adapter/cmake)\n'}
+[8.827233] (-) TimerEvent: {}
+[8.928488] (-) TimerEvent: {}
+[9.030102] (-) TimerEvent: {}
+[9.043756] (red_detect) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 0.8.1 (/opt/ros/eloquent/share/rmw_implementation_cmake/cmake)\n'}
+[9.067869] (red_detect) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[9.094153] (red_detect) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[9.130396] (-) TimerEvent: {}
+[9.232194] (-) TimerEvent: {}
+[9.333551] (-) TimerEvent: {}
+[9.389118] (red_detect) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[9.393540] (red_detect) StdoutLine: {'line': b'-- Looking for pthread_create\n'}
+[9.434381] (-) TimerEvent: {}
+[9.539426] (-) TimerEvent: {}
+[9.539938] (red_detect) StdoutLine: {'line': b'-- Looking for pthread_create - not found\n'}
+[9.541508] (red_detect) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[9.639914] (-) TimerEvent: {}
+[9.677882] (red_detect) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[9.678626] (red_detect) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[9.740046] (-) TimerEvent: {}
+[9.830512] (red_detect) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[9.837534] (red_detect) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[9.840133] (-) TimerEvent: {}
+[9.940589] (-) TimerEvent: {}
+[10.042396] (-) TimerEvent: {}
+[10.049800] (red_detect) StdoutLine: {'line': b'-- Found std_msgs: 0.8.1 (/opt/ros/eloquent/share/std_msgs/cmake)\n'}
+[10.142586] (-) TimerEvent: {}
+[10.159980] (red_detect) StdoutLine: {'line': b'-- Found OpenCV: /usr (found version "3.2.0") \n'}
+[10.243152] (-) TimerEvent: {}
+[10.343984] (-) TimerEvent: {}
+[10.444666] (-) TimerEvent: {}
+[10.545901] (-) TimerEvent: {}
+[10.636442] (red_detect) StdoutLine: {'line': b'-- Configuring done\n'}
+[10.649433] (-) TimerEvent: {}
+[10.750016] (-) TimerEvent: {}
+[10.851504] (-) TimerEvent: {}
+[10.880382] (red_detect) StdoutLine: {'line': b'-- Generating done\n'}
+[10.893540] (red_detect) StdoutLine: {'line': b'-- Build files have been written to: /home/garrett/Desktop/UAV/build/red_detect\n'}
+[10.908407] (red_detect) CommandEnded: {'returncode': 0}
+[10.911923] (red_detect) JobProgress: {'identifier': 'red_detect', 'progress': 'build'}
+[10.912253] (red_detect) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/garrett/Desktop/UAV/build/red_detect', '--', '-j1', '-l1'], 'cwd': '/home/garrett/Desktop/UAV/build/red_detect', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'garrett'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1324'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/opt/ros/eloquent/opt/yaml_cpp_vendor/lib:/opt/ros/eloquent/opt/rviz_ogre_vendor/lib:/opt/ros/eloquent/lib/x86_64-linux-gnu:/opt/ros/eloquent/lib'), ('SHLVL', '1'), ('CONDA_SHLVL', '0'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/garrett'), ('OLDPWD', '/home/garrett/Desktop/UAV/src'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_CE_M', ''), ('COLCON_PREFIX_PATH', '/home/garrett/Desktop/UAV/install'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'eloquent'), ('LOGNAME', 'garrett'), ('GTK_IM_MODULE', 'ibus'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'garrett'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('_CE_CONDA', ''), ('ROS_LOCALHOST_ONLY', '0'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/eloquent/bin:/home/garrett/miniforge3/condabin:/home/garrett/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/garrett-VirtualBox:@/tmp/.ICE-unix/1189,unix/garrett-VirtualBox:/tmp/.ICE-unix/1189'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/830e896d_04eb_46f0_8d23_bfabe45b4b29'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.65'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/home/garrett/Desktop/UAV/install/communications:/home/garrett/Desktop/UAV/install/autonomous:/opt/ros/eloquent'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('CONDA_PYTHON_EXE', '/home/garrett/miniforge3/bin/python'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/garrett/Desktop/UAV/build/red_detect'), ('CLUTTER_IM_MODULE', 'xim'), ('CONDA_EXE', '/home/garrett/miniforge3/bin/conda'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('PYTHONPATH', '/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages:/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages:/opt/ros/eloquent/lib/python3.6/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/home/garrett/Desktop/UAV/install/communications:/home/garrett/Desktop/UAV/install/autonomous:/opt/ros/eloquent')]), 'shell': False}
+[10.951646] (-) TimerEvent: {}
+[10.985112] (red_detect) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ArrayPublisherExample\x1b[0m\n'}
+[11.051780] (-) TimerEvent: {}
+[11.152673] (-) TimerEvent: {}
+[11.253251] (-) TimerEvent: {}
+[11.321764] (red_detect) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/ArrayPublisherExample.dir/src/arrayPublisher_example.cpp.o\x1b[0m\n'}
+[11.353374] (-) TimerEvent: {}
+[11.453779] (-) TimerEvent: {}
+[11.554288] (-) TimerEvent: {}
+[11.655200] (-) TimerEvent: {}
+[11.756665] (-) TimerEvent: {}
+[11.859436] (-) TimerEvent: {}
+[11.961111] (-) TimerEvent: {}
+[12.061844] (-) TimerEvent: {}
+[12.162959] (-) TimerEvent: {}
+[12.266118] (-) TimerEvent: {}
+[12.366814] (-) TimerEvent: {}
+[12.467945] (-) TimerEvent: {}
+[12.572298] (-) TimerEvent: {}
+[12.673017] (-) TimerEvent: {}
+[12.773917] (-) TimerEvent: {}
+[12.874615] (-) TimerEvent: {}
+[12.975535] (-) TimerEvent: {}
+[13.076577] (-) TimerEvent: {}
+[13.177454] (-) TimerEvent: {}
+[13.278488] (-) TimerEvent: {}
+[13.379762] (-) TimerEvent: {}
+[13.481537] (-) TimerEvent: {}
+[13.582237] (-) TimerEvent: {}
+[13.683583] (-) TimerEvent: {}
+[13.784417] (-) TimerEvent: {}
+[13.885346] (-) TimerEvent: {}
+[13.986122] (-) TimerEvent: {}
+[14.087297] (-) TimerEvent: {}
+[14.188227] (-) TimerEvent: {}
+[14.289407] (-) TimerEvent: {}
+[14.390726] (-) TimerEvent: {}
+[14.494472] (-) TimerEvent: {}
+[14.595217] (-) TimerEvent: {}
+[14.698625] (-) TimerEvent: {}
+[14.799322] (-) TimerEvent: {}
+[14.900061] (-) TimerEvent: {}
+[15.002427] (-) TimerEvent: {}
+[15.103322] (-) TimerEvent: {}
+[15.204481] (-) TimerEvent: {}
+[15.305403] (-) TimerEvent: {}
+[15.406207] (-) TimerEvent: {}
+[15.506922] (-) TimerEvent: {}
+[15.608065] (-) TimerEvent: {}
+[15.708754] (-) TimerEvent: {}
+[15.809467] (-) TimerEvent: {}
+[15.910177] (-) TimerEvent: {}
+[16.010968] (-) TimerEvent: {}
+[16.112227] (-) TimerEvent: {}
+[16.212926] (-) TimerEvent: {}
+[16.314436] (-) TimerEvent: {}
+[16.415321] (-) TimerEvent: {}
+[16.516013] (-) TimerEvent: {}
+[16.616878] (-) TimerEvent: {}
+[16.717764] (-) TimerEvent: {}
+[16.819301] (-) TimerEvent: {}
+[16.919998] (-) TimerEvent: {}
+[17.021145] (-) TimerEvent: {}
+[17.122318] (-) TimerEvent: {}
+[17.223168] (-) TimerEvent: {}
+[17.324857] (-) TimerEvent: {}
+[17.426484] (-) TimerEvent: {}
+[17.527242] (-) TimerEvent: {}
+[17.628078] (-) TimerEvent: {}
+[17.728987] (-) TimerEvent: {}
+[17.830981] (-) TimerEvent: {}
+[17.932531] (-) TimerEvent: {}
+[18.033563] (-) TimerEvent: {}
+[18.134527] (-) TimerEvent: {}
+[18.235535] (-) TimerEvent: {}
+[18.336215] (-) TimerEvent: {}
+[18.436976] (-) TimerEvent: {}
+[18.538306] (-) TimerEvent: {}
+[18.639050] (-) TimerEvent: {}
+[18.741476] (-) TimerEvent: {}
+[18.842268] (-) TimerEvent: {}
+[18.942781] (-) TimerEvent: {}
+[19.043378] (-) TimerEvent: {}
+[19.143981] (-) TimerEvent: {}
+[19.244494] (-) TimerEvent: {}
+[19.344979] (-) TimerEvent: {}
+[19.446048] (-) TimerEvent: {}
+[19.547122] (-) TimerEvent: {}
+[19.647770] (-) TimerEvent: {}
+[19.748483] (-) TimerEvent: {}
+[19.849167] (-) TimerEvent: {}
+[19.949832] (-) TimerEvent: {}
+[20.050523] (-) TimerEvent: {}
+[20.151506] (-) TimerEvent: {}
+[20.252222] (-) TimerEvent: {}
+[20.352935] (-) TimerEvent: {}
+[20.454502] (-) TimerEvent: {}
+[20.555233] (-) TimerEvent: {}
+[20.656144] (-) TimerEvent: {}
+[20.757364] (-) TimerEvent: {}
+[20.865650] (-) TimerEvent: {}
+[20.970041] (-) TimerEvent: {}
+[21.070773] (-) TimerEvent: {}
+[21.171581] (-) TimerEvent: {}
+[21.272263] (-) TimerEvent: {}
+[21.373030] (-) TimerEvent: {}
+[21.475085] (-) TimerEvent: {}
+[21.579905] (-) TimerEvent: {}
+[21.681271] (-) TimerEvent: {}
+[21.782684] (-) TimerEvent: {}
+[21.884112] (-) TimerEvent: {}
+[21.984885] (-) TimerEvent: {}
+[22.086126] (-) TimerEvent: {}
+[22.186880] (-) TimerEvent: {}
+[22.287720] (-) TimerEvent: {}
+[22.388607] (-) TimerEvent: {}
+[22.489423] (-) TimerEvent: {}
+[22.587851] (red_detect) StdoutLine: {'line': b'[ 20%] \x1b[32m\x1b[1mLinking CXX executable ArrayPublisherExample\x1b[0m\n'}
+[22.590428] (-) TimerEvent: {}
+[22.691382] (-) TimerEvent: {}
+[22.792277] (-) TimerEvent: {}
+[22.893184] (-) TimerEvent: {}
+[22.994163] (-) TimerEvent: {}
+[23.094886] (-) TimerEvent: {}
+[23.195847] (-) TimerEvent: {}
+[23.296819] (-) TimerEvent: {}
+[23.351865] (red_detect) StdoutLine: {'line': b'[ 20%] Built target ArrayPublisherExample\n'}
+[23.371750] (red_detect) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target NodeTools\x1b[0m\n'}
+[23.396945] (-) TimerEvent: {}
+[23.483569] (red_detect) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/NodeTools.dir/include/red_detect/NodeTools.cpp.o\x1b[0m\n'}
+[23.497066] (-) TimerEvent: {}
+[23.598142] (-) TimerEvent: {}
+[23.703216] (-) TimerEvent: {}
+[23.803809] (-) TimerEvent: {}
+[23.904933] (-) TimerEvent: {}
+[24.007322] (-) TimerEvent: {}
+[24.108990] (-) TimerEvent: {}
+[24.216838] (-) TimerEvent: {}
+[24.317959] (-) TimerEvent: {}
+[24.418884] (-) TimerEvent: {}
+[24.520118] (-) TimerEvent: {}
+[24.621329] (-) TimerEvent: {}
+[24.722370] (-) TimerEvent: {}
+[24.823324] (-) TimerEvent: {}
+[24.924357] (-) TimerEvent: {}
+[25.025140] (-) TimerEvent: {}
+[25.126222] (-) TimerEvent: {}
+[25.226949] (-) TimerEvent: {}
+[25.327831] (-) TimerEvent: {}
+[25.428596] (-) TimerEvent: {}
+[25.529331] (-) TimerEvent: {}
+[25.632263] (-) TimerEvent: {}
+[25.733122] (-) TimerEvent: {}
+[25.834039] (-) TimerEvent: {}
+[25.934830] (-) TimerEvent: {}
+[26.035563] (-) TimerEvent: {}
+[26.136388] (-) TimerEvent: {}
+[26.237172] (-) TimerEvent: {}
+[26.338250] (-) TimerEvent: {}
+[26.439000] (-) TimerEvent: {}
+[26.539762] (-) TimerEvent: {}
+[26.640537] (-) TimerEvent: {}
+[26.741899] (-) TimerEvent: {}
+[26.842596] (-) TimerEvent: {}
+[26.943444] (-) TimerEvent: {}
+[27.044666] (-) TimerEvent: {}
+[27.146030] (-) TimerEvent: {}
+[27.247951] (-) TimerEvent: {}
+[27.353512] (-) TimerEvent: {}
+[27.457503] (-) TimerEvent: {}
+[27.565820] (-) TimerEvent: {}
+[27.666486] (-) TimerEvent: {}
+[27.769492] (-) TimerEvent: {}
+[27.871219] (-) TimerEvent: {}
+[27.973500] (-) TimerEvent: {}
+[28.074363] (-) TimerEvent: {}
+[28.174819] (-) TimerEvent: {}
+[28.275314] (-) TimerEvent: {}
+[28.376046] (-) TimerEvent: {}
+[28.476769] (-) TimerEvent: {}
+[28.577491] (-) TimerEvent: {}
+[28.678303] (-) TimerEvent: {}
+[28.779168] (-) TimerEvent: {}
+[28.879921] (-) TimerEvent: {}
+[28.980760] (-) TimerEvent: {}
+[29.081477] (-) TimerEvent: {}
+[29.182886] (-) TimerEvent: {}
+[29.283763] (-) TimerEvent: {}
+[29.384697] (-) TimerEvent: {}
+[29.485859] (-) TimerEvent: {}
+[29.586805] (-) TimerEvent: {}
+[29.687608] (-) TimerEvent: {}
+[29.788413] (-) TimerEvent: {}
+[29.889240] (-) TimerEvent: {}
+[29.990185] (-) TimerEvent: {}
+[30.091092] (-) TimerEvent: {}
+[30.191945] (-) TimerEvent: {}
+[30.292907] (-) TimerEvent: {}
+[30.394797] (-) TimerEvent: {}
+[30.495521] (-) TimerEvent: {}
+[30.596230] (-) TimerEvent: {}
+[30.697007] (-) TimerEvent: {}
+[30.797847] (-) TimerEvent: {}
+[30.898533] (-) TimerEvent: {}
+[31.000256] (-) TimerEvent: {}
+[31.101127] (-) TimerEvent: {}
+[31.201926] (-) TimerEvent: {}
+[31.302582] (-) TimerEvent: {}
+[31.403265] (-) TimerEvent: {}
+[31.503942] (-) TimerEvent: {}
+[31.604814] (-) TimerEvent: {}
+[31.705643] (-) TimerEvent: {}
+[31.806972] (-) TimerEvent: {}
+[31.907669] (-) TimerEvent: {}
+[32.011068] (-) TimerEvent: {}
+[32.111760] (-) TimerEvent: {}
+[32.212854] (-) TimerEvent: {}
+[32.313971] (-) TimerEvent: {}
+[32.414926] (-) TimerEvent: {}
+[32.516114] (-) TimerEvent: {}
+[32.616795] (-) TimerEvent: {}
+[32.717484] (-) TimerEvent: {}
+[32.818185] (-) TimerEvent: {}
+[32.919000] (-) TimerEvent: {}
+[33.019648] (-) TimerEvent: {}
+[33.120368] (-) TimerEvent: {}
+[33.221024] (-) TimerEvent: {}
+[33.322151] (-) TimerEvent: {}
+[33.424891] (-) TimerEvent: {}
+[33.526277] (-) TimerEvent: {}
+[33.627757] (-) TimerEvent: {}
+[33.728825] (-) TimerEvent: {}
+[33.829463] (-) TimerEvent: {}
+[33.930146] (-) TimerEvent: {}
+[34.031114] (-) TimerEvent: {}
+[34.125565] (red_detect) StdoutLine: {'line': b'[ 40%] \x1b[32m\x1b[1mLinking CXX static library libNodeTools.a\x1b[0m\n'}
+[34.131228] (-) TimerEvent: {}
+[34.231902] (-) TimerEvent: {}
+[34.332666] (-) TimerEvent: {}
+[34.337756] (red_detect) StdoutLine: {'line': b'[ 40%] Built target NodeTools\n'}
+[34.384967] (red_detect) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target Diagnostics\x1b[0m\n'}
+[34.428251] (red_detect) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/Diagnostics.dir/include/red_detect/Diagnostics.cpp.o\x1b[0m\n'}
+[34.432761] (-) TimerEvent: {}
+[34.495540] (red_detect) StdoutLine: {'line': b'[ 60%] \x1b[32m\x1b[1mLinking CXX static library libDiagnostics.a\x1b[0m\n'}
+[34.532892] (-) TimerEvent: {}
+[34.571967] (red_detect) StdoutLine: {'line': b'[ 60%] Built target Diagnostics\n'}
+[34.593243] (red_detect) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ArraySubscriberExample\x1b[0m\n'}
+[34.633038] (-) TimerEvent: {}
+[34.715098] (red_detect) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding CXX object CMakeFiles/ArraySubscriberExample.dir/src/arraySubscriber_example.cpp.o\x1b[0m\n'}
+[34.737981] (-) TimerEvent: {}
+[34.838858] (-) TimerEvent: {}
+[34.943331] (-) TimerEvent: {}
+[35.043994] (-) TimerEvent: {}
+[35.144712] (-) TimerEvent: {}
+[35.245439] (-) TimerEvent: {}
+[35.346181] (-) TimerEvent: {}
+[35.447119] (-) TimerEvent: {}
+[35.547835] (-) TimerEvent: {}
+[35.648568] (-) TimerEvent: {}
+[35.749395] (-) TimerEvent: {}
+[35.850611] (-) TimerEvent: {}
+[35.951287] (-) TimerEvent: {}
+[36.052047] (-) TimerEvent: {}
+[36.152823] (-) TimerEvent: {}
+[36.253662] (-) TimerEvent: {}
+[36.354378] (-) TimerEvent: {}
+[36.455072] (-) TimerEvent: {}
+[36.555991] (-) TimerEvent: {}
+[36.656682] (-) TimerEvent: {}
+[36.757393] (-) TimerEvent: {}
+[36.858185] (-) TimerEvent: {}
+[36.958876] (-) TimerEvent: {}
+[37.059607] (-) TimerEvent: {}
+[37.160342] (-) TimerEvent: {}
+[37.261845] (-) TimerEvent: {}
+[37.362538] (-) TimerEvent: {}
+[37.464097] (-) TimerEvent: {}
+[37.565127] (-) TimerEvent: {}
+[37.666501] (-) TimerEvent: {}
+[37.767384] (-) TimerEvent: {}
+[37.868483] (-) TimerEvent: {}
+[37.969476] (-) TimerEvent: {}
+[38.070313] (-) TimerEvent: {}
+[38.171209] (-) TimerEvent: {}
+[38.272023] (-) TimerEvent: {}
+[38.372719] (-) TimerEvent: {}
+[38.473451] (-) TimerEvent: {}
+[38.574177] (-) TimerEvent: {}
+[38.674867] (-) TimerEvent: {}
+[38.776021] (-) TimerEvent: {}
+[38.876735] (-) TimerEvent: {}
+[38.977459] (-) TimerEvent: {}
+[39.078183] (-) TimerEvent: {}
+[39.179020] (-) TimerEvent: {}
+[39.279973] (-) TimerEvent: {}
+[39.380895] (-) TimerEvent: {}
+[39.481712] (-) TimerEvent: {}
+[39.582444] (-) TimerEvent: {}
+[39.683241] (-) TimerEvent: {}
+[39.784511] (-) TimerEvent: {}
+[39.885767] (-) TimerEvent: {}
+[39.986629] (-) TimerEvent: {}
+[40.087540] (-) TimerEvent: {}
+[40.188497] (-) TimerEvent: {}
+[40.289617] (-) TimerEvent: {}
+[40.390562] (-) TimerEvent: {}
+[40.491662] (-) TimerEvent: {}
+[40.592609] (-) TimerEvent: {}
+[40.693502] (-) TimerEvent: {}
+[40.794426] (-) TimerEvent: {}
+[40.895190] (-) TimerEvent: {}
+[40.995899] (-) TimerEvent: {}
+[41.096624] (-) TimerEvent: {}
+[41.197421] (-) TimerEvent: {}
+[41.298209] (-) TimerEvent: {}
+[41.398967] (-) TimerEvent: {}
+[41.499736] (-) TimerEvent: {}
+[41.600508] (-) TimerEvent: {}
+[41.701252] (-) TimerEvent: {}
+[41.801992] (-) TimerEvent: {}
+[41.902749] (-) TimerEvent: {}
+[42.003478] (-) TimerEvent: {}
+[42.104176] (-) TimerEvent: {}
+[42.204987] (-) TimerEvent: {}
+[42.306008] (-) TimerEvent: {}
+[42.406873] (-) TimerEvent: {}
+[42.507774] (-) TimerEvent: {}
+[42.608556] (-) TimerEvent: {}
+[42.709285] (-) TimerEvent: {}
+[42.810071] (-) TimerEvent: {}
+[42.910804] (-) TimerEvent: {}
+[43.011562] (-) TimerEvent: {}
+[43.112345] (-) TimerEvent: {}
+[43.213078] (-) TimerEvent: {}
+[43.314328] (-) TimerEvent: {}
+[43.415035] (-) TimerEvent: {}
+[43.515824] (-) TimerEvent: {}
+[43.616572] (-) TimerEvent: {}
+[43.718310] (-) TimerEvent: {}
+[43.819265] (-) TimerEvent: {}
+[43.920182] (-) TimerEvent: {}
+[44.021304] (-) TimerEvent: {}
+[44.123423] (-) TimerEvent: {}
+[44.224925] (-) TimerEvent: {}
+[44.326194] (-) TimerEvent: {}
+[44.426908] (-) TimerEvent: {}
+[44.527649] (-) TimerEvent: {}
+[44.628556] (-) TimerEvent: {}
+[44.729352] (-) TimerEvent: {}
+[44.830242] (-) TimerEvent: {}
+[44.871467] (red_detect) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking CXX executable ArraySubscriberExample\x1b[0m\n'}
+[44.930396] (-) TimerEvent: {}
+[45.031103] (-) TimerEvent: {}
+[45.131796] (-) TimerEvent: {}
+[45.232505] (-) TimerEvent: {}
+[45.337485] (-) TimerEvent: {}
+[45.438867] (-) TimerEvent: {}
+[45.539456] (-) TimerEvent: {}
+[45.618147] (red_detect) StdoutLine: {'line': b'[ 80%] Built target ArraySubscriberExample\n'}
+[45.641512] (-) TimerEvent: {}
+[45.661573] (red_detect) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target cudaCV\x1b[0m\n'}
+[45.706364] (red_detect) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding CXX object CMakeFiles/cudaCV.dir/src/cuda_cv.cpp.o\x1b[0m\n'}
+[45.742096] (-) TimerEvent: {}
+[45.842915] (-) TimerEvent: {}
+[45.943482] (-) TimerEvent: {}
+[46.044180] (-) TimerEvent: {}
+[46.144965] (-) TimerEvent: {}
+[46.245834] (-) TimerEvent: {}
+[46.346823] (-) TimerEvent: {}
+[46.447552] (-) TimerEvent: {}
+[46.548309] (-) TimerEvent: {}
+[46.649215] (-) TimerEvent: {}
+[46.750021] (-) TimerEvent: {}
+[46.850810] (-) TimerEvent: {}
+[46.951648] (-) TimerEvent: {}
+[47.053119] (-) TimerEvent: {}
+[47.154431] (-) TimerEvent: {}
+[47.255090] (-) TimerEvent: {}
+[47.356439] (-) TimerEvent: {}
+[47.457229] (-) TimerEvent: {}
+[47.558104] (-) TimerEvent: {}
+[47.658867] (-) TimerEvent: {}
+[47.759657] (-) TimerEvent: {}
+[47.809666] (red_detect) StderrLine: {'line': b'\x1b[01m\x1b[K/home/garrett/Desktop/UAV/src/red_detect/src/cuda_cv.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint main()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[47.811557] (red_detect) StderrLine: {'line': b'\x1b[01m\x1b[K/home/garrett/Desktop/UAV/src/red_detect/src/cuda_cv.cpp:182:29:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison between signed and unsigned integer expressions [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[47.813153] (red_detect) StderrLine: {'line': b'           for (int i = 0; \x1b[01;35m\x1b[Ki < squares.size()\x1b[m\x1b[K; i++){\n'}
+[47.814937] (red_detect) StderrLine: {'line': b'                           \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[47.859825] (-) TimerEvent: {}
+[47.960822] (-) TimerEvent: {}
+[48.062136] (-) TimerEvent: {}
+[48.162963] (-) TimerEvent: {}
+[48.263675] (-) TimerEvent: {}
+[48.364477] (-) TimerEvent: {}
+[48.465260] (-) TimerEvent: {}
+[48.566089] (-) TimerEvent: {}
+[48.666942] (-) TimerEvent: {}
+[48.767969] (-) TimerEvent: {}
+[48.839752] (red_detect) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable cudaCV\x1b[0m\n'}
+[48.868096] (-) TimerEvent: {}
+[48.968931] (-) TimerEvent: {}
+[49.070662] (-) TimerEvent: {}
+[49.172214] (-) TimerEvent: {}
+[49.274660] (-) TimerEvent: {}
+[49.375428] (-) TimerEvent: {}
+[49.476642] (-) TimerEvent: {}
+[49.578425] (-) TimerEvent: {}
+[49.679141] (-) TimerEvent: {}
+[49.780674] (-) TimerEvent: {}
+[49.882347] (-) TimerEvent: {}
+[49.984627] (-) TimerEvent: {}
+[50.085710] (-) TimerEvent: {}
+[50.187262] (-) TimerEvent: {}
+[50.288106] (-) TimerEvent: {}
+[50.389002] (-) TimerEvent: {}
+[50.490072] (-) TimerEvent: {}
+[50.591003] (-) TimerEvent: {}
+[50.667246] (red_detect) StdoutLine: {'line': b'[100%] Built target cudaCV\n'}
+[50.691571] (-) TimerEvent: {}
+[50.696825] (red_detect) CommandEnded: {'returncode': 0}
+[50.763765] (red_detect) JobProgress: {'identifier': 'red_detect', 'progress': 'install'}
+[50.781184] (red_detect) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/garrett/Desktop/UAV/build/red_detect', '--target', 'install', '--', '-j1', '-l1'], 'cwd': '/home/garrett/Desktop/UAV/build/red_detect', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'garrett'), ('TEXTDOMAIN', 'im-config'), ('XDG_SEAT', 'seat0'), ('SSH_AGENT_PID', '1324'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/opt/ros/eloquent/opt/yaml_cpp_vendor/lib:/opt/ros/eloquent/opt/rviz_ogre_vendor/lib:/opt/ros/eloquent/lib/x86_64-linux-gnu:/opt/ros/eloquent/lib'), ('SHLVL', '1'), ('CONDA_SHLVL', '0'), ('QT4_IM_MODULE', 'xim'), ('HOME', '/home/garrett'), ('OLDPWD', '/home/garrett/Desktop/UAV/src'), ('DESKTOP_SESSION', 'ubuntu'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('_CE_M', ''), ('COLCON_PREFIX_PATH', '/home/garrett/Desktop/UAV/install'), ('IM_CONFIG_PHASE', '2'), ('ROS_DISTRO', 'eloquent'), ('LOGNAME', 'garrett'), ('GTK_IM_MODULE', 'ibus'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('USERNAME', 'garrett'), ('XDG_SESSION_ID', '1'), ('TERM', 'xterm-256color'), ('_CE_CONDA', ''), ('ROS_LOCALHOST_ONLY', '0'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('WINDOWPATH', '1'), ('PATH', '/opt/ros/eloquent/bin:/home/garrett/miniforge3/condabin:/home/garrett/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/garrett-VirtualBox:@/tmp/.ICE-unix/1189,unix/garrett-VirtualBox:/tmp/.ICE-unix/1189'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/830e896d_04eb_46f0_8d23_bfabe45b4b29'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('GNOME_TERMINAL_SERVICE', ':1.65'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('AMENT_PREFIX_PATH', '/home/garrett/Desktop/UAV/install/communications:/home/garrett/Desktop/UAV/install/autonomous:/opt/ros/eloquent'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('CONDA_PYTHON_EXE', '/home/garrett/miniforge3/bin/python'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('TEXTDOMAINDIR', '/usr/share/locale/'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('XDG_VTNR', '1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/garrett/Desktop/UAV/build/red_detect'), ('CLUTTER_IM_MODULE', 'xim'), ('CONDA_EXE', '/home/garrett/miniforge3/bin/conda'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('PYTHONPATH', '/home/garrett/Desktop/UAV/install/communications/lib/python3.6/site-packages:/home/garrett/Desktop/UAV/install/autonomous/lib/python3.6/site-packages:/opt/ros/eloquent/lib/python3.6/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '5202'), ('CMAKE_PREFIX_PATH', '/home/garrett/Desktop/UAV/install/communications:/home/garrett/Desktop/UAV/install/autonomous:/opt/ros/eloquent')]), 'shell': False}
+[50.791995] (-) TimerEvent: {}
+[50.893093] (-) TimerEvent: {}
+[50.913815] (red_detect) StdoutLine: {'line': b'[ 20%] Built target ArrayPublisherExample\n'}
+[50.963755] (red_detect) StdoutLine: {'line': b'[ 40%] Built target NodeTools\n'}
+[50.993234] (-) TimerEvent: {}
+[51.000336] (red_detect) StdoutLine: {'line': b'[ 60%] Built target Diagnostics\n'}
+[51.056847] (red_detect) StdoutLine: {'line': b'[ 80%] Built target ArraySubscriberExample\n'}
+[51.093710] (-) TimerEvent: {}
+[51.103209] (red_detect) StdoutLine: {'line': b'[100%] Built target cudaCV\n'}
+[51.151591] (red_detect) StdoutLine: {'line': b'\x1b[36mInstall the project...\x1b[0m\n'}
+[51.167865] (red_detect) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[51.170228] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/lib/red_detect/ArrayPublisherExample\n'}
+[51.177477] (red_detect) StdoutLine: {'line': b'-- Set runtime path of "/home/garrett/Desktop/UAV/install/red_detect/lib/red_detect/ArrayPublisherExample" to ""\n'}
+[51.179370] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/lib/red_detect/ArraySubscriberExample\n'}
+[51.186085] (red_detect) StdoutLine: {'line': b'-- Set runtime path of "/home/garrett/Desktop/UAV/install/red_detect/lib/red_detect/ArraySubscriberExample" to ""\n'}
+[51.187878] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/lib/red_detect/libNodeTools.a\n'}
+[51.194599] (-) TimerEvent: {}
+[51.201143] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/lib/red_detect/libDiagnostics.a\n'}
+[51.204367] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/lib/red_detect/cudaCV\n'}
+[51.208169] (red_detect) StdoutLine: {'line': b'-- Set runtime path of "/home/garrett/Desktop/UAV/install/red_detect/lib/red_detect/cudaCV" to ""\n'}
+[51.210140] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/ament_index/resource_index/package_run_dependencies/red_detect\n'}
+[51.211655] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/ament_index/resource_index/parent_prefix_path/red_detect\n'}
+[51.213379] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/red_detect/environment/ament_prefix_path.sh\n'}
+[51.213982] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/red_detect/environment/ament_prefix_path.dsv\n'}
+[51.216338] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/red_detect/environment/path.sh\n'}
+[51.216871] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/red_detect/environment/path.dsv\n'}
+[51.217389] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/red_detect/local_setup.bash\n'}
+[51.217910] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/red_detect/local_setup.sh\n'}
+[51.219708] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/red_detect/local_setup.zsh\n'}
+[51.220173] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/red_detect/local_setup.dsv\n'}
+[51.220653] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/red_detect/package.dsv\n'}
+[51.224756] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/ament_index/resource_index/packages/red_detect\n'}
+[51.225752] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/red_detect/cmake/red_detectConfig.cmake\n'}
+[51.229627] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/red_detect/cmake/red_detectConfig-version.cmake\n'}
+[51.230374] (red_detect) StdoutLine: {'line': b'-- Installing: /home/garrett/Desktop/UAV/install/red_detect/share/red_detect/package.xml\n'}
+[51.249332] (red_detect) CommandEnded: {'returncode': 0}
+[51.294851] (-) TimerEvent: {}
+[51.370346] (red_detect) JobEnded: {'identifier': 'red_detect', 'rc': 0}
+[51.374076] (-) EventReactorShutdown: {}
