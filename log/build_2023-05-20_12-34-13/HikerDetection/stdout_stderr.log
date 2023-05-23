@@ -1,0 +1,9 @@
+running egg_info
+creating ../../build/HikerDetection/hiker_detection.egg-info
+writing ../../build/HikerDetection/hiker_detection.egg-info/PKG-INFO
+writing dependency_links to ../../build/HikerDetection/hiker_detection.egg-info/dependency_links.txt
+writing entry points to ../../build/HikerDetection/hiker_detection.egg-info/entry_points.txt
+writing requirements to ../../build/HikerDetection/hiker_detection.egg-info/requires.txt
+writing top-level names to ../../build/HikerDetection/hiker_detection.egg-info/top_level.txt
+writing manifest file '../../build/HikerDetection/hiker_detection.egg-info/SOURCES.txt'
+error: package directory 'hiker_detection' does not exist

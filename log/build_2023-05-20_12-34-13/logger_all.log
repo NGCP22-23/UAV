@@ -1,0 +1,244 @@
+[0.295s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.295s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7eff49a68ba8>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=1, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7eff49a68ba8>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7eff49a68ef0>)
+[0.327s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.327s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.328s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.328s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.328s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.328s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.328s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/ben/GIT/UAV'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.339s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extensions ['ignore', 'ignore_ament_install']
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'ignore'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'ignore_ament_install'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extensions ['colcon_pkg']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'colcon_pkg'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extensions ['colcon_meta']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'colcon_meta'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extensions ['ros']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'ros'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extensions ['cmake', 'python']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'cmake'
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'python'
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extensions ['python_setup_py']
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous) by extension 'python_setup_py'
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'ignore'
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'ignore_ament_install'
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extensions ['colcon_pkg']
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'colcon_pkg'
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extensions ['colcon_meta']
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'colcon_meta'
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extensions ['ros']
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'ros'
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extensions ['cmake', 'python']
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'cmake'
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'python'
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extensions ['python_setup_py']
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(Autonomous/__pycache__) by extension 'python_setup_py'
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extensions ['ignore', 'ignore_ament_install']
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'ignore'
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'ignore_ament_install'
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extensions ['colcon_pkg']
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'colcon_pkg'
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extensions ['colcon_meta']
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'colcon_meta'
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extensions ['ros']
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'ros'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extensions ['cmake', 'python']
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'cmake'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'python'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extensions ['python_setup_py']
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(Communications) by extension 'python_setup_py'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'ignore'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'ignore_ament_install'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extensions ['colcon_pkg']
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'colcon_pkg'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extensions ['colcon_meta']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'colcon_meta'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extensions ['ros']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'ros'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extensions ['cmake', 'python']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'cmake'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'python'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extensions ['python_setup_py']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(Communications/__pycache__) by extension 'python_setup_py'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extensions ['ignore', 'ignore_ament_install']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extension 'ignore'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extension 'ignore_ament_install'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extensions ['colcon_pkg']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extension 'colcon_pkg'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extensions ['colcon_meta']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extension 'colcon_meta'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extensions ['ros']
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extension 'ros'
+[0.347s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extensions ['cmake', 'python']
+[0.348s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extension 'cmake'
+[0.348s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extension 'python'
+[0.348s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extensions ['python_setup_py']
+[0.348s] Level 1:colcon.colcon_core.package_identification:_identify(Ext) by extension 'python_setup_py'
+[0.348s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extensions ['ignore', 'ignore_ament_install']
+[0.348s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'ignore'
+[0.348s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'ignore_ament_install'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extensions ['colcon_pkg']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'colcon_pkg'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extensions ['colcon_meta']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'colcon_meta'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extensions ['ros']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'ros'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extensions ['cmake', 'python']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'cmake'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'python'
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extensions ['python_setup_py']
+[0.349s] Level 1:colcon.colcon_core.package_identification:_identify(HikerDetection) by extension 'python_setup_py'
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/HikerDetection) by extensions ['ignore', 'ignore_ament_install']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/HikerDetection) by extension 'ignore'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/HikerDetection) by extension 'ignore_ament_install'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/HikerDetection) by extensions ['colcon_pkg']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/HikerDetection) by extension 'colcon_pkg'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/HikerDetection) by extensions ['colcon_meta']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/HikerDetection) by extension 'colcon_meta'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/HikerDetection) by extensions ['ros']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/HikerDetection) by extension 'ros'
+[0.356s] DEBUG:colcon.colcon_core.package_identification:Package 'src/HikerDetection' with type 'ros.ament_python' and name 'HikerDetection'
+[0.356s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extensions ['ignore', 'ignore_ament_install']
+[0.356s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extension 'ignore'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extension 'ignore_ament_install'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extensions ['colcon_pkg']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extension 'colcon_pkg'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extensions ['colcon_meta']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extension 'colcon_meta'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extensions ['ros']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/autonomous) by extension 'ros'
+[0.358s] DEBUG:colcon.colcon_core.package_identification:Package 'src/autonomous' with type 'ros.ament_python' and name 'autonomous'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src/build) by extensions ['ignore', 'ignore_ament_install']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src/build) by extension 'ignore'
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src/build) ignored
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extensions ['ignore', 'ignore_ament_install']
+[0.358s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extension 'ignore'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extension 'ignore_ament_install'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extensions ['colcon_pkg']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extension 'colcon_pkg'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extensions ['colcon_meta']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extension 'colcon_meta'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extensions ['ros']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/communications) by extension 'ros'
+[0.360s] DEBUG:colcon.colcon_core.package_identification:Package 'src/communications' with type 'ros.ament_python' and name 'communications'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/install) by extensions ['ignore', 'ignore_ament_install']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/install) by extension 'ignore'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/install) ignored
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/log) by extensions ['ignore', 'ignore_ament_install']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/log) by extension 'ignore'
+[0.361s] Level 1:colcon.colcon_core.package_identification:_identify(src/log) ignored
+[0.361s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.361s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.361s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.361s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.361s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.394s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.395s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.399s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/ben/GIT/UAV/install
+[0.401s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 232 installed packages in /opt/ros/eloquent
+[0.402s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.456s] Level 5:colcon.colcon_core.verb:set package 'HikerDetection' build argument 'cmake_args' from command line to 'None'
+[0.456s] Level 5:colcon.colcon_core.verb:set package 'HikerDetection' build argument 'cmake_target' from command line to 'None'
+[0.456s] Level 5:colcon.colcon_core.verb:set package 'HikerDetection' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.456s] Level 5:colcon.colcon_core.verb:set package 'HikerDetection' build argument 'cmake_clean_cache' from command line to 'False'
+[0.456s] Level 5:colcon.colcon_core.verb:set package 'HikerDetection' build argument 'cmake_clean_first' from command line to 'False'
+[0.456s] Level 5:colcon.colcon_core.verb:set package 'HikerDetection' build argument 'cmake_force_configure' from command line to 'False'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'HikerDetection' build argument 'ament_cmake_args' from command line to 'None'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'HikerDetection' build argument 'catkin_cmake_args' from command line to 'None'
+[0.457s] Level 5:colcon.colcon_core.verb:set package 'HikerDetection' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.457s] DEBUG:colcon.colcon_core.verb:Building package 'HikerDetection' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ben/GIT/UAV/build/HikerDetection', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ben/GIT/UAV/install/HikerDetection', 'merge_install': False, 'path': '/home/ben/GIT/UAV/src/HikerDetection', 'symlink_install': False, 'test_result_base': None}
+[0.458s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'cmake_args' from command line to 'None'
+[0.458s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'cmake_target' from command line to 'None'
+[0.458s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.458s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'cmake_clean_cache' from command line to 'False'
+[0.458s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'cmake_clean_first' from command line to 'False'
+[0.458s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'cmake_force_configure' from command line to 'False'
+[0.458s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'ament_cmake_args' from command line to 'None'
+[0.459s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'catkin_cmake_args' from command line to 'None'
+[0.459s] Level 5:colcon.colcon_core.verb:set package 'autonomous' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.459s] DEBUG:colcon.colcon_core.verb:Building package 'autonomous' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ben/GIT/UAV/build/autonomous', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ben/GIT/UAV/install/autonomous', 'merge_install': False, 'path': '/home/ben/GIT/UAV/src/autonomous', 'symlink_install': False, 'test_result_base': None}
+[0.460s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'cmake_args' from command line to 'None'
+[0.460s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'cmake_target' from command line to 'None'
+[0.460s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.460s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'cmake_clean_cache' from command line to 'False'
+[0.460s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'cmake_clean_first' from command line to 'False'
+[0.460s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'cmake_force_configure' from command line to 'False'
+[0.460s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'ament_cmake_args' from command line to 'None'
+[0.461s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'catkin_cmake_args' from command line to 'None'
+[0.461s] Level 5:colcon.colcon_core.verb:set package 'communications' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.461s] DEBUG:colcon.colcon_core.verb:Building package 'communications' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ben/GIT/UAV/build/communications', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ben/GIT/UAV/install/communications', 'merge_install': False, 'path': '/home/ben/GIT/UAV/src/communications', 'symlink_install': False, 'test_result_base': None}
+[0.461s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.464s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.465s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/ben/GIT/UAV/src/HikerDetection' with build type 'ament_python'
+[0.465s] Level 1:colcon.colcon_core.shell:create_environment_hook('HikerDetection', 'ament_prefix_path')
+[0.469s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.470s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ben/GIT/UAV/install/HikerDetection/share/HikerDetection/hook/ament_prefix_path.ps1'
+[0.471s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ben/GIT/UAV/install/HikerDetection/share/HikerDetection/hook/ament_prefix_path.dsv'
+[0.472s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ben/GIT/UAV/install/HikerDetection/share/HikerDetection/hook/ament_prefix_path.sh'
+[0.473s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.474s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.704s] WARNING:colcon.colcon_ros.task.ament_python.build:Package 'HikerDetection' doesn't explicitly install a marker in the package index (colcon-ros currently does it implicitly but that fallback will be removed in the future)
+[0.704s] WARNING:colcon.colcon_ros.task.ament_python.build:Package 'HikerDetection' doesn't explicitly install the 'package.xml' file (colcon-ros currently does it implicitly but that fallback will be removed in the future)
+[0.705s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/ben/GIT/UAV/src/HikerDetection'
+[0.707s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.707s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.076s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ben/GIT/UAV/src/HikerDetection': PYTHONPATH=/home/ben/GIT/UAV/build/HikerDetection/prefix_override:/home/ben/GIT/UAV/install/HikerDetection/lib/python3.6/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/HikerDetection build --build-base /home/ben/GIT/UAV/build/HikerDetection/build install --record /home/ben/GIT/UAV/build/HikerDetection/install.log --install-scripts $base/lib/HikerDetection --single-version-externally-managed
+[1.321s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ben/GIT/UAV/src/HikerDetection' returned '1': PYTHONPATH=/home/ben/GIT/UAV/build/HikerDetection/prefix_override:/home/ben/GIT/UAV/install/HikerDetection/lib/python3.6/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/HikerDetection build --build-base /home/ben/GIT/UAV/build/HikerDetection/build install --record /home/ben/GIT/UAV/build/HikerDetection/install.log --install-scripts $base/lib/HikerDetection --single-version-externally-managed
+[1.331s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.331s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.332s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[1.332s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.338s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.338s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.338s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.350s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.351s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ben/GIT/UAV/install/local_setup.ps1'
+[1.353s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ben/GIT/UAV/install/_local_setup_util_ps1.py'
+[1.354s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ben/GIT/UAV/install/setup.ps1'
+[1.356s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ben/GIT/UAV/install/local_setup.sh'
+[1.358s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ben/GIT/UAV/install/_local_setup_util_sh.py'
+[1.359s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ben/GIT/UAV/install/setup.sh'
+[1.363s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ben/GIT/UAV/install/local_setup.bash'
+[1.364s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ben/GIT/UAV/install/setup.bash'
+[1.367s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ben/GIT/UAV/install/local_setup.zsh'
+[1.371s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ben/GIT/UAV/install/setup.zsh'

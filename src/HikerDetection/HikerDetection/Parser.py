@@ -27,24 +27,73 @@ class HikerDetection(Node):
         super().__init__('kraken_node')
 
         # ros publisher topics
-        self.mode_publisher = self.create_publisher(String, 'kraken', 10)
+        self.kraken_publisher = self.create_publisher(String, 'kraken', 10)
+        self.ready_publisher = self.create_publisher(bool, 'is_found', 10)
+        # # set rate of publishing 
+        # self.timer_period = 1   #1 second(1Hz)
+        # self.timer = self.create_timer(self.timer_period, self.mode_callback(self.latest_message))
 
-        # set rate of publishing 
-        self.timer_period = 1   #1 second(1Hz)
-        self.timer = self.create_timer(self.timer_period, self.mode_callback)
+        self.latest_message,self.longitude,self.latitude,self.confidence,self.nextRow = 0,0,0,0,0
 
-        self.latest_message = 0
+        #moving file opening into init
+
+        ###this processes the csv data as a 
+        #print("longitude ", ' | ' , "  latitude  ", ' | ', "confidence")
+        with open('./HikerDetection/HikerDetection/KrakenOutputSim.csv', 'r') as csvfile:
+            # Create a CSV reader object
+            csv_reader = csv.reader(csvfile)
+            
+            # Get the total number of rows in the file
+            num_rows = len(list(csv_reader))
+            
+            # Reset the file pointer to the beginning of the file
+            csvfile.seek(0)
+            
+            # Create a new CSV reader object
+            csv_reader = csv.reader(csvfile)
+            
+            # Get the row number of the last row
+            for row_num, row in enumerate(csv_reader):
+                if row_num == num_rows - 1:
+                    nextRow = row_num
+                    print(nextRow)
+                    break
+
+
+        time.sleep(1/2) # Necessary to prevent 
+        while self.confidence < 8.3: 
+            # Open the CSV file
+            with open('./HikerDetection/HikerDetection/KrakenOutputSim.csv', 'r') as csvfile:
+                time.sleep(1/2)
+                final_line = csvfile.readlines()[nextRow]    # Pulls data from the last line of the csv file (most updated)
+                lastRow = final_line.split(',') # Converts string of data into elements in a list seperated by a ,
+                self.longitude = lastRow[8]  # Longitude coordinates
+                self.latitude = lastRow[9]   # Latitude coordinates
+                self.confidence = float(lastRow[3])   # Confidence values
+
+                # self.latest_message = (longitude,
+                #                        "latitude":latitude,
+                #                        "confidence":confidence, 
+                #                        "nextRow":nextRow}
+                
+                self.mode_callback()
+                
 
     def mode_callback(self):
         # build the message
         msg = String()
-        msg.data = self.latest_message
+        telem = (str(self.longitude),
+                 str(self.latitude),
+                 str(self.confidence),
+                 str(self.nextRow),
+                 )
+        msg.data = '\n'.join(telem)
         
         # publish the data 
-        self.mode_publisher.publish(msg)
-
+        self.kraken_publisher.publish(msg)
+        
         # publish to console
-        self.get_logger().info('Publishing: ', msg.data)
+        self.get_logger().info('Publishing: "%s"' % msg.data)
 
     def call(self):   
         confidence = -1
@@ -96,3 +145,20 @@ class HikerDetection(Node):
 
                 nextRow = nextRow + 1
             
+def main(args=None):
+    rclpy.init(args=args)
+
+    hiker = HikerDetection()
+
+    # spin runs the callback functions
+    rclpy.spin(hiker)
+
+    # Destroy the node explicitly
+    # (optional - otherwise it will be done automatically
+    # when the garbage collector destroys the node object)
+    HikerDetection.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()

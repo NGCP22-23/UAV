@@ -1,0 +1,24 @@
+[1.189s] Invoking command in '/home/ben/GIT/UAV/src/HikerDetection': PYTHONPATH=/home/ben/GIT/UAV/build/HikerDetection/prefix_override:/home/ben/GIT/UAV/install/HikerDetection/lib/python3.6/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/HikerDetection build --build-base /home/ben/GIT/UAV/build/HikerDetection/build install --record /home/ben/GIT/UAV/build/HikerDetection/install.log --install-scripts $base/lib/HikerDetection --single-version-externally-managed
+[1.564s] running egg_info
+[1.567s] writing ../../build/HikerDetection/HikerDetection.egg-info/PKG-INFO
+[1.568s] writing dependency_links to ../../build/HikerDetection/HikerDetection.egg-info/dependency_links.txt
+[1.569s] writing entry points to ../../build/HikerDetection/HikerDetection.egg-info/entry_points.txt
+[1.572s] writing requirements to ../../build/HikerDetection/HikerDetection.egg-info/requires.txt
+[1.573s] writing top-level names to ../../build/HikerDetection/HikerDetection.egg-info/top_level.txt
+[1.633s] reading manifest file '../../build/HikerDetection/HikerDetection.egg-info/SOURCES.txt'
+[1.637s] writing manifest file '../../build/HikerDetection/HikerDetection.egg-info/SOURCES.txt'
+[1.638s] running build
+[1.638s] running build_py
+[1.639s] copying HikerDetection/Parser.py -> /home/ben/GIT/UAV/build/HikerDetection/build/lib/HikerDetection
+[1.642s] running install
+[1.643s] running install_lib
+[1.644s] copying /home/ben/GIT/UAV/build/HikerDetection/build/lib/HikerDetection/Parser.py -> /home/ben/GIT/UAV/install/HikerDetection/lib/python3.6/site-packages/HikerDetection
+[1.648s] byte-compiling /home/ben/GIT/UAV/install/HikerDetection/lib/python3.6/site-packages/HikerDetection/Parser.py to Parser.cpython-36.pyc
+[1.650s] running install_data
+[1.652s] running install_egg_info
+[1.656s] removing '/home/ben/GIT/UAV/install/HikerDetection/lib/python3.6/site-packages/HikerDetection-0.0.0-py3.6.egg-info' (and everything under it)
+[1.665s] Copying ../../build/HikerDetection/HikerDetection.egg-info to /home/ben/GIT/UAV/install/HikerDetection/lib/python3.6/site-packages/HikerDetection-0.0.0-py3.6.egg-info
+[1.671s] running install_scripts
+[1.705s] Installing hiker script to /home/ben/GIT/UAV/install/HikerDetection/lib/HikerDetection
+[1.706s] writing list of installed files to '/home/ben/GIT/UAV/build/HikerDetection/install.log'
+[1.759s] Invoked command in '/home/ben/GIT/UAV/src/HikerDetection' returned '0': PYTHONPATH=/home/ben/GIT/UAV/build/HikerDetection/prefix_override:/home/ben/GIT/UAV/install/HikerDetection/lib/python3.6/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/HikerDetection build --build-base /home/ben/GIT/UAV/build/HikerDetection/build install --record /home/ben/GIT/UAV/build/HikerDetection/install.log --install-scripts $base/lib/HikerDetection --single-version-externally-managed
