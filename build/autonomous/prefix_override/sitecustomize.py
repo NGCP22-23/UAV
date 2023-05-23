@@ -1,3 +1,3 @@
 import sys
 sys.real_prefix = sys.prefix
-sys.prefix = sys.exec_prefix = '/home/ben/GIT/UAV/install/autonomous'
+sys.prefix = sys.exec_prefix = '/home/garrett/Desktop/UAV/install/autonomous'

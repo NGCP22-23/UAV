@@ -3,6 +3,7 @@ pidronescripts/
 .DS_Store
 
 devel/
+log/
 logs/
 build/
 bin/

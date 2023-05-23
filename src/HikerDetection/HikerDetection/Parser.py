@@ -4,6 +4,7 @@ import time
 import rclpy 
 from rclpy.node import Node
 from std_msgs.msg import String
+from std_msgs.msg import Bool
 
 # Define the URL of the remote server
 #url = 'http://remote.server.com/data/upload'
@@ -28,17 +29,13 @@ class HikerDetection(Node):
 
         # ros publisher topics
         self.kraken_publisher = self.create_publisher(String, 'kraken', 10)
-        #self.ready_publisher = self.create_publisher(bool, 'is_found', 10)
+        self.isFound_publisher = self.create_publisher(String, 'hikerCoords', 10)
         # # set rate of publishing 
         # self.timer_period = 1   #1 second(1Hz)
         # self.timer = self.create_timer(self.timer_period, self.mode_callback(self.latest_message))
 
         self.latest_message,self.longitude,self.latitude,self.confidence,self.nextRow = 0,0,0,0,0
 
-        #moving file opening into init
-
-        ###this processes the csv data as a 
-        #print("longitude ", ' | ' , "  latitude  ", ' | ', "confidence")
         with open('./HikerDetection/HikerDetection/KrakenOutputSim.csv', 'r') as csvfile:
             # Create a CSV reader object
             csv_reader = csv.reader(csvfile)
@@ -56,7 +53,6 @@ class HikerDetection(Node):
             for row_num, row in enumerate(csv_reader):
                 if row_num == num_rows - 1:
                     nextRow = row_num
-                    print(nextRow)
                     break
 
 
@@ -65,27 +61,28 @@ class HikerDetection(Node):
             # Open the CSV file
             with open('./HikerDetection/HikerDetection/KrakenOutputSim.csv', 'r') as csvfile:
                 time.sleep(1/2)
-                final_line = csvfile.readlines()[nextRow]    # Pulls data from the last line of the csv file (most updated)
+                final_line = csvfile.readlines()[self.nextRow]    # Pulls data from the last line of the csv file (most updated)
                 lastRow = final_line.split(',') # Converts string of data into elements in a list seperated by a ,
                 self.longitude = lastRow[8]  # Longitude coordinates
                 self.latitude = lastRow[9]   # Latitude coordinates
-                self.confidence = float(lastRow[3])   # Confidence values
+                self.confidence = float(lastRow[2])   # Confidence values
 
                 # self.latest_message = (longitude,
                 #                        "latitude":latitude,
                 #                        "confidence":confidence, 
                 #                        "nextRow":nextRow}
-                
-                self.mode_callback()
+                self.nextRow = self.nextRow + 1
+                self.kraken_callback()
+        self.isFound()
+        print("Hiker Coordinates found. Switching to Payload mission")
                 
 
-    def mode_callback(self):
+    def kraken_callback(self):
         # build the message
         msg = String()
-        telem = (str(self.longitude),
+        telem = (str(self.confidence),
                  str(self.latitude),
-                 str(self.confidence),
-                 str(self.nextRow),
+                 str(self.longitude),
                  )
         msg.data = '\n'.join(telem)
         
@@ -93,57 +90,62 @@ class HikerDetection(Node):
         self.kraken_publisher.publish(msg)
         
         # publish to console
-        self.get_logger().info('Publishing: "%s"' % msg.data)
+        # self.get_logger().info('Publishing: "%s"' % msg.data)
 
-    def call(self):   
-        confidence = -1
-        nextRow = 0
-        #print("longitude ", ' | ' , "  latitude  ", ' | ', "confidence")
-        with open('KrakenOutputSim.csv', 'r') as csvfile:
-            # Create a CSV reader object
-            csv_reader = csv.reader(csvfile)
+    def isFound(self):
+        msg = String()
+
+        final_coords = (str(self.latitude),
+                        str(self.longitude),
+                        )
+        msg.data = '\n'.join(final_coords)
+
+        self.isFound_publisher.publish(msg)
+
+        self.get_logger().info('Hiker found: "%s"' % msg.data)
+
+
+    # def call(self):   
+    #     confidence = -1
+    #     nextRow = 0
+    #     #print("longitude ", ' | ' , "  latitude  ", ' | ', "confidence")
+    #     with open('KrakenOutputSim.csv', 'r') as csvfile:
+    #         # Create a CSV reader object
+    #         csv_reader = csv.reader(csvfile)
             
-            # Get the total number of rows in the file
-            num_rows = len(list(csv_reader))
+    #         # Get the total number of rows in the file
+    #         num_rows = len(list(csv_reader))
             
-            # Reset the file pointer to the beginning of the file
-            csvfile.seek(0)
+    #         # Reset the file pointer to the beginning of the file
+    #         csvfile.seek(0)
             
-            # Create a new CSV reader object
-            csv_reader = csv.reader(csvfile)
+    #         # Create a new CSV reader object
+    #         csv_reader = csv.reader(csvfile)
             
-            # Get the row number of the last row
-            for row_num, row in enumerate(csv_reader):
-                if row_num == num_rows - 1:
-                    nextRow = row_num
-                    print(nextRow)
-                    break
+    #         # Get the row number of the last row
+    #         for row_num, row in enumerate(csv_reader):
+    #             if row_num == num_rows - 1:
+    #                 nextRow = row_num
+    #                 print(nextRow)
+    #                 break
 
-            #time.sleep(1)
-            #final_line = csvfile.readlines()[num_rows]    # Pulls data from the last line of the csv file (most updated)
-            #lastRow = final_line.split(',') # Converts string of data into elements in a list seperated by a ,
-            #longitude = lastRow[8]  # Longitude coordinates
-            #latitude = lastRow[9]   # Latitude coordinates
-            #confidence = float(lastRow[3])   # Confidence values
-            #print(longitude, ' | ' , latitude, ' | ', confidence)
+        # time.sleep(1/2) # Necessary to prevent 
+        # while confidence < 8.3: 
+        #     # Open the CSV file
+        #     with open('KrakenOutputSim.csv', 'r') as csvfile:
+        #         time.sleep(1/2)
+        #         final_line = csvfile.readlines()[nextRow]    # Pulls data from the last line of the csv file (most updated)
+        #         lastRow = final_line.split(',') # Converts string of data into elements in a list seperated by a ,
+        #         longitude = lastRow[8]  # Longitude coordinates
+        #         latitude = lastRow[9]   # Latitude coordinates
+        #         confidence = float(lastRow[3])   # Confidence values
 
-        time.sleep(1/2) # Necessary to prevent 
-        while confidence < 8.3: 
-            # Open the CSV file
-            with open('KrakenOutputSim.csv', 'r') as csvfile:
-                time.sleep(1/2)
-                final_line = csvfile.readlines()[nextRow]    # Pulls data from the last line of the csv file (most updated)
-                lastRow = final_line.split(',') # Converts string of data into elements in a list seperated by a ,
-                longitude = lastRow[8]  # Longitude coordinates
-                latitude = lastRow[9]   # Latitude coordinates
-                confidence = float(lastRow[3])   # Confidence values
+        #         self.latest_message = {"longitude":longitude,
+        #                                "latitude":latitude,
+        #                                "confidence":confidence, 
+        #                                "nextRow":nextRow}
 
-                self.latest_message = {"longitude":longitude,
-                                       "latitude":latitude,
-                                       "confidence":confidence, 
-                                       "nextRow":nextRow}
-
-                nextRow = nextRow + 1
+        #         nextRow = nextRow + 1
             
 def main(args=None):
     rclpy.init(args=args)

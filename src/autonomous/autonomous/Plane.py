@@ -36,7 +36,7 @@ class Plane(Node):
 
         # ros subscriber topics
         self.mission_subscriber= self.create_subscription(String, 'mission', self.mission_subscriber_callback, 10)
-        self.mission_subscriber =self.create_subscription(String, 'is_Found', self.payload_callback, 10)
+        self.hiker_coords_subscriber =self.create_subscription(String, 'hikerCoords', self.payload_callback, 10)
 
         """ Initialize the object
         Use either the provided vehicle object or the connections tring to connect to the autopilot
@@ -91,6 +91,7 @@ class Plane(Node):
         self.location_current   = LocationGlobalRelative(0,0,0) #- LocationRelative type current position
 
         self.flight_plan        = ''      # saved to compare to new one which comes as a str from topic
+        self.next_waypoint   = self.vehicle.commands.next
 
     def _connect(self, connection_string):      #-- (private) Connect to Vehicle
 
@@ -207,6 +208,7 @@ class Plane(Node):
                 str(self.pos_lat), 
                 str(self.pos_lon), 
                 str(self.get_ap_mode()), 
+                str(self.next_waypoint),
             )
         msg.data = '\n'.join(telem)
 
@@ -243,8 +245,18 @@ class Plane(Node):
         # self.get_logger().info('I heard: "%s"' % msg.data)
 
     def payload_callback(self, msg):
-        if msg.data == True :
-            self.payload_drop_handler()
+        print('\n\n\n----------------------Commencing Payload Mission-----------------------\n')
+
+        # split into list
+        hiker_coords = msg.data.split('\n')
+
+        approach_heading = self.att_heading_deg
+        # make sure its within 0-360
+        if self.att_heading_deg + 90 > 360:
+            approach_heading = self.att_heading - 360
+
+        
+        self.payload_drop_handler(hiker_coords[0], hiker_coords[1], approach_heading)
             
     def clear_mission(self):                    #--- Clear the onboard mission
         """ Clear the current mission.
@@ -276,7 +288,7 @@ class Plane(Node):
     
 
     def create_mission(self, commandsList):
-        print('\nClearing current mission')
+        print('\n\nClearing current mission')
         self.clear_mission()
         cmds = self.vehicle.commands
 
@@ -285,7 +297,7 @@ class Plane(Node):
 
         print('\nUploading new commands to vehicle')
         cmds.upload()
-        print('Upload Complete\n')
+        print('Upload Complete\n\n')
 
 
     def create_waypoint_command(self, lat, lon, alt):
@@ -552,8 +564,8 @@ class Plane(Node):
             pwm_release = PIN_SERVO_IN_PWM  
         self.rotate_target_servo(PAYLOAD_PIN, pwm_release)
 
-    # tgt_lat, tgt_long, approach_heading, drop_offset, altitudeAGL, approach_distance
-    def payload_drop_handler(self, tgt_lat, tgt_long, approach_heading = 0, drop_offset = 0, altitudeAGL = 100, approach_distance = 50): #values in meters
+    # tgt_lat, tgt_long, approach_heading(angle from ), drop_offset(distance to drop), altitudeAGL, approach_distance(waypoint distance from target)
+    def payload_drop_handler(self, tgt_lat, tgt_long, approach_heading = 0, drop_offset = 50, altitudeAGL = 100, approach_distance = 150): #values in meters
         successful_drop = False
         earth_radius = 6378137.0 #meters
         lat_change = (approach_distance * math.cos(math.radians(approach_heading)))/earth_radius
