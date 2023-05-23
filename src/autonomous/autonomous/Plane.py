@@ -11,9 +11,13 @@ from rclpy.node import Node
 from std_msgs.msg import String
 
 
-PAYLOAD_PIN_A = 6
-PAYLOAD_PIN_B = 7
+PAYLOAD_PIN = 7
 PAYLOAD_DOOR = 8
+
+PIN_SERVO_IN_PWM = 2200.0
+PIN_SERVO_OUT_PWM = 800.0
+DOOR_SERVO_PWM_OPEN = 1650.0
+DOOR_SERVO_PWM_CLOSED = 850.0
 
 
 
@@ -32,6 +36,7 @@ class Plane(Node):
 
         # ros subscriber topics
         self.mission_subscriber= self.create_subscription(String, 'mission', self.mission_subscriber_callback, 10)
+        self.hiker_coords_subscriber =self.create_subscription(String, 'hikerCoords', self.payload_callback, 10)
 
         """ Initialize the object
         Use either the provided vehicle object or the connections tring to connect to the autopilot
@@ -86,6 +91,7 @@ class Plane(Node):
         self.location_current   = LocationGlobalRelative(0,0,0) #- LocationRelative type current position
 
         self.flight_plan        = ''      # saved to compare to new one which comes as a str from topic
+        self.next_waypoint   = self.vehicle.commands.next
 
     def _connect(self, connection_string):      #-- (private) Connect to Vehicle
 
@@ -202,6 +208,7 @@ class Plane(Node):
                 str(self.pos_lat), 
                 str(self.pos_lon), 
                 str(self.get_ap_mode()), 
+                str(self.next_waypoint),
             )
         msg.data = '\n'.join(telem)
 
@@ -237,7 +244,20 @@ class Plane(Node):
         self.create_mission(mission_list)
         # self.get_logger().info('I heard: "%s"' % msg.data)
 
+    def payload_callback(self, msg):
+        print('\n\n\n----------------------Commencing Payload Mission-----------------------\n')
 
+        # split into list
+        hiker_coords = msg.data.split('\n')
+
+        approach_heading = self.att_heading_deg
+        # make sure its within 0-360
+        if self.att_heading_deg + 90 > 360:
+            approach_heading = self.att_heading - 360
+
+        
+        self.payload_drop_handler(hiker_coords[0], hiker_coords[1], approach_heading)
+            
     def clear_mission(self):                    #--- Clear the onboard mission
         """ Clear the current mission.
         """
@@ -268,7 +288,7 @@ class Plane(Node):
     
 
     def create_mission(self, commandsList):
-        print('\nClearing current mission')
+        print('\n\nClearing current mission')
         self.clear_mission()
         cmds = self.vehicle.commands
 
@@ -277,7 +297,7 @@ class Plane(Node):
 
         print('\nUploading new commands to vehicle')
         cmds.upload()
-        print('Upload Complete\n')
+        print('Upload Complete\n\n')
 
 
     def create_waypoint_command(self, lat, lon, alt):
@@ -513,7 +533,115 @@ class Plane(Node):
 
             return LocationGlobalRelative(newlat, newlon,original_location.alt)         
 
+    def rotate_target_servo(self, servo_id, pwm_value_int):
+            #https://dronekit-python.readthedocs.io/en/latest/guide/copter/guided_mode.html
+            #https://ardupilot.org/plane/docs/common-mavlink-mission-command-messages-mav_cmd.html#mav-cmd-do-set-servo
+            #https://discuss.ardupilot.org/t/aux-servos-via-dronekit/18716
+            msg = self.vehicle.message_factory.command_long_encode(
+                0, 0,   #target sys, target_component
+                mavutil.mavlink.MAV_CMD_DO_SET_SERVO,
+                0, #confirmation
+                servo_id,
+                pwm_value_int,
+                0, 0, 0, 0, 0
+            )
+            self.vehicle.send_mavlink(msg)
+        
+
+    def operate_payload_door(self, open = True):
+        if open:
+            pwm = DOOR_SERVO_PWM_OPEN 
+        else:
+            pwm = DOOR_SERVO_PWM_CLOSED
+        self.rotate_target_servo(PAYLOAD_DOOR, pwm)
+        return True
     
+    def payload_release_pins(self, release = True):
+        if release:
+            pwm_release = PIN_SERVO_OUT_PWM
+        else:
+            # Set pints back into place
+            pwm_release = PIN_SERVO_IN_PWM  
+        self.rotate_target_servo(PAYLOAD_PIN, pwm_release)
+
+    # tgt_lat, tgt_long, approach_heading(angle from ), drop_offset(distance to drop), altitudeAGL, approach_distance(waypoint distance from target)
+    def payload_drop_handler(self, tgt_lat, tgt_long, approach_heading = 0, drop_offset = 50, altitudeAGL = 100, approach_distance = 150): #values in meters
+        successful_drop = False
+        earth_radius = 6378137.0 #meters
+        lat_change = (approach_distance * math.cos(math.radians(approach_heading)))/earth_radius
+        long_change = (approach_distance * math.sin(math.radians(approach_heading)))/(earth_radius*math.cos(math.pi*tgt_lat/180))   #radians offset
+        waypoints = []
+        approach = [tgt_lat - (lat_change * 180/math.pi), tgt_long - (long_change * 180/math.pi)]
+        missed_approach = [tgt_lat + (0.5 * lat_change * 180/math.pi), tgt_long + (0.5 * long_change * 180/math.pi)]
+        drop_lat_change = (drop_offset * math.cos(math.radians(approach_heading)))/earth_radius
+        drop_long_change = (drop_offset * math.sin(math.radians(approach_heading)))/(earth_radius*math.cos(math.pi*tgt_lat/180))   #radians offset
+        target_offset = [tgt_lat - (drop_lat_change * 180/math.pi), tgt_long - (drop_long_change * 180/math.pi)]
+
+        waypoints.append(self.create_waypoint_command(approach[0], approach[1], altitudeAGL))
+        waypoints.append(self.create_waypoint_command(target_offset[0], target_offset[1], altitudeAGL))
+        waypoints.append(self.create_waypoint_command(missed_approach[0], missed_approach[1], altitudeAGL))
+        while not successful_drop:
+            door_open = False
+            self.clear_mission
+            self.create_mission(waypoints)
+            self.set_ap_mode("AUTO")
+            print("[DROP NAV]: Started Approach Sequence")
+            #dist = self.distance_to_coord(self.pos_lat, self.pos_lon, approach)
+            #self.arm()
+        
+            if self.reached_point_get_status(approach[0], approach[1]) is True:
+                print("[DROP NAV]: Reached Approach Point")
+                if self.reached_point_get_status(tgt_lat, tgt_long) is True:
+                    print("[DROP NAV]: Reached Drop Point Successful!")
+                    successful_drop = True
+                else:
+                    print("[DROP NAV]: Did not reach drop point")
+            else :
+                print("[DROP NAV]: Did not reach approach point")
+
+        pass
+
+    # Returns true if aircraft reaches point on first attempt and must be heading towards point. False otherwise
+    #TODO: Make sure this function does not disrupt other functions due to its while loop
+    def reached_point_get_status(self, lat, long):
+        dx = self.delta_distance(lat, long)
+        #print(dx)
+        while dx >= 0:
+            print("Waiting until dx < 0")
+            time.sleep(0.5)
+            dx = self.delta_distance(lat, long)
+            pass
+        while dx < -0:   #less than5 m/s
+            print(dx)
+            dx = self.delta_distance(lat, long)
+            if self.distance_to_coord(lat, long) < 20:
+                return True
+        return False    #Aircraft Did not get near enough to point and distance started increasing
+    
+    # Returns delta time in meters / second
+    def delta_distance(self, lat, long):
+        distance1 = self.distance_to_coord(lat, long)
+        time.sleep(1)
+        distance2 = self.distance_to_coord(lat, long)
+
+        delta_unscaled = distance2 - distance1
+        return delta_unscaled * 1
+
+
+    def distance_to_coord(self, lat, long):
+        lat1 = self.pos_lat
+        long1 = self.pos_lon
+        earth_radius = 6378137.0 #meters
+        #Haversine Time
+        phi1 = math.radians(lat1)
+        phi2 = math.radians(lat)
+        dphi = math.radians(lat - lat1)
+        dlambda = math.radians(long - long1)
+
+        a = math.sin(dphi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2) ** 2
+        c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+        meters = earth_radius * c
+        return meters 
 
 
 def main(args=None):

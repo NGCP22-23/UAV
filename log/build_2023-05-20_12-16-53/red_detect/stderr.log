@@ -1,0 +1,4 @@
+[01m[K/home/garrett/Desktop/UAV/src/red_detect/src/cuda_cv.cpp:[m[K In function ‘[01m[Kint main()[m[K’:
+[01m[K/home/garrett/Desktop/UAV/src/red_detect/src/cuda_cv.cpp:182:29:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [[01;35m[K-Wsign-compare[m[K]
+           for (int i = 0; [01;35m[Ki < squares.size()[m[K; i++){
+                           [01;35m[K~~^~~~~~~~~~~~~~~~[m[K
