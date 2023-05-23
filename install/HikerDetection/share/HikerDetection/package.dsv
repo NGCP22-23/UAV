@@ -1,0 +1,6 @@
+source;share/HikerDetection/hook/pythonpath.ps1
+source;share/HikerDetection/hook/pythonpath.dsv
+source;share/HikerDetection/hook/pythonpath.sh
+source;share/HikerDetection/hook/ament_prefix_path.ps1
+source;share/HikerDetection/hook/ament_prefix_path.dsv
+source;share/HikerDetection/hook/ament_prefix_path.sh
