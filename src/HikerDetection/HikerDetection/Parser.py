@@ -28,7 +28,7 @@ class HikerDetection(Node):
 
         # ros publisher topics
         self.kraken_publisher = self.create_publisher(String, 'kraken', 10)
-        self.ready_publisher = self.create_publisher(bool, 'is_found', 10)
+        #self.ready_publisher = self.create_publisher(bool, 'is_found', 10)
         # # set rate of publishing 
         # self.timer_period = 1   #1 second(1Hz)
         # self.timer = self.create_timer(self.timer_period, self.mode_callback(self.latest_message))
