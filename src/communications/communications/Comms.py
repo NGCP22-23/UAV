@@ -38,7 +38,7 @@ class Comms(Node):
         super().__init__('comms_node')
         # Create a telem subscription
         self.telem_subscriber = self.create_subscription(String, 'telem', self.telem_subscriber_callback, 10)
-        self.kraken_subscirber = self.create_subscription(String, 'kraken', self.kraken_subscriber_callback, 10)
+        self.kraken_subscriber = self.create_subscription(String, 'kraken', self.kraken_subscriber_callback, 10)
 
         # mission publisher
         self.mission_publisher = self.create_publisher(String, 'mission', 10)
@@ -52,9 +52,9 @@ class Comms(Node):
 
         # api endpoint address for testing
         # self.endpoint = 'http://10.110.180.122:5000/telemetry'        #ayrmesh
-        self.telemetry_endpoint = 'http://192.168.0.96:5000/telemetry'
-        self.mission_endpoint = 'http://192.168.0.96:5000/mission'
-        self.kraken_endpoint = 'http://192.168.0.96:5000/kraken'
+        self.telemetry_endpoint = 'http://192.168.0.97:5000/telemetry'
+        self.mission_endpoint = 'http://192.168.0.97:5000/mission'
+        self.kraken_endpoint = 'http://192.168.0.97:5000/kraken'
 
         # api endpoints GCS
         # self.telemetry_endpoint = "http://127.0.0.1:5000/api/vehicleData/MAC?db_type=vehicles"
