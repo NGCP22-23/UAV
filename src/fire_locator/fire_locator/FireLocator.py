@@ -8,7 +8,7 @@ from std_msgs.msg import String
 from std_msgs.msg import Int32
 
 class FireLocator(Node):
-    def __init__(self) -> None:
+    def __init__(self):
          # initialize super class
         super().__init__('fire_locator_node')
 
