@@ -31,7 +31,7 @@ class Plane(Node):
         self.telem_publisher = self.create_publisher(String, 'telem', 10)
 
         # set rate of publishing 
-        self.timer_period = 1   #1 second(1Hz)
+        self.timer_period = 3   #1 second(1Hz)
         self.mode_timer = self.create_timer(self.timer_period, self.telem_publisher_callback)
 
         # ros subscriber topics
@@ -221,10 +221,6 @@ class Plane(Node):
 
     # ros subscriber callback function for changing mission from mission topic
     def mission_subscriber_callback(self, msg):
-        #if the new mission is the same then return
-        if msg.data == self.flight_plan:    
-            return 
-        
         self.flight_plan = msg.data
 
         mission_list = []

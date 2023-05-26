@@ -6,17 +6,7 @@ class Client():
 
 	def send_get(self, endpoint):
 		return requests.get(endpoint).json()
-		# print(response.status_code)
-
-		# if response.status_code == 200: #can also be written as if response:
-		# 	print('Success!')
-		# elif response.status_code == 404:
-		# 	print('Error: Not Found')
-
-		# response.encoding = 'utf-8'
-		# print(response.text)
     
-
 	# gets data as dictionary
 	def send_post(self, endpoint, data):
 		# convert to json
@@ -52,9 +42,12 @@ class Comms(Node):
 
         # api endpoint address for testing
         # self.endpoint = 'http://10.110.180.122:5000/telemetry'        #ayrmesh
-        self.telemetry_endpoint = 'http://192.168.0.97:5000/telemetry'
-        self.mission_endpoint = 'http://192.168.0.97:5000/mission'
-        self.kraken_endpoint = 'http://192.168.0.97:5000/kraken'
+        self.telemetry_endpoint = 'http://192.168.50.35:5000/telemetry'
+        self.mission_endpoint = 'http://192.168.50.35:5000/mission'
+        self.kraken_endpoint = 'http://192.168.50.35:5000/kraken'
+
+
+        self.current_mission = {}
 
         # api endpoints GCS
         # self.telemetry_endpoint = "http://127.0.0.1:5000/api/vehicleData/MAC?db_type=vehicles"
@@ -87,6 +80,7 @@ class Comms(Node):
         self.client.send_post(self.telemetry_endpoint, telem_dict)
 
     def kraken_subscriber_callback(self, msg):
+
         kraken_list = msg.data.split('\n')
 
         kraken_dict = {
@@ -101,8 +95,13 @@ class Comms(Node):
         msg = String()
 
         # returns json content 
-        coordinates = self.client.send_get(self.mission_endpoint)['coordinates']
+        new_mission = self.client.send_get(self.mission_endpoint)
 
+        if len(new_mission) == 0 or new_mission == self.current_mission:
+            return 
+        
+        print('here')
+        coordinates = new_mission['coordinates']
         # iterate and add coordinates
         for coordinate in coordinates:
              lat = coordinate['lat']
@@ -110,6 +109,7 @@ class Comms(Node):
              msg.data += f"{lat}, {lon}\n"
 
         self.mission_publisher.publish(msg)
+        self.current_mission = new_mission
         # self.get_logger().info('Publishing: "%s"' % msg.data)
 
 

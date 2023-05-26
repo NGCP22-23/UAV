@@ -7,7 +7,7 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from std_msgs.msg import Int32MultiArray
 
-class TargetLocator(Node):
+class FireLocator(Node):
     def __init__(self) -> None:
          # initialize super class
         super().__init__('fire_locator_node')
@@ -57,3 +57,21 @@ class TargetLocator(Node):
         # footprint_width = (cm_per_pixel*image_width)/100         #   "m"
 
         return (cm_per_pixel*sample_pixel_length)/100        #  "m"
+
+def main(args=None):
+    rclpy.init(args=args)
+
+    comms = FireLocator()
+
+    # spin runs the callback functions
+    rclpy.spin(comms)
+
+    # Destroy the node explicitly
+    # (optional - otherwise it will be done automatically
+    # when the garbage collector destroys the node object)
+    FireLocator.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
