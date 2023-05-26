@@ -35,8 +35,8 @@ class HikerDetection(Node):
         # self.timer = self.create_timer(self.timer_period, self.mode_callback(self.latest_message))
 
         self.latest_message,self.longitude,self.latitude,self.confidence,self.nextRow = 0,0,0,0,0
-
-        with open('./HikerDetection/HikerDetection/KrakenOutputSim.csv', 'r') as csvfile:
+        path = '/home/ngcp/krakensdr_doa/krakensdr_doa/mydata.csv'
+        with open(path, 'r') as csvfile:
             # Create a CSV reader object
             csv_reader = csv.reader(csvfile)
             
@@ -52,21 +52,21 @@ class HikerDetection(Node):
             # Get the row number of the last row
             for row_num, row in enumerate(csv_reader):
                 if row_num == num_rows - 1:
-                    nextRow = row_num
+                    self.nextRow = row_num
                     break
 
 
         time.sleep(1/2) # Necessary to prevent 
         while self.confidence < 8.3: 
             # Open the CSV file
-            with open('./HikerDetection/HikerDetection/KrakenOutputSim.csv', 'r') as csvfile:
-                time.sleep(1/2)
+            with open(path, 'r') as csvfile:
+                time.sleep(1.3)
                 final_line = csvfile.readlines()[self.nextRow]    # Pulls data from the last line of the csv file (most updated)
                 lastRow = final_line.split(',') # Converts string of data into elements in a list seperated by a ,
                 self.longitude = lastRow[8]  # Longitude coordinates
                 self.latitude = lastRow[9]   # Latitude coordinates
                 self.confidence = float(lastRow[2])   # Confidence values
-
+                print(self.longitude,self.latitude,self.confidence, self.nextRow)
                 # self.latest_message = (longitude,
                 #                        "latitude":latitude,
                 #                        "confidence":confidence, 
