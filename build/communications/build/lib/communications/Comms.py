@@ -34,7 +34,7 @@ class Comms(Node):
         self.mission_publisher = self.create_publisher(String, 'mission', 10)
 
         # set rate of publishing 
-        self.timer_period = 2  #1 second(1Hz)
+        self.timer_period = 3  #1 second(1Hz)
         self.mode_timer = self.create_timer(self.timer_period, self.mission_publisher_callback)
 
         # Create client

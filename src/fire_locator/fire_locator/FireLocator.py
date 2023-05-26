@@ -5,7 +5,7 @@ from rclpy.node import Node
 
 # import string message type 
 from std_msgs.msg import String
-from std_msgs.msg import Int32MultiArray
+from std_msgs.msg import Int32
 
 class FireLocator(Node):
     def __init__(self) -> None:
@@ -18,14 +18,14 @@ class FireLocator(Node):
 
         # Create a telem subscription
         self.telem_subscriber = self.create_subscription(String, 'telem', self.telem_subscriber_callback, 10)
-        self.fire_detection_subscriber = self.create_subscription(Int32MultiArray, 'thresholds', self.fire_algo_subscriber_callback, 10)
+        self.fire_detection_subscriber = self.create_subscription(Int32, 'dist', self.fire_algo_subscriber_callback, 10)
 
-        # mission publisher
-        self.mission_publisher = self.create_publisher(String, 'mission', 10)
+        # # mission publisher
+        # self.mission_publisher = self.create_publisher(String, 'mission', 10)
 
-        # set rate of publishing 
-        self.timer_period = 2  #1 second(1Hz)
-        self.mode_timer = self.create_timer(self.timer_period, self.mission_publisher_callback)
+        # # set rate of publishing 
+        # self.timer_period = 1  #1 second(1Hz)
+        # self.mode_timer = self.create_timer(self.timer_period, self.mission_publisher_callback)
 
     def telem_subscriber_callback(self, msg):
         # split into list
@@ -38,13 +38,8 @@ class FireLocator(Node):
 
     def fire_algo_subscriber_callback(self, msg):
         distance = msg.data 
-        gsd = self.ground_sample_distance_calculator(self.alt, self.distance)
+        gsd = self.ground_sample_distance_calculator(self.alt, distance)
         print(gsd)
-
-
-
-
-    
 
     # Takes altidue(m) and sample(pixels) and generates a distance in meters of the sample 
     def ground_sample_distance_calculator(self, altitude, sample_pixel_length):

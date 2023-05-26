@@ -31,7 +31,7 @@ class Plane(Node):
         self.telem_publisher = self.create_publisher(String, 'telem', 10)
 
         # set rate of publishing 
-        self.timer_period = 3   #1 second(1Hz)
+        self.timer_period = 1   #1 second(1Hz)
         self.mode_timer = self.create_timer(self.timer_period, self.telem_publisher_callback)
 
         # ros subscriber topics
@@ -92,6 +92,11 @@ class Plane(Node):
 
         self.flight_plan        = ''      # saved to compare to new one which comes as a str from topic
         self.next_waypoint   = self.vehicle.commands.next
+
+        # variables for max confidence value
+        self.max_confidence = 0 
+        self.hiker_lat = 0
+        self.hiker_lon = 0
 
     def _connect(self, connection_string):      #-- (private) Connect to Vehicle
 
