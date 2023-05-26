@@ -38,6 +38,7 @@ class FireLocator(Node):
 
     def fire_algo_subscriber_callback(self, msg):
         distance = msg.data 
+        print(distance)
         gsd = self.ground_sample_distance_calculator(self.alt, distance)
         print(gsd)
 
