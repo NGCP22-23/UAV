@@ -11,8 +11,8 @@ from rclpy.node import Node
 from std_msgs.msg import String
 
 
-PAYLOAD_PIN = 7
-PAYLOAD_DOOR = 8
+PAYLOAD_PIN = 9
+PAYLOAD_DOOR = 10
 
 PIN_SERVO_IN_PWM = 2200.0
 PIN_SERVO_OUT_PWM = 800.0
@@ -92,6 +92,11 @@ class Plane(Node):
 
         self.flight_plan        = ''      # saved to compare to new one which comes as a str from topic
         self.next_waypoint   = self.vehicle.commands.next
+
+        # variables for max confidence value
+        self.max_confidence = 0 
+        self.hiker_lat = 0
+        self.hiker_lon = 0
 
     def _connect(self, connection_string):      #-- (private) Connect to Vehicle
 
@@ -221,10 +226,6 @@ class Plane(Node):
 
     # ros subscriber callback function for changing mission from mission topic
     def mission_subscriber_callback(self, msg):
-        #if the new mission is the same then return
-        if msg.data == self.flight_plan:    
-            return 
-        
         self.flight_plan = msg.data
 
         mission_list = []
@@ -442,29 +443,6 @@ class Plane(Node):
         self.vehicle.send_mavlink(msg)
 
 
-    def operate_payload_door(self, open = True):
-
-        if open:
-            pwm = 1600  #TODO: Check Correct PWM rotation
-        else:
-            pwm = 1400  ##TODO: Check Correct PWM rotation
-        self.rotate_target_servo(PAYLOAD_DOOR, pwm)
-        return True
-
-    
-
-    def payload_release_pins(self, release = True):
-        if release:
-            pwm_release = 1400  ##TODO: Check Correct PWM rotation!
-        else:
-            # Set pints back into place
-            pwm_release = 1600  ##TODO: Check Correct PWM rotation
-
-        self.rotate_target_servo(PAYLOAD_PIN_A, pwm_release)
-        self.rotate_target_servo(PAYLOAD_PIN_A, pwm_release)
-
-
-
     def get_target_from_bearing(self, original_location, ang, dist, altitude=None):
 
         """ Create a TGT request packet located at a bearing and distance from the original point
@@ -546,7 +524,11 @@ class Plane(Node):
                 0, 0, 0, 0, 0
             )
             self.vehicle.send_mavlink(msg)
-        
+    def reset_payload(self):
+        self.operate_payload_door(False)
+        time.sleep(2)
+        self.payload_release_pins(False)
+
 
     def operate_payload_door(self, open = True):
         if open:
@@ -645,23 +627,25 @@ class Plane(Node):
 
 
 def main(args=None):
-
     # initialize rclpy library
     rclpy.init(args=args)
 
 
     # creat the node
-    plane_publisher = Plane('tcp:127.0.0.1:5762')
+    plane = Plane('/dev/ttyACM0')
 
+
+    # # setup the payload pins
+    # plane.reset_payload()
 
     # spin the node so callbacks are called
-    rclpy.spin(plane_publisher)
+    rclpy.spin(plane)
 
 
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
     # when the garbage collector destroys the node object)
-    plane_publisher.destroy_node()
+    plane.destroy_node()
 
     rclpy.shutdown()
 
@@ -673,159 +657,7 @@ if __name__ == '__main__':
     main()
 
 
-    # def ground_course_2_location(self, angle_deg, altitude=None):
 
-    #     """ Creates a target to aim to in order to follow the ground course
-
-    #     Input:
-
-    #         angle_deg   - target ground course
-
-    #         altitude    - target altitude (default the current)
-
-        
-
-    #     """
-
-    #     tgt = self.get_target_from_bearing(original_location=self.location_current, 
-
-    #                                          ang=math.radians(angle_deg), 
-
-    #                                          dist=5000,
-
-    #                                          altitude=altitude)
-
-    #     return(tgt)
-
-        
-
-    # def goto(self, location):
-
-    #     """ Go to a location
-
-        
-
-    #     Input:
-
-    #         location    - LocationGlobal or LocationGlobalRelative object
-
-        
-
-    #     """
-
-    #     self.vehicle.simple_goto(location)
-
- 
-
-    # def set_ground_course(self, angle_deg, altitude=None):
-
-    #     """ Set a ground course
-
-        
-
-    #     Input:
-
-    #         angle_deg   - [deg] target heading
-
-    #         altitude    - [m]   target altitude (default the current)
-
-        
-
-    #     """
-
-        
-
-    #     #-- command the angles directly
-
-    #     self.goto(self.ground_course_2_location(angle_deg, altitude))
-
-        
-
-    # def get_rc_channel(self, rc_chan, dz=0, trim=1500):         #--- Read the RC values from the channel
-
-    #     """
-
-    #     Gets the RC channel values with a dead zone around trim
-
-        
-
-    #     Input:
-
-    #         rc_channel  - input rc channel number
-
-    #         dz          - dead zone, within which the output is set equal to trim
-
-    #         trim        - value about which the dead zone is evaluated
-
-            
-
-    #     Returns:
-
-    #         rc_value    - [us]
-
-    #     """
-
-    #     if (rc_chan > 16 or rc_chan < 1):
-
-    #         return -1
-
-        
-
-    #     #- Find the index of the channel
-
-    #     strInChan = '%1d' % rc_chan
-
-    #     try:
-
-        
-
-    #         rcValue = int(self.vehicle.channels.get(strInChan))
-
-            
-
-    #         if dz > 0:
-
-    #             if (math.fabs(rcValue - trim) < dz):
-
-    #                 return trim
-
-            
-
-    #         return rcValue
-
-    #     except:
-
-            # return 0     
-
-    
-
-    # def set_rc_channel(self, rc_chan, value_us=0):      #--- Overrides a rc channel (call with no value to reset)
-
-    #     """
-
-    #     Overrides the RC input setting the provided value. Call with no value to reset
-
-        
-
-    #     Input:
-
-    #         rc_chan     - rc channel number
-
-    #         value_us    - pwm value 
-
-    #     """
-
-    #     strInChan = '%1d' % rc_chan
-
-    #     self.vehicle.channels.overrides[strInChan] = int(value_us)
-
-                
-
-    # def clear_all_rc_override(self):               #--- clears all the rc channel override
-
-    #     self.vehicle.channels.overrides = {}
-
-    
 
 
 

@@ -93,6 +93,11 @@ class Plane(Node):
         self.flight_plan        = ''      # saved to compare to new one which comes as a str from topic
         self.next_waypoint   = self.vehicle.commands.next
 
+        # variables for max confidence value
+        self.max_confidence = 0 
+        self.hiker_lat = 0
+        self.hiker_lon = 0
+
     def _connect(self, connection_string):      #-- (private) Connect to Vehicle
 
         """ (private) connect with the autopilot
@@ -221,10 +226,6 @@ class Plane(Node):
 
     # ros subscriber callback function for changing mission from mission topic
     def mission_subscriber_callback(self, msg):
-        #if the new mission is the same then return
-        if msg.data == self.flight_plan:    
-            return 
-        
         self.flight_plan = msg.data
 
         mission_list = []
