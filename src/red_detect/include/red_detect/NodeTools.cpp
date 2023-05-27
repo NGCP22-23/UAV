@@ -43,8 +43,7 @@ void NodeTools::nPublisher::timer_callback() {
     packet.data = message;
 
     RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", packet.data.c_str());
-    publisher_->
-    (packet);
+    publisher_-> publish(packet);
 
 }
 
