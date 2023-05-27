@@ -54,9 +54,9 @@ class MyApp(Flask):
 
 app = MyApp(__name__)
 
-logging.getLogger('werkzeug').setLevel(logging.ERROR)
-logging.basicConfig(level=logging.WARNING)
-app.logger.setLevel(logging.CRITICAL)
+# logging.getLogger('werkzeug').setLevel(logging.ERROR)
+# logging.basicConfig(level=logging.WARNING)
+# app.logger.setLevel(logging.CRITICAL)
 
 # Define your routes
 app.add_url_rule('/telemetry', view_func=app.telemetry, methods=['POST'])

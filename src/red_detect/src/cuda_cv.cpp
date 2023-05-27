@@ -11,7 +11,7 @@ int thresh = 50, N = 5;
 // these should eventually be moved into its own class object (for optimization purposes) and then into its own header file library thing (for formatting purposes)
 
 void errorPublisher::pubDist(int dx, int dy){
-    dist = math.tan(dy/dx);
+    dist = tan(dy/dx);
 }
 
 errorPublisher::errorPublisher() : rclcpp::Node("errpublisher") {
