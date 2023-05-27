@@ -233,7 +233,7 @@ int main(int argc, char** argv){
                 );        
 
         // Display the frame 
-        imshow("Red", red); // show red only camera
+        // imshow("Red", red); // show red only camera
         rclcpp::spin_some(dataNode);
         fps_counter.update();
 
