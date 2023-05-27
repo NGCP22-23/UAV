@@ -217,7 +217,7 @@ int main(int argc, char ** argv){
                          cy = (int) (M.m01 / M.m00);
                          drawSquares(red, contours_red);
                          circle(red, Point(cx, cy), 7, Scalar(255, 255, 255), -1);
-                         std::cout << cx; d
+                         std::cout << cx; 
                          dataNode->dx = cx;
                          dataNode->dy = cy;
                          dataNode->pubDist(cy, cx);
