@@ -42,11 +42,11 @@ class Comms(Node):
         self.client = Client()
 
         # api endpoint address for testing
-        # self.endpoint = 'http://10.110.180.122:5000/telemetry'        #ayrmesh
-        self.telemetry_endpoint = 'http://172.20.10.3:5000/telemetry'
-        self.mission_endpoint = 'http://172.20.10.3:5000/mission'
-        self.kraken_endpoint = 'http://172.20.10.3:5000/kraken'
-        self.fire_coords_endpoint = 'http://172.20.10.3:5000/fire_coords'
+        # self.endpoint = 'http://192.168.99.45:5000/telemetry'        #ayrmesh
+        self.telemetry_endpoint = 'http://192.168.99.45:5000/telemetry'
+        self.mission_endpoint = 'http://192.168.99.45:5000/mission'
+        self.kraken_endpoint = 'http://192.168.99.45:5000/kraken'
+        self.fire_coords_endpoint = 'http://192.168.99.45:5000/fire_coords'
 
 
         self.current_mission = {}
