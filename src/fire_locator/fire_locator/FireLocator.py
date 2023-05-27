@@ -61,7 +61,7 @@ class FireLocator(Node):
         print(target_coords)
         msg = String()
         msg.data = target_coords
-        self.fire_coords_publisher.publish(msg.data)
+        self.fire_coords_publisher.publish(msg)
 
 
 
