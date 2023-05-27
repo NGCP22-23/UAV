@@ -44,7 +44,7 @@ waypoints = {
     ],
 }
 
-endpoint = 'http://192.168.99.45:5000/mission'
+endpoint = 'http://192.168.0.100:5000/mission'
 mission_sender = Client()
 
 print('Sending new mission')
