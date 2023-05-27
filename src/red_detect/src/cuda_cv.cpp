@@ -12,7 +12,6 @@ int thresh = 50, N = 5;
 
 void errorPublisher::pubDist(int dx, int dy){
     dist = tan(dy/dx);
-    std::cout << dist; 
 }
 
 errorPublisher::errorPublisher() : rclcpp::Node("errpublisher") {
@@ -32,7 +31,7 @@ errorPublisher::errorPublisher() : rclcpp::Node("errpublisher") {
         dx_publisher_->publish(omnibus);
 
         omnibus.data = dy;
-        dx_publisher_->publish(omnibus);
+        dy_publisher_->publish(omnibus);
 
         omnibus.data = (int)dist; //evil and bad
         dist_publisher_->publish(omnibus);
@@ -235,9 +234,9 @@ int main(int argc, char** argv){
 
         // Display the frame 
         imshow("Red", red); // show red only camera
-
+        rclcpp::spin_some(dataNode);
         fps_counter.update();
-    
+
         // Terminate the program if 'q' is pressed
         if (waitKey(1) == 27){
             break;
