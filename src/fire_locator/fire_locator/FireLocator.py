@@ -55,7 +55,7 @@ class FireLocator(Node):
         print(angle)
         distance = self.calculate_hypotenuse(self.dx, self.dy)
         print(distance)
-        gsd = self.ground_sample_distance_calculator(self.alt, distance)
+        gsd = self.ground_sample_distance_calculator(100, distance)
         print(gsd)
         target_coords = self.get_target_from_bearing(self.lat, self.lon, angle + self.heading, gsd)
         print(target_coords)
