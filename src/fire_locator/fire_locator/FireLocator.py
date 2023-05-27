@@ -18,6 +18,7 @@ class FireLocator(Node):
         self.lat = 0
         self.lon = 0
         self.heading = 0
+        self.alt = 0
 
         self.dx = 0
         self.dy = 0
@@ -56,7 +57,7 @@ class FireLocator(Node):
         print(distance)
         gsd = self.ground_sample_distance_calculator(self.alt, distance)
         print(gsd)
-        target_coords = self.get_target_from_bearing(self.lat, self.lon, angle, gsd)
+        target_coords = self.get_target_from_bearing(self.lat, self.lon, angle + self.heading, gsd)
         print(target_coords)
         msg = String()
         msg.data = target_coords
