@@ -140,7 +140,7 @@ class FireLocator(Node):
         newlat = lat + (dLat * 180/math.pi)
         newlon = lon + (dLon * 180/math.pi)
 
-        return "{newlat}, {newlon}"
+        return f"{newlat}, {newlon}"
 
         # if is_global:
         #     return LocationGlobal(newlat, newlon, self.alt)    
