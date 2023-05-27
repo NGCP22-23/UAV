@@ -51,10 +51,16 @@ class FireLocator(Node):
         self.dy = msg.data 
         time.sleep(.2)
         angle = self.calculate_angle_with_respect_to_north(self.dx, self.dy)
+        print(angle)
         distance = self.calculate_hypotenuse(self.dx, self.dy)
+        print(distance)
         gsd = self.ground_sample_distance_calculator(self.alt, distance)
+        print(gsd)
         target_coords = self.get_target_from_bearing(self.lat, self.lon, angle, gsd)
-        self.fire_coords_publisher.publish(target_coords)
+        print(target_coords)
+        msg = String()
+        msg.data = target_coords
+        self.fire_coords_publisher.publish(msg.data)
 
 
 
