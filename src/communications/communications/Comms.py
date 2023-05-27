@@ -29,6 +29,7 @@ class Comms(Node):
         # Create a telem subscription
         self.telem_subscriber = self.create_subscription(String, 'telem', self.telem_subscriber_callback, 10)
         self.kraken_subscriber = self.create_subscription(String, 'kraken', self.kraken_subscriber_callback, 10)
+        self.fire_coords_subscriber = self.create_subscription(String, 'fire_coords', self.fire_coords_subscriber_callback, 10)
 
         # mission publisher
         self.mission_publisher = self.create_publisher(String, 'mission', 10)
@@ -45,6 +46,7 @@ class Comms(Node):
         self.telemetry_endpoint = 'http://192.168.50.35:5000/telemetry'
         self.mission_endpoint = 'http://192.168.50.35:5000/mission'
         self.kraken_endpoint = 'http://192.168.50.35:5000/kraken'
+        self.fire_coords_endpoint = 'http://192.168.50.35:5000/fire_coords'
 
 
         self.current_mission = {}
@@ -111,6 +113,17 @@ class Comms(Node):
         self.mission_publisher.publish(msg)
         self.current_mission = new_mission
         # self.get_logger().info('Publishing: "%s"' % msg.data)
+
+    def fire_coords_subscriber_callback(self, msg):
+        # split into list
+        fire_coords = msg.data.split(',')
+        # convert to dictionary
+        fire_dict = {
+                "lat": fire_coords[0],
+                "lon": fire_coords[1],
+            }
+            
+        self.client.send_post(self.fire_coords_endpoint, fire_dict)
 
 
 def main(args=None):
