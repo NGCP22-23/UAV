@@ -11,9 +11,8 @@ int thresh = 50, N = 5;
 // these should eventually be moved into its own class object (for optimization purposes) and then into its own header file library thing (for formatting purposes)
 
 void errorPublisher::pubDist(int dx, int dy){
-
     dist = tan(dy/dx);
-
+    std::cout << dist; 
 }
 
 errorPublisher::errorPublisher() : rclcpp::Node("errpublisher") {
@@ -166,7 +165,7 @@ void drawCorrectionVector(Mat frame, Point frame_center, Point target, bool draw
 
 // -------------------------------------
  
-int main(int argc, char ** argv){
+int main(int argc, char** argv){
 
     rclcpp::init(argc, argv);
     auto dataNode = std::make_shared<errorPublisher>();
@@ -217,7 +216,7 @@ int main(int argc, char ** argv){
                          cy = (int) (M.m01 / M.m00);
                          drawSquares(red, contours_red);
                          circle(red, Point(cx, cy), 7, Scalar(255, 255, 255), -1);
-                         std::cout << cx; 
+
                          dataNode->dx = cx;
                          dataNode->dy = cy;
                          dataNode->pubDist(cy, cx);
