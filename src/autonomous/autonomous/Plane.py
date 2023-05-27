@@ -443,29 +443,6 @@ class Plane(Node):
         self.vehicle.send_mavlink(msg)
 
 
-    def operate_payload_door(self, open = True):
-
-        if open:
-            pwm = 1600  #TODO: Check Correct PWM rotation
-        else:
-            pwm = 1400  ##TODO: Check Correct PWM rotation
-        self.rotate_target_servo(PAYLOAD_DOOR, pwm)
-        return True
-
-    
-
-    def payload_release_pins(self, release = True):
-        if release:
-            pwm_release = 1400  ##TODO: Check Correct PWM rotation!
-        else:
-            # Set pints back into place
-            pwm_release = 1600  ##TODO: Check Correct PWM rotation
-
-        self.rotate_target_servo(PAYLOAD_PIN_A, pwm_release)
-        self.rotate_target_servo(PAYLOAD_PIN_A, pwm_release)
-
-
-
     def get_target_from_bearing(self, original_location, ang, dist, altitude=None):
 
         """ Create a TGT request packet located at a bearing and distance from the original point
@@ -547,7 +524,11 @@ class Plane(Node):
                 0, 0, 0, 0, 0
             )
             self.vehicle.send_mavlink(msg)
-        
+    def reset_payload(self):
+        self.operate_payload_door(False)
+        time.sleep(2)
+        self.payload_release_pins(False)
+
 
     def operate_payload_door(self, open = True):
         if open:
@@ -655,9 +636,7 @@ def main(args=None):
 
 
     # # setup the payload pins
-    # plane.operate_payload_door(False)
-    # time.sleep(2)
-    # plane.payload_release_pins(False)
+    # plane.reset_payload()
 
     # spin the node so callbacks are called
     rclpy.spin(plane)
