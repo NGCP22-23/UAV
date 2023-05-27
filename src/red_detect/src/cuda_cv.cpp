@@ -5,7 +5,7 @@ using namespace std;
 
 int thresh = 50, N = 5;
 
-#define PUBLISH_INTERVAL 250ms
+#define PUBLISH_INTERVAL 500ms
 
 // ------------ new functions ------------
 // these should eventually be moved into its own class object (for optimization purposes) and then into its own header file library thing (for formatting purposes)
@@ -16,7 +16,7 @@ void errorPublisher::pubDist(int dx, int dy){
 
 }
 
-errorPublisher::errorPublisher() : rclcpp::Node("err publisher") {
+errorPublisher::errorPublisher() : rclcpp::Node("errpublisher") {
 
     int8_t qos_depth = 10;
     const auto QOS_RKL10V = rclcpp::QoS(rclcpp::KeepLast(qos_depth)).reliable().durability_volatile();
@@ -217,6 +217,7 @@ int main(int argc, char ** argv){
                          cy = (int) (M.m01 / M.m00);
                          drawSquares(red, contours_red);
                          circle(red, Point(cx, cy), 7, Scalar(255, 255, 255), -1);
+                         std::cout << cx; d
                          dataNode->dx = cx;
                          dataNode->dy = cy;
                          dataNode->pubDist(cy, cx);
