@@ -38,6 +38,7 @@ class MyApp(Flask):
 
     def get_mission(self):
         return jsonify(self.waypoints)
+    
     def fire_coords(self):
         # convert to dictionary to iterate
         dictionary = json.loads(request.data)

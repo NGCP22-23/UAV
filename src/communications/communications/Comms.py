@@ -116,7 +116,7 @@ class Comms(Node):
 
     def fire_coords_subscriber_callback(self, msg):
         # split into list
-        fire_coords = msg.data.split(',')
+        fire_coords = msg.data.split(', ')
         # convert to dictionary
         fire_dict = {
                 "lat": fire_coords[0],
