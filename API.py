@@ -63,7 +63,7 @@ app.add_url_rule('/telemetry', view_func=app.telemetry, methods=['POST'])
 app.add_url_rule('/kraken', view_func=app.kraken, methods=['POST'])
 app.add_url_rule('/mission', view_func=app.post_mission, methods=['POST'])
 app.add_url_rule('/mission', view_func=app.get_mission, methods=['GET'])
-app.add_url_rule('/fire_coords', view_func=app.telemetry, methods=['POST'])
+app.add_url_rule('/fire_coords', view_func=app.fire_coords, methods=['POST'])
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
